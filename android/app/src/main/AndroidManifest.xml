@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.playground_flutter">
+    package="com.example.flutter_playgrounds">
    <application
-        android:label="playground_flutter"
+        android:label="flutter_playgrounds"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

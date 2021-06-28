@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:playground_flutter/page/home_page.dart';
-import 'package:playground_flutter/route.dart';
+import 'package:flutter_playgrounds/page/home_page.dart';
+import 'package:flutter_playgrounds/route.dart';
 
 void main() {
   runApp(App());
