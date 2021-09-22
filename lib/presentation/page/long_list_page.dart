@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 
 class LongListPage extends StatelessWidget {
+  const LongListPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,10 +13,10 @@ class LongListPage extends StatelessWidget {
       body: SafeArea(
         bottom: false,
         child: ListView.separated(
-          itemBuilder: (context, index) => ListTile(
+          itemBuilder: (_, int index) => ListTile(
             title: Text(index.toString()),
           ),
-          separatorBuilder: (context, index) => const Divider(),
+          separatorBuilder: (_, __) => const Divider(),
           itemCount: 100,
         ),
       ),
