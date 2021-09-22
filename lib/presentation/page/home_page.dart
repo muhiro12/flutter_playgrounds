@@ -22,8 +22,7 @@ class HomePage extends StatelessWidget {
               title: Text(route.toString()),
             );
           },
-          separatorBuilder: (BuildContext context, int index) =>
-              const Divider(),
+          separatorBuilder: (_, __) => const Divider(),
           itemCount: AppRoute.values.length,
         ),
       ),
