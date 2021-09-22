@@ -1,5 +1,5 @@
 // Flutter imports:
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:flutter_playgrounds/presentation/model/app_route.dart';
@@ -12,6 +12,6 @@ class AppRouteSettings {
   PageRoute<dynamic> routeSettings() {
     final AppRoute route = AppRoute.values
         .firstWhere((AppRoute route) => route.name == _settings.name);
-    return CupertinoPageRoute<dynamic>(builder: (_) => route.page);
+    return MaterialPageRoute<dynamic>(builder: (_) => route.page);
   }
 }
