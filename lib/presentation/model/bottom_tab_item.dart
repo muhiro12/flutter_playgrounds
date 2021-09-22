@@ -40,7 +40,7 @@ extension BottomTabItemExtension on BottomTabItem {
       case BottomTabItem.home:
         return const HomePage();
       case BottomTabItem.list:
-        return LongListPage();
+        return const LongListPage();
       case BottomTabItem.settings:
         return const SettingsPage();
     }
