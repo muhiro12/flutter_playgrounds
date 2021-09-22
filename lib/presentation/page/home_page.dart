@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/route.dart';
+import 'package:flutter_playgrounds/presentation/model/app_route.dart';
 
 class HomePage extends StatelessWidget {
   @override

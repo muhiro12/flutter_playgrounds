@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/pages/home_page.dart';
-import 'package:flutter_playgrounds/pages/settings_page.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-final bottomTabProvider = StateProvider((_) => BottomTabItem.home);
+import 'package:flutter_playgrounds/presentation/page/home_page.dart';
+import 'package:flutter_playgrounds/presentation/page/settings_page.dart';
 
 enum BottomTabItem {
   home,

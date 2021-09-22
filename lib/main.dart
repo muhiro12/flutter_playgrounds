@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/components/bottom_tab.dart';
-import 'package:flutter_playgrounds/model/bottom_tab_item.dart';
-import 'package:flutter_playgrounds/route.dart';
+import 'package:flutter_playgrounds/presentation/widget/bottom_tab.dart';
+import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
+import 'package:flutter_playgrounds/presentation/model/bottom_tab_item.dart';
+import 'package:flutter_playgrounds/presentation/model/app_route_settings.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {

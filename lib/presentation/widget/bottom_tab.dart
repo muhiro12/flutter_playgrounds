@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/model/bottom_tab_item.dart';
+import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
+import 'package:flutter_playgrounds/presentation/model/bottom_tab_item.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class BottomTab extends ConsumerWidget {

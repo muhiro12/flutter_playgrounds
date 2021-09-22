@@ -1,26 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/pages/default_tab_page.dart';
-import 'package:flutter_playgrounds/pages/home_page.dart';
-import 'package:flutter_playgrounds/pages/list_tab_page.dart';
-import 'package:flutter_playgrounds/pages/long_list_page.dart';
-import 'package:flutter_playgrounds/pages/settings_page.dart';
-
-class AppRouteSettings {
-  AppRouteSettings(this._settings);
-
-  RouteSettings _settings;
-
-  PageRoute routeSettings() {
-    final route = AppRoute.values.firstWhere((element) {
-      if (element.name == _settings.name) {
-        return true;
-      }
-      return false;
-    });
-    return CupertinoPageRoute(builder: (_) => route.page);
-  }
-}
+import 'package:flutter_playgrounds/presentation/page/default_tab_page.dart';
+import 'package:flutter_playgrounds/presentation/page/home_page.dart';
+import 'package:flutter_playgrounds/presentation/page/list_tab_page.dart';
+import 'package:flutter_playgrounds/presentation/page/long_list_page.dart';
+import 'package:flutter_playgrounds/presentation/page/settings_page.dart';
 
 enum AppRoute {
   home,
