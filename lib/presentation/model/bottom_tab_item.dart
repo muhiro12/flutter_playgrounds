@@ -35,7 +35,7 @@ extension BottomTabItemExtension on BottomTabItem {
     }
   }
 
-  Widget get widget {
+  Widget get page {
     switch (this) {
       case BottomTabItem.home:
         return const HomePage();

@@ -32,7 +32,7 @@ class AppHome extends ConsumerWidget {
         routes: <String, WidgetBuilder>{
           for (AppRoute route in AppRoute.values) route.name: (_) => route.page,
         },
-        builder: (_) => bottomTab.item.widget,
+        builder: (_) => bottomTab.item.page,
       ),
     );
   }

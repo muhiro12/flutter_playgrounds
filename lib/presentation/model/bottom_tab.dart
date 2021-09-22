@@ -20,5 +20,6 @@ class BottomTab extends ChangeNotifier {
   void select(BottomTabItem newItem) {
     _oldItem = _item;
     _item = newItem;
+    notifyListeners();
   }
 }
