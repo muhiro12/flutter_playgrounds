@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 
 class DefaultTabPage extends StatelessWidget {
+  const DefaultTabPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -9,17 +11,17 @@ class DefaultTabPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(toString()),
-          bottom: TabBar(
-            tabs: [
+          bottom: const TabBar(
+            tabs: <Widget>[
               Text('zero'),
               Text('one'),
               Text('two'),
             ],
           ),
         ),
-        body: SafeArea(
+        body: const SafeArea(
           child: TabBarView(
-            children: [
+            children: <Widget>[
               Center(child: Text('zero')),
               Center(child: Text('one')),
               Center(child: Text('two')),

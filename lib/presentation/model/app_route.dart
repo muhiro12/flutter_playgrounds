@@ -39,11 +39,11 @@ extension AppRouteExtension on AppRoute {
       case AppRoute.settings:
         return const SettingsPage();
       case AppRoute.defaultTab:
-        return DefaultTabPage();
+        return const DefaultTabPage();
       case AppRoute.listTab:
         return const ListTabPage();
       case AppRoute.longList:
-        return LongListPage();
+        return const LongListPage();
     }
   }
 }
