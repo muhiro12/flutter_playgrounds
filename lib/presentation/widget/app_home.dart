@@ -14,12 +14,11 @@ class AppHome extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final StateController<BottomTabItem> bottomTab =
-        ref.watch(bottomTabProvider);
+    final BottomTab bottomTab = ref.watch(bottomTabProvider);
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
-        onTap: (int index) => bottomTab.state = BottomTabItem.values[index],
-        currentIndex: BottomTabItem.values.indexOf(bottomTab.state),
+        onTap: (int index) => bottomTab.select(BottomTabItem.values[index]),
+        currentIndex: BottomTabItem.values.indexOf(bottomTab.item),
         items: BottomTabItem.values
             .map(
               (BottomTabItem item) => BottomNavigationBarItem(
@@ -33,7 +32,7 @@ class AppHome extends ConsumerWidget {
         routes: <String, WidgetBuilder>{
           for (AppRoute route in AppRoute.values) route.name: (_) => route.page,
         },
-        builder: (_) => bottomTab.state.widget,
+        builder: (_) => bottomTab.item.widget,
       ),
     );
   }
