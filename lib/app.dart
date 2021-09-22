@@ -8,7 +8,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_playgrounds/presentation/model/app_route_settings.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab_item.dart';
-import 'package:flutter_playgrounds/presentation/widget/bottom_tab.dart';
+import 'package:flutter_playgrounds/presentation/widget/bottom_tab_bar.dart';
 
 class App extends ConsumerWidget {
   const App({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class App extends ConsumerWidget {
       ),
       home: Scaffold(
         body: bottomTab.state.widget,
-        bottomNavigationBar: BottomTab(),
+        bottomNavigationBar: const BottomTabBar(),
       ),
       onGenerateRoute: (RouteSettings settings) =>
           AppRouteSettings(settings).routeSettings(),
