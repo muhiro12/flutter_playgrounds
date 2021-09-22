@@ -20,7 +20,7 @@ extension AppRouteExtension on AppRoute {
   String get name {
     switch (this) {
       case AppRoute.home:
-        return '/';
+        return '/home';
       case AppRoute.settings:
         return '/settings';
       case AppRoute.defaultTab:
