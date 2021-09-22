@@ -1,10 +1,15 @@
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/presentation/widget/bottom_tab.dart';
+
+// Package imports:
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+// Project imports:
+import 'package:flutter_playgrounds/presentation/model/app_route_settings.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab_item.dart';
-import 'package:flutter_playgrounds/presentation/model/app_route_settings.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_playgrounds/presentation/widget/bottom_tab.dart';
 
 void main() {
   runApp(
