@@ -7,7 +7,7 @@ class DefaultTabPage extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(this.toString()),
+          title: Text(toString()),
           bottom: TabBar(
             tabs: [
               Text('zero'),
@@ -16,12 +16,14 @@ class DefaultTabPage extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
-          children: [
-            Center(child: Text('zero')),
-            Center(child: Text('one')),
-            Center(child: Text('two')),
-          ],
+        body: SafeArea(
+          child: TabBarView(
+            children: [
+              Center(child: Text('zero')),
+              Center(child: Text('one')),
+              Center(child: Text('two')),
+            ],
+          ),
         ),
       ),
     );

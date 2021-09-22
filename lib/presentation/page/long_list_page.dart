@@ -5,17 +5,16 @@ class LongListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('LongListPage'),
+        title: Text(toString()),
       ),
-      body: Scaffold(
-        body: SafeArea(
-          child: ListView.separated(
-            itemBuilder: (context, index) => ListTile(
-              title: Text(index.toString()),
-            ),
-            separatorBuilder: (context, index) => const Divider(),
-            itemCount: 100,
+      body: SafeArea(
+        bottom: false,
+        child: ListView.separated(
+          itemBuilder: (context, index) => ListTile(
+            title: Text(index.toString()),
           ),
+          separatorBuilder: (context, index) => const Divider(),
+          itemCount: 100,
         ),
       ),
     );

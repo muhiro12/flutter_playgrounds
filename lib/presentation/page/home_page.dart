@@ -14,16 +14,18 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(toString()),
       ),
-      body: ListView.separated(
-        itemBuilder: (context, index) {
-          final item = items[index];
-          return ListTile(
-            onTap: () => Navigator.of(context).pushNamed(item.name),
-            title: Text(item.toString()),
-          );
-        },
-        separatorBuilder: (context, index) => const Divider(),
-        itemCount: items.length,
+      body: SafeArea(
+        child: ListView.separated(
+          itemBuilder: (context, index) {
+            final item = items[index];
+            return ListTile(
+              onTap: () => Navigator.of(context).pushNamed(item.name),
+              title: Text(item.toString()),
+            );
+          },
+          separatorBuilder: (context, index) => const Divider(),
+          itemCount: items.length,
+        ),
       ),
     );
   }

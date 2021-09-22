@@ -24,43 +24,45 @@ class _ListTabPageState extends State<ListTabPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(this.widget.toString()),
+        title: Text(widget.toString()),
       ),
-      body: ListView(
-        children: [
-          Placeholder(
-            fallbackHeight: 100,
-          ),
-          Column(
-            children: [
-              TabBar(
-                controller: _tabController,
-                isScrollable: true,
-                indicatorColor: Colors.transparent,
-                labelColor: Theme.of(context).primaryColor,
-                unselectedLabelColor: Colors.grey,
-                tabs: [
-                  Text('zero'),
-                  Text('one'),
-                  Text('two'),
-                ],
-              ),
-              SizedBox(
-                height: 200,
-                child: Center(
-                  child: [
+      body: SafeArea(
+        child: ListView(
+          children: [
+            Placeholder(
+              fallbackHeight: 100,
+            ),
+            Column(
+              children: [
+                TabBar(
+                  controller: _tabController,
+                  isScrollable: true,
+                  indicatorColor: Colors.transparent,
+                  labelColor: Theme.of(context).primaryColor,
+                  unselectedLabelColor: Colors.grey,
+                  tabs: [
                     Text('zero'),
                     Text('one'),
                     Text('two'),
-                  ][_tabController.index],
+                  ],
                 ),
-              )
-            ],
-          ),
-          Placeholder(
-            fallbackHeight: 100,
-          ),
-        ],
+                SizedBox(
+                  height: 200,
+                  child: Center(
+                    child: [
+                      Text('zero'),
+                      Text('one'),
+                      Text('two'),
+                    ][_tabController.index],
+                  ),
+                )
+              ],
+            ),
+            Placeholder(
+              fallbackHeight: 100,
+            ),
+          ],
+        ),
       ),
     );
   }
