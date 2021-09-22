@@ -1,34 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/page/home_page.dart';
+import 'package:flutter_playgrounds/components/bottom_tab.dart';
+import 'package:flutter_playgrounds/model/bottom_tab_item.dart';
 import 'package:flutter_playgrounds/route.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {
-  runApp(App());
+  runApp(
+    ProviderScope(
+      child: App(),
+    ),
+  );
 }
 
-class App extends StatelessWidget {
+class App extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final bottomTab = ref.watch(bottomTabProvider);
     return MaterialApp(
       title: 'Playground Flutter',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: HomePage(),
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
-            ),
-          ],
-        ),
+        body: bottomTab.state.widget,
+        bottomNavigationBar: BottomTab(),
       ),
       onGenerateRoute: (settings) => AppRouteSettings(settings).routeSettings(),
     );

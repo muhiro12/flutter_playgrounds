@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/page/default_tab_page.dart';
-import 'package:flutter_playgrounds/page/home_page.dart';
-import 'package:flutter_playgrounds/page/list_tab_page.dart';
-import 'package:flutter_playgrounds/page/settings_page.dart';
+import 'package:flutter_playgrounds/pages/default_tab_page.dart';
+import 'package:flutter_playgrounds/pages/home_page.dart';
+import 'package:flutter_playgrounds/pages/list_tab_page.dart';
+import 'package:flutter_playgrounds/pages/settings_page.dart';
 
 class AppRouteSettings {
   AppRouteSettings(this._settings);
