@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
             final AppRoute route = AppRoute.values[index];
             return ListTile(
               onTap: () => Navigator.of(context).pushNamed(route.name),
-              title: Text(route.toString()),
+              title: Text(route.name.toString()),
             );
           },
           separatorBuilder: (_, __) => const Divider(),
