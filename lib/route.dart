@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/pages/default_tab_page.dart';
 import 'package:flutter_playgrounds/pages/home_page.dart';
 import 'package:flutter_playgrounds/pages/list_tab_page.dart';
+import 'package:flutter_playgrounds/pages/long_list_page.dart';
 import 'package:flutter_playgrounds/pages/settings_page.dart';
 
 class AppRouteSettings {
@@ -26,6 +27,7 @@ enum AppRoute {
   settings,
   defaultTab,
   listTab,
+  longList,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -39,6 +41,8 @@ extension AppRouteExtension on AppRoute {
         return '/default_tab';
       case AppRoute.listTab:
         return '/list_tab';
+      case AppRoute.longList:
+        return '/long_list';
     }
   }
 
@@ -52,6 +56,8 @@ extension AppRouteExtension on AppRoute {
         return DefaultTabPage();
       case AppRoute.listTab:
         return ListTabPage();
+      case AppRoute.longList:
+        return LongListPage();
     }
   }
 }

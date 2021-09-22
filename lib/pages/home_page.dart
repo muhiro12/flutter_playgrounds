@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
         children: [
           _Tile(appRoute: AppRoute.defaultTab),
           _Tile(appRoute: AppRoute.listTab),
+          _Tile(appRoute: AppRoute.longList),
         ],
       ),
     );
