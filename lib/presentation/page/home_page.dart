@@ -2,41 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/presentation/model/app_route.dart';
 
 class HomePage extends StatelessWidget {
+  final List<AppRoute> items = [
+    AppRoute.defaultTab,
+    AppRoute.listTab,
+    AppRoute.longList,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Playground'),
+        title: Text(toString()),
       ),
-      body: ListView(
-        children: [
-          _Tile(appRoute: AppRoute.defaultTab),
-          _Tile(appRoute: AppRoute.listTab),
-          _Tile(appRoute: AppRoute.longList),
-        ],
-      ),
-    );
-  }
-}
-
-class _Tile extends StatelessWidget {
-  _Tile({
-    required this.appRoute,
-  });
-
-  final AppRoute appRoute;
-
-  @override
-  Widget build(BuildContext context) {
-    final name = appRoute.name;
-    return ListTile(
-      onTap: () => Navigator.of(context).pushNamed(name),
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(name),
-          Divider(),
-        ],
+      body: ListView.separated(
+        itemBuilder: (context, index) {
+          final item = items[index];
+          return ListTile(
+            onTap: () => Navigator.of(context).pushNamed(item.name),
+            title: Text(item.toString()),
+          );
+        },
+        separatorBuilder: (context, index) => const Divider(),
+        itemCount: items.length,
       ),
     );
   }
