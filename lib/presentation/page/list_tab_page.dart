@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ListTabPage extends StatefulWidget {
+  const ListTabPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _ListTabPageState();
 }
@@ -14,7 +16,7 @@ class _ListTabPageState extends State<ListTabPage>
     _tabController = TabController(length: 3, vsync: this);
     _tabController.addListener(() {
       if (_tabController.indexIsChanging) {
-        setState(() => {});
+        setState(() => <dynamic>{});
       }
     });
     super.initState();
@@ -28,19 +30,19 @@ class _ListTabPageState extends State<ListTabPage>
       ),
       body: SafeArea(
         child: ListView(
-          children: [
-            Placeholder(
+          children: <Widget>[
+            const Placeholder(
               fallbackHeight: 100,
             ),
             Column(
-              children: [
+              children: <Widget>[
                 TabBar(
                   controller: _tabController,
                   isScrollable: true,
                   indicatorColor: Colors.transparent,
                   labelColor: Theme.of(context).primaryColor,
                   unselectedLabelColor: Colors.grey,
-                  tabs: [
+                  tabs: const <Widget>[
                     Text('zero'),
                     Text('one'),
                     Text('two'),
@@ -49,7 +51,7 @@ class _ListTabPageState extends State<ListTabPage>
                 SizedBox(
                   height: 200,
                   child: Center(
-                    child: [
+                    child: const <Widget>[
                       Text('zero'),
                       Text('one'),
                       Text('two'),
@@ -58,7 +60,7 @@ class _ListTabPageState extends State<ListTabPage>
                 )
               ],
             ),
-            Placeholder(
+            const Placeholder(
               fallbackHeight: 100,
             ),
           ],

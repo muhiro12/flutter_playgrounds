@@ -5,15 +5,11 @@ import 'package:flutter_playgrounds/presentation/model/app_route.dart';
 class AppRouteSettings {
   AppRouteSettings(this._settings);
 
-  RouteSettings _settings;
+  final RouteSettings _settings;
 
-  PageRoute routeSettings() {
-    final route = AppRoute.values.firstWhere((element) {
-      if (element.name == _settings.name) {
-        return true;
-      }
-      return false;
-    });
-    return CupertinoPageRoute(builder: (_) => route.page);
+  PageRoute<dynamic> routeSettings() {
+    final AppRoute route = AppRoute.values
+        .firstWhere((AppRoute route) => route.name == _settings.name);
+    return CupertinoPageRoute<dynamic>(builder: (_) => route.page);
   }
 }
