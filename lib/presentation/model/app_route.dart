@@ -36,13 +36,13 @@ extension AppRouteExtension on AppRoute {
   Widget get page {
     switch (this) {
       case AppRoute.home:
-        return HomePage();
+        return const HomePage();
       case AppRoute.settings:
-        return SettingsPage();
+        return const SettingsPage();
       case AppRoute.defaultTab:
         return DefaultTabPage();
       case AppRoute.listTab:
-        return ListTabPage();
+        return const ListTabPage();
       case AppRoute.longList:
         return LongListPage();
     }

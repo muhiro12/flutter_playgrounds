@@ -5,11 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/presentation/model/app_route.dart';
 
 class HomePage extends StatelessWidget {
-  final List<AppRoute> items = [
-    AppRoute.defaultTab,
-    AppRoute.listTab,
-    AppRoute.longList,
-  ];
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +15,16 @@ class HomePage extends StatelessWidget {
       ),
       body: SafeArea(
         child: ListView.separated(
-          itemBuilder: (context, index) {
-            final item = items[index];
+          itemBuilder: (BuildContext context, int index) {
+            final AppRoute route = AppRoute.values[index];
             return ListTile(
-              onTap: () => Navigator.of(context).pushNamed(item.name),
-              title: Text(item.toString()),
+              onTap: () => Navigator.of(context).pushNamed(route.name),
+              title: Text(route.toString()),
             );
           },
-          separatorBuilder: (context, index) => const Divider(),
-          itemCount: items.length,
+          separatorBuilder: (BuildContext context, int index) =>
+              const Divider(),
+          itemCount: AppRoute.values.length,
         ),
       ),
     );
