@@ -1,6 +1,9 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Project imports:
+import 'package:flutter_playgrounds/presentation/model/app_route.dart';
+
 class LongListPage extends StatelessWidget {
   const LongListPage({Key? key}) : super(key: key);
 
@@ -14,6 +17,8 @@ class LongListPage extends StatelessWidget {
         bottom: false,
         child: ListView.separated(
           itemBuilder: (_, int index) => ListTile(
+            onTap: () =>
+                Navigator.of(context).pushNamed(AppRoute.longList.name),
             title: Text(index.toString()),
           ),
           separatorBuilder: (_, __) => const Divider(),
