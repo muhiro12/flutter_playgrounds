@@ -1,0 +1,18 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI
+  version: 1.0.0
+servers:
+  - url: https://api.github.com
+paths:
+  /gitignore/templates:
+    get:
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
