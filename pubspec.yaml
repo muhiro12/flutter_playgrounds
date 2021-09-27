@@ -12,6 +12,7 @@ dependencies:
   hooks_riverpod: ^1.0.0-dev.7
   openapi:
     path: openapi
+  shared_preferences: ^2.0.8
 dev_dependencies:
   flutter_test:
     sdk: flutter
