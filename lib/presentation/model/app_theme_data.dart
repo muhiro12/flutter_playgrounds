@@ -33,6 +33,7 @@ class AppThemeData {
     final ThemeData shared = _light;
     return shared.copyWith(
       scaffoldBackgroundColor: Colors.grey.shade200,
+      dividerColor: _primaryColor.shade200,
       textTheme: shared.textTheme.apply(
         bodyColor: Colors.grey.shade800,
       ),
@@ -42,9 +43,14 @@ class AppThemeData {
   ThemeData get _customDark {
     final ThemeData shared = _dark;
     return shared.copyWith(
-      appBarTheme: AppBarTheme(color: _primaryColor),
       scaffoldBackgroundColor: Colors.grey.shade900,
       toggleableActiveColor: _primaryColor,
+      appBarTheme: AppBarTheme(
+        color: _primaryColor.shade900,
+      ),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: _primaryColor,
+      ),
       textTheme: shared.textTheme.apply(),
     );
   }
