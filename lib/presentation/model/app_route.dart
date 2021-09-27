@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playgrounds/presentation/page/button_catalog_page.dart';
+import 'package:flutter_playgrounds/presentation/page/catalog_page.dart';
 import 'package:flutter_playgrounds/presentation/page/default_tab_page.dart';
 import 'package:flutter_playgrounds/presentation/page/gitignore_names_page.dart';
 import 'package:flutter_playgrounds/presentation/page/gitignore_page.dart';
@@ -17,6 +19,8 @@ enum AppRoute {
   gitignore,
   themeMode,
   primaryColor,
+  catalog,
+  buttonCatalog,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -38,6 +42,10 @@ extension AppRouteExtension on AppRoute {
         return '/theme_mode';
       case AppRoute.primaryColor:
         return '/primary_color';
+      case AppRoute.catalog:
+        return '/catalog';
+      case AppRoute.buttonCatalog:
+        return '/button_catalog';
     }
   }
 
@@ -59,6 +67,10 @@ extension AppRouteExtension on AppRoute {
         return const ThemeModePage();
       case AppRoute.primaryColor:
         return const PrimaryColorPage();
+      case AppRoute.catalog:
+        return const CatalogPage();
+      case AppRoute.buttonCatalog:
+        return const ButtonCatalogPage();
     }
   }
 }

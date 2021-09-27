@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playgrounds/presentation/model/app_route.dart';
 import 'package:flutter_playgrounds/presentation/page/gitignore_names_page.dart';
 import 'package:flutter_playgrounds/presentation/page/home_page.dart';
 import 'package:flutter_playgrounds/presentation/page/settings_page.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_playgrounds/presentation/page/settings_page.dart';
 enum BottomTabItem {
   home,
   gitHub,
+  catalog,
   settings,
 }
 
@@ -16,6 +18,8 @@ extension BottomTabItemExtension on BottomTabItem {
         return Icons.home;
       case BottomTabItem.gitHub:
         return Icons.code;
+      case BottomTabItem.catalog:
+        return Icons.view_module;
       case BottomTabItem.settings:
         return Icons.settings;
     }
@@ -27,6 +31,8 @@ extension BottomTabItemExtension on BottomTabItem {
         return 'Home';
       case BottomTabItem.gitHub:
         return 'GitHub';
+      case BottomTabItem.catalog:
+        return 'Catalog';
       case BottomTabItem.settings:
         return 'Settings';
     }
@@ -35,11 +41,13 @@ extension BottomTabItemExtension on BottomTabItem {
   Widget get page {
     switch (this) {
       case BottomTabItem.home:
-        return const HomePage();
+        return AppRoute.home.page;
       case BottomTabItem.gitHub:
-        return const GitignoreNamesPage();
+        return AppRoute.gitignoreNames.page;
+      case BottomTabItem.catalog:
+        return AppRoute.catalog.page;
       case BottomTabItem.settings:
-        return const SettingsPage();
+        return AppRoute.settings.page;
     }
   }
 }
