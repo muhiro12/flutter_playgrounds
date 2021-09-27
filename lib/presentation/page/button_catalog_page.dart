@@ -15,12 +15,6 @@ class ButtonCatalogPage extends HookWidget {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            Slider(
-              value: count.value / 10,
-              min: 0.1,
-              max: 0.3,
-              onChanged: (double value) => count.value = (value * 10).toInt(),
-            ),
             Expanded(
               child: GridView.count(
                 crossAxisCount: count.value,
@@ -75,11 +69,16 @@ class ButtonCatalogPage extends HookWidget {
                     padding: EdgeInsets.all(8),
                   ),
                   const CupertinoTextSelectionToolbarButton(
-                      child: Text(
-                    'CupertinoTextSelectionToolbar',
-                  )),
+                    child: Text('CupertinoTextSelectionToolbar'),
+                  ),
                 ],
               ),
+            ),
+            Slider(
+              value: count.value / 10,
+              min: 0.1,
+              max: 0.3,
+              onChanged: (double value) => count.value = (value * 10).toInt(),
             ),
           ],
         ),
