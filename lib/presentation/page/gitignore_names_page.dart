@@ -10,15 +10,15 @@ import 'package:flutter_playgrounds/presentation/model/app_route.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab_item.dart';
 
-class LongListPage extends HookConsumerWidget {
-  const LongListPage({Key? key}) : super(key: key);
+class GitignoreNamesPage extends ConsumerWidget {
+  const GitignoreNamesPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(
       bottomTabProvider,
       (BottomTab bottomTab) {
-        if (bottomTab.item != BottomTabItem.list ||
+        if (bottomTab.item != BottomTabItem.gitHub ||
             bottomTab.item != bottomTab.oldItem) {
           return;
         }
@@ -31,14 +31,18 @@ class LongListPage extends HookConsumerWidget {
         title: Text(toString()),
       ),
       body: SafeArea(
-        bottom: false,
         child: ref.watch(allGitignoreNamesProvider).when(
               data: (List<String> gitignoreNames) => ListView.separated(
-                itemBuilder: (_, int index) => ListTile(
-                  onTap: () =>
-                      Navigator.of(context).pushNamed(AppRoute.longList.name),
-                  title: Text(gitignoreNames[index]),
-                ),
+                itemBuilder: (_, int index) {
+                  final String gitignoreName = gitignoreNames[index];
+                  return ListTile(
+                    onTap: () => Navigator.of(context).pushNamed(
+                      AppRoute.gitignore.name,
+                      arguments: gitignoreName,
+                    ),
+                    title: Text(gitignoreName),
+                  );
+                },
                 separatorBuilder: (_, __) => const Divider(),
                 itemCount: gitignoreNames.length,
               ),

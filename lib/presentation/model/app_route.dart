@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:flutter_playgrounds/presentation/page/default_tab_page.dart';
+import 'package:flutter_playgrounds/presentation/page/gitignore_names_page.dart';
+import 'package:flutter_playgrounds/presentation/page/gitignore_page.dart';
 import 'package:flutter_playgrounds/presentation/page/home_page.dart';
 import 'package:flutter_playgrounds/presentation/page/list_tab_page.dart';
-import 'package:flutter_playgrounds/presentation/page/long_list_page.dart';
 import 'package:flutter_playgrounds/presentation/page/settings_page.dart';
 
 enum AppRoute {
@@ -13,7 +14,8 @@ enum AppRoute {
   settings,
   defaultTab,
   listTab,
-  longList,
+  gitignoreNames,
+  gitignore,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -27,8 +29,10 @@ extension AppRouteExtension on AppRoute {
         return '/default_tab';
       case AppRoute.listTab:
         return '/list_tab';
-      case AppRoute.longList:
-        return '/long_list';
+      case AppRoute.gitignoreNames:
+        return '/gitignore_names';
+      case AppRoute.gitignore:
+        return '/gitignore';
     }
   }
 
@@ -42,8 +46,10 @@ extension AppRouteExtension on AppRoute {
         return const DefaultTabPage();
       case AppRoute.listTab:
         return const ListTabPage();
-      case AppRoute.longList:
-        return const LongListPage();
+      case AppRoute.gitignoreNames:
+        return const GitignoreNamesPage();
+      case AppRoute.gitignore:
+        return const GitignorePage();
     }
   }
 }

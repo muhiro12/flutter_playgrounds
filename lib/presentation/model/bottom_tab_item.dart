@@ -2,13 +2,13 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
+import 'package:flutter_playgrounds/presentation/page/gitignore_names_page.dart';
 import 'package:flutter_playgrounds/presentation/page/home_page.dart';
-import 'package:flutter_playgrounds/presentation/page/long_list_page.dart';
 import 'package:flutter_playgrounds/presentation/page/settings_page.dart';
 
 enum BottomTabItem {
   home,
-  list,
+  gitHub,
   settings,
 }
 
@@ -17,8 +17,8 @@ extension BottomTabItemExtension on BottomTabItem {
     switch (this) {
       case BottomTabItem.home:
         return Icons.home;
-      case BottomTabItem.list:
-        return Icons.list;
+      case BottomTabItem.gitHub:
+        return Icons.code;
       case BottomTabItem.settings:
         return Icons.settings;
     }
@@ -28,8 +28,8 @@ extension BottomTabItemExtension on BottomTabItem {
     switch (this) {
       case BottomTabItem.home:
         return 'Home';
-      case BottomTabItem.list:
-        return 'List';
+      case BottomTabItem.gitHub:
+        return 'GitHub';
       case BottomTabItem.settings:
         return 'Settings';
     }
@@ -39,8 +39,8 @@ extension BottomTabItemExtension on BottomTabItem {
     switch (this) {
       case BottomTabItem.home:
         return const HomePage();
-      case BottomTabItem.list:
-        return const LongListPage();
+      case BottomTabItem.gitHub:
+        return const GitignoreNamesPage();
       case BottomTabItem.settings:
         return const SettingsPage();
     }
