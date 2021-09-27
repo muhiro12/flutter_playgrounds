@@ -18,7 +18,8 @@ class Preferences extends ChangeNotifier {
   String? getString(PreferencesKey key) => _instance.getString(key.value);
 
   bool containsKey(PreferencesKey key) => _instance.containsKey(key.value);
-  List<String>? getStringList(PreferencesKey key) => _instance.getStringList(key.value);
+  List<String>? getStringList(PreferencesKey key) =>
+      _instance.getStringList(key.value);
 
   Future<bool> setBool(PreferencesKey key, bool value) =>
       _instance.setBool(key.value, value).whenComplete(notifyListeners);
@@ -38,6 +39,7 @@ class Preferences extends ChangeNotifier {
 
 enum PreferencesKey {
   colorCode,
+  themeModeIndex,
 }
 
 extension PreferenecesKeyExtension on PreferencesKey {
@@ -45,6 +47,8 @@ extension PreferenecesKeyExtension on PreferencesKey {
     switch (this) {
       case PreferencesKey.colorCode:
         return '80e47ab8';
+      case PreferencesKey.themeModeIndex:
+        return '92dd066a';
     }
   }
 }

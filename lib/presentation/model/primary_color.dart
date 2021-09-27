@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
-enum Primary { red, blue, green }
+enum PrimaryColor {
+  red,
+  blue,
+  green,
+}
 
-extension PrimaryExtension on Primary {
-  MaterialColor get color {
+extension PrimaryColorExtension on PrimaryColor {
+  MaterialColor get value {
     switch (this) {
-      case Primary.red:
+      case PrimaryColor.red:
         return Colors.red;
-      case Primary.blue:
+      case PrimaryColor.blue:
         return Colors.blue;
-      case Primary.green:
+      case PrimaryColor.green:
         return Colors.green;
     }
   }
