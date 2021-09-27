@@ -10,10 +10,16 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final MaterialColor primaryColor = ref.watch(primaryProvider).color;
     return MaterialApp(
       title: 'Flutter Playgrounds',
       theme: ThemeData(
-        primarySwatch: ref.watch(primaryProvider).color,
+        brightness: Brightness.light,
+        primarySwatch: primaryColor,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        primarySwatch: primaryColor,
       ),
       home: const AppHome(),
       onGenerateRoute: (RouteSettings settings) =>
