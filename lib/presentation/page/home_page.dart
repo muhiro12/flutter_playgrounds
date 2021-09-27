@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/presentation/model/app_route.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
@@ -29,7 +30,7 @@ class HomePage extends ConsumerWidget {
             final AppRoute route = AppRoute.values[index];
             return ListTile(
               onTap: () => Navigator.of(context).pushNamed(route.name),
-              title: Text(route.name.toString()),
+              title: Text(describeEnum(route)),
             );
           },
           separatorBuilder: (_, __) => const Divider(),

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/business/model/primary.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -24,7 +25,7 @@ class ThemeModePage extends ConsumerWidget {
                   onChanged: (ThemeMode? themeMode) => ref
                       .read(primaryProvider)
                       .selectThemeMode(themeMode ?? currentThemeMode),
-                  title: Text(themeMode.toString()),
+                  title: Text(describeEnum(themeMode)),
                 ),
               )
               .toList(),

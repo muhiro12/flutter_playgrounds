@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/business/model/primary.dart';
 import 'package:flutter_playgrounds/presentation/model/primary_color.dart';
@@ -25,7 +26,7 @@ class PrimaryColorPage extends ConsumerWidget {
                   onChanged: (PrimaryColor? primaryColor) => ref
                       .read(primaryProvider)
                       .selectPrimaryColor(primaryColor ?? currentPrimaryColor),
-                  title: Text(primaryColor.toString()),
+                  title: Text(describeEnum(primaryColor)),
                 ),
               )
               .toList(),

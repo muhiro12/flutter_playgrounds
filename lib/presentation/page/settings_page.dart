@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/business/model/primary.dart';
 import 'package:flutter_playgrounds/presentation/model/app_route.dart';
@@ -20,7 +21,7 @@ class SettingsPage extends ConsumerWidget {
               subtitle: Text(
                 ref.watch(
                   primaryProvider.select(
-                    (Primary primary) => primary.themeMode.toString(),
+                    (Primary primary) => describeEnum(primary.themeMode),
                   ),
                 ),
               ),
@@ -33,7 +34,7 @@ class SettingsPage extends ConsumerWidget {
               subtitle: Text(
                 ref.watch(
                   primaryProvider.select(
-                    (Primary primary) => primary.color.toString(),
+                    (Primary primary) => describeEnum(primary.color.toString()),
                   ),
                 ),
               ),
