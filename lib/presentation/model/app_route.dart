@@ -73,4 +73,29 @@ extension AppRouteExtension on AppRoute {
         return const ButtonCatalogPage();
     }
   }
+
+  IconData get icon {
+    switch (this) {
+      case AppRoute.home:
+        return Icons.home;
+      case AppRoute.settings:
+        return Icons.settings;
+      case AppRoute.defaultTab:
+        return Icons.table_chart;
+      case AppRoute.listTab:
+        return Icons.view_list;
+      case AppRoute.gitignoreNames:
+        return Icons.code;
+      case AppRoute.gitignore:
+        return Icons.code_off;
+      case AppRoute.themeMode:
+        return Icons.invert_colors;
+      case AppRoute.primaryColor:
+        return Icons.color_lens;
+      case AppRoute.catalog:
+        return Icons.view_module;
+      case AppRoute.buttonCatalog:
+        return Icons.add;
+    }
+  }
 }

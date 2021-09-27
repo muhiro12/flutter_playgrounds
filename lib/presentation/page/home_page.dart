@@ -30,6 +30,7 @@ class HomePage extends ConsumerWidget {
             final AppRoute route = AppRoute.values[index];
             return ListTile(
               onTap: () => Navigator.of(context).pushNamed(route.name),
+              leading: Icon(route.icon),
               title: Text(describeEnum(route)),
             );
           },

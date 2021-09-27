@@ -9,16 +9,16 @@ enum BottomTabItem {
 }
 
 extension BottomTabItemExtension on BottomTabItem {
-  IconData get icon {
+  AppRoute get _route {
     switch (this) {
       case BottomTabItem.home:
-        return Icons.home;
+        return AppRoute.home;
       case BottomTabItem.gitHub:
-        return Icons.code;
+        return AppRoute.gitignoreNames;
       case BottomTabItem.catalog:
-        return Icons.view_module;
+        return AppRoute.catalog;
       case BottomTabItem.settings:
-        return Icons.settings;
+        return AppRoute.settings;
     }
   }
 
@@ -35,16 +35,7 @@ extension BottomTabItemExtension on BottomTabItem {
     }
   }
 
-  Widget get page {
-    switch (this) {
-      case BottomTabItem.home:
-        return AppRoute.home.page;
-      case BottomTabItem.gitHub:
-        return AppRoute.gitignoreNames.page;
-      case BottomTabItem.catalog:
-        return AppRoute.catalog.page;
-      case BottomTabItem.settings:
-        return AppRoute.settings.page;
-    }
-  }
+  Widget get page => _route.page;
+
+  IconData get icon => _route.icon;
 }
