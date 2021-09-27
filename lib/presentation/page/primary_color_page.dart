@@ -17,19 +17,17 @@ class PrimaryColorPage extends ConsumerWidget {
         title: Text(toString()),
       ),
       body: SafeArea(
-        child: ListView(
-          children: PrimaryColor.values
-              .map(
-                (PrimaryColor primaryColor) => RadioListTile<PrimaryColor>(
-                  value: primaryColor,
-                  groupValue: currentPrimaryColor,
-                  onChanged: (PrimaryColor? primaryColor) => ref
-                      .read(primaryProvider)
-                      .selectPrimaryColor(primaryColor ?? currentPrimaryColor),
-                  title: Text(describeEnum(primaryColor)),
-                ),
-              )
-              .toList(),
+        child: ListView.separated(
+          itemBuilder: (_, int index) => RadioListTile<PrimaryColor>(
+            value: PrimaryColor.values[index],
+            groupValue: currentPrimaryColor,
+            onChanged: (PrimaryColor? primaryColor) => ref
+                .read(primaryProvider)
+                .selectPrimaryColor(primaryColor ?? currentPrimaryColor),
+            title: Text(describeEnum(PrimaryColor.values[index])),
+          ),
+          separatorBuilder: (_, __) => const Divider(),
+          itemCount: PrimaryColor.values.length,
         ),
       ),
     );

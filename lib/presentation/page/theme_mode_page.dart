@@ -16,19 +16,17 @@ class ThemeModePage extends ConsumerWidget {
         title: Text(toString()),
       ),
       body: SafeArea(
-        child: ListView(
-          children: ThemeMode.values
-              .map(
-                (ThemeMode themeMode) => RadioListTile<ThemeMode>(
-                  value: themeMode,
-                  groupValue: currentThemeMode,
-                  onChanged: (ThemeMode? themeMode) => ref
-                      .read(primaryProvider)
-                      .selectThemeMode(themeMode ?? currentThemeMode),
-                  title: Text(describeEnum(themeMode)),
-                ),
-              )
-              .toList(),
+        child: ListView.separated(
+          itemBuilder: (_, int index) => RadioListTile<ThemeMode>(
+            value: ThemeMode.values[index],
+            groupValue: currentThemeMode,
+            onChanged: (ThemeMode? themeMode) => ref
+                .read(primaryProvider)
+                .selectThemeMode(themeMode ?? currentThemeMode),
+            title: Text(describeEnum(ThemeMode.values[index])),
+          ),
+          separatorBuilder: (_, __) => const Divider(),
+          itemCount: ThemeMode.values.length,
         ),
       ),
     );
