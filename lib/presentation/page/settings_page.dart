@@ -14,82 +14,40 @@ class SettingsPage extends ConsumerWidget {
         title: Text(toString()),
       ),
       body: SafeArea(
-        child: Column(
+        child: ListView(
           children: <Widget>[
-            const Text('ThemeMode'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Ink(
-                  decoration: ShapeDecoration(
-                    color: Colors.grey.shade600,
-                    shape: const CircleBorder(),
-                  ),
-                  child: IconButton(
-                    onPressed: () => ref
-                        .read(primaryProvider.notifier)
-                        .selectThemeMode(ThemeMode.system),
-                    icon: const Icon(Icons.check),
-                    color: currentPrimary.themeMode == ThemeMode.system
-                        ? Colors.white
-                        : Colors.transparent,
-                  ),
-                ),
-                Ink(
-                  decoration: ShapeDecoration(
-                    color: Colors.grey.shade400,
-                    shape: const CircleBorder(),
-                  ),
-                  child: IconButton(
-                    onPressed: () => ref
-                        .read(primaryProvider.notifier)
-                        .selectThemeMode(ThemeMode.light),
-                    icon: const Icon(Icons.check),
-                    color: currentPrimary.themeMode == ThemeMode.light
-                        ? Colors.white
-                        : Colors.transparent,
-                  ),
-                ),
-                Ink(
-                  decoration: ShapeDecoration(
-                    color: Colors.grey.shade800,
-                    shape: const CircleBorder(),
-                  ),
-                  child: IconButton(
-                    onPressed: () => ref
-                        .read(primaryProvider.notifier)
-                        .selectThemeMode(ThemeMode.dark),
-                    icon: const Icon(Icons.check),
-                    color: currentPrimary.themeMode == ThemeMode.dark
-                        ? Colors.white
-                        : Colors.transparent,
-                  ),
-                ),
-              ],
+            const ListTile(
+              title: Text('ThemeMode'),
             ),
-            const Text('Color'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: PrimaryColor.values
-                  .map(
-                    (PrimaryColor primaryColor) => Ink(
-                      decoration: ShapeDecoration(
-                        color: primaryColor.value,
-                        shape: const CircleBorder(),
-                      ),
-                      child: IconButton(
-                        onPressed: () => ref
-                            .read(primaryProvider.notifier)
-                            .selectPrimaryColor(primaryColor),
-                        icon: const Icon(Icons.check),
-                        color: primaryColor == currentPrimary.color
-                            ? Colors.white
-                            : Colors.transparent,
-                      ),
-                    ),
-                  )
-                  .toList(),
+            ...ThemeMode.values
+                .map(
+                  (ThemeMode themeMode) => RadioListTile<ThemeMode>(
+                    value: themeMode,
+                    groupValue: currentPrimary.themeMode,
+                    onChanged: (ThemeMode? value) => currentPrimary
+                        .selectThemeMode(value ?? currentPrimary.themeMode),
+                    title: Text(themeMode.toString()),
+                  ),
+                )
+                .toList(),
+            const Divider(),
+            const ListTile(
+              title: Text('Color'),
             ),
+            ...PrimaryColor.values
+                .map(
+                  (PrimaryColor primaryColor) => RadioListTile<PrimaryColor>(
+                    value: primaryColor,
+                    groupValue: currentPrimary.color,
+                    onChanged: (PrimaryColor? value) => currentPrimary
+                        .selectPrimaryColor(value ?? currentPrimary.color),
+                    title: Text(primaryColor.toString()),
+                  ),
+                )
+                .toList(),
+            const Divider(),
+            const AboutListTile(),
+            const Divider(),
           ],
         ),
       ),
