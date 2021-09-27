@@ -4,7 +4,9 @@ import 'package:flutter_playgrounds/presentation/page/gitignore_names_page.dart'
 import 'package:flutter_playgrounds/presentation/page/gitignore_page.dart';
 import 'package:flutter_playgrounds/presentation/page/home_page.dart';
 import 'package:flutter_playgrounds/presentation/page/list_tab_page.dart';
+import 'package:flutter_playgrounds/presentation/page/primary_color_page.dart';
 import 'package:flutter_playgrounds/presentation/page/settings_page.dart';
+import 'package:flutter_playgrounds/presentation/page/theme_mode_page.dart';
 
 enum AppRoute {
   home,
@@ -13,6 +15,8 @@ enum AppRoute {
   listTab,
   gitignoreNames,
   gitignore,
+  themeMode,
+  primaryColor,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -30,6 +34,10 @@ extension AppRouteExtension on AppRoute {
         return '/gitignore_names';
       case AppRoute.gitignore:
         return '/gitignore';
+      case AppRoute.themeMode:
+        return '/theme_mode';
+      case AppRoute.primaryColor:
+        return '/primary_color';
     }
   }
 
@@ -47,6 +55,10 @@ extension AppRouteExtension on AppRoute {
         return const GitignoreNamesPage();
       case AppRoute.gitignore:
         return const GitignorePage();
+      case AppRoute.themeMode:
+        return const ThemeModePage();
+      case AppRoute.primaryColor:
+        return const PrimaryColorPage();
     }
   }
 }
