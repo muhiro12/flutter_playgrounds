@@ -1,9 +1,6 @@
-// Package imports:
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-// Project imports:
 import 'package:flutter_playgrounds/data/repository/settings_repository.dart';
 import 'package:flutter_playgrounds/presentation/model/primary_color.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final StateNotifierProvider<PrimaryNotifier, Primary> primaryProvider =
     StateNotifierProvider<PrimaryNotifier, Primary>(

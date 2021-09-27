@@ -1,7 +1,4 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Project imports:
 import 'package:flutter_playgrounds/presentation/page/default_tab_page.dart';
 import 'package:flutter_playgrounds/presentation/page/gitignore_names_page.dart';
 import 'package:flutter_playgrounds/presentation/page/gitignore_page.dart';

@@ -1,4 +1,3 @@
-// Project imports:
 import 'package:flutter_playgrounds/data/entity/gitignore.dart';
 import 'package:flutter_playgrounds/data/repository/git_hub_repository.dart';
 

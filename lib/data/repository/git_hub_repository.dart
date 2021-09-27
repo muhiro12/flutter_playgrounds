@@ -1,12 +1,9 @@
-// Package imports:
 import 'package:built_collection/built_collection.dart';
 import 'package:dio/dio.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:openapi/openapi.dart';
-
-// Project imports:
 import 'package:flutter_playgrounds/data/entity/gitignore.dart';
 import 'package:flutter_playgrounds/data/model/open_api.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:openapi/openapi.dart';
 
 final Provider<GitHubRepository> gitHubRepositoryProvider =
     Provider<GitHubRepository>((ProviderRef<GitHubRepository> ref) {

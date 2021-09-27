@@ -1,9 +1,6 @@
-// Package imports:
+import 'package:flutter_playgrounds/data/model/shared_preferences.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-// Project imports:
-import 'package:flutter_playgrounds/data/model/shared_preferences.dart';
 
 final Provider<SettingsRepository> settingsRepositoryProvider =
     Provider<SettingsRepository>((ProviderRef<SettingsRepository> ref) {
