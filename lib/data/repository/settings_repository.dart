@@ -1,27 +1,22 @@
-import 'package:flutter_playgrounds/data/model/shared_preferences.dart';
+import 'package:flutter_playgrounds/data/model/preferences.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 final Provider<SettingsRepository> settingsRepositoryProvider =
     Provider<SettingsRepository>((ProviderRef<SettingsRepository> ref) {
-  final SharedPreferences sharedPreferences =
-      ref.watch(sharedPreferencesProvider);
-  return SettingsRepository(sharedPreferences);
+  final Preferences preferences = ref.watch(preferencesProvider);
+  return SettingsRepository(preferences);
 });
 
 class SettingsRepository {
-  const SettingsRepository(this._sharedPreferences);
+  const SettingsRepository(this._preferences);
 
-  final SharedPreferences _sharedPreferences;
+  final Preferences _preferences;
 
   int? colorCode() {
-    return _sharedPreferences.getInt(SharedPreferencesKey.colorCode.value);
+    return _preferences.getInt(PreferencesKey.colorCode);
   }
 
   Future<bool> setColorCode(int colorCode) {
-    return _sharedPreferences.setInt(
-      SharedPreferencesKey.colorCode.value,
-      colorCode,
-    );
+    return _preferences.setInt(PreferencesKey.colorCode, colorCode);
   }
 }
