@@ -4,6 +4,7 @@ import 'package:flutter_playgrounds/business/model/primary.dart';
 import 'package:flutter_playgrounds/presentation/model/app_route.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab_item.dart';
+import 'package:flutter_playgrounds/presentation/widget/platfom_switch_list_tile.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SettingsPage extends ConsumerWidget {
@@ -54,7 +55,7 @@ class SettingsPage extends ConsumerWidget {
                   Navigator.of(context).pushNamed(AppRoute.primaryColor.name),
             ),
             const Divider(),
-            SwitchListTile(
+            PlatformSwitchListTile(
               value: ref.watch(primaryProvider
                   .select((Primary primary) => primary.useCustomTheme)),
               onChanged: (bool useCustomTheme) => ref

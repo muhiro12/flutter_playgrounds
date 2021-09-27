@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/business/model/primary.dart';
 import 'package:flutter_playgrounds/presentation/model/primary_color.dart';
@@ -43,6 +44,7 @@ class AppThemeData {
   ThemeData get _customDark {
     final ThemeData shared = _dark;
     return shared.copyWith(
+      primaryColor: _primaryColor,
       scaffoldBackgroundColor: Colors.grey.shade900,
       toggleableActiveColor: _primaryColor,
       dialogBackgroundColor: Colors.grey.shade900,
