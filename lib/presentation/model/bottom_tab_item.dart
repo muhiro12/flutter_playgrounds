@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/presentation/model/app_route.dart';
-import 'package:flutter_playgrounds/presentation/page/gitignore_names_page.dart';
-import 'package:flutter_playgrounds/presentation/page/home_page.dart';
-import 'package:flutter_playgrounds/presentation/page/settings_page.dart';
 
 enum BottomTabItem {
   home,
