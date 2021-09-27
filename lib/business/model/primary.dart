@@ -16,9 +16,12 @@ class Primary extends ChangeNotifier {
 
   ThemeMode get themeMode => _repository.themeMode();
   PrimaryColor get color => _repository.primaryColor();
+  bool get useCustomTheme => _repository.useCustomTheme();
 
   void selectThemeMode(ThemeMode themeMode) =>
       _repository.setThemeMode(themeMode);
   void selectPrimaryColor(PrimaryColor primaryColor) =>
       _repository.setPrimaryColor(primaryColor);
+  void selectUseCustomTheme(bool useCustomTheme) =>
+      _repository.setUseCustomTheme(useCustomTheme);
 }

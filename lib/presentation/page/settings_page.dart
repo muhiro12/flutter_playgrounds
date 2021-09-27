@@ -42,6 +42,15 @@ class SettingsPage extends ConsumerWidget {
                   Navigator.of(context).pushNamed(AppRoute.primaryColor.name),
             ),
             const Divider(),
+            SwitchListTile(
+              value: ref.watch(primaryProvider
+                  .select((Primary primary) => primary.useCustomTheme)),
+              onChanged: (bool useCustomTheme) => ref
+                  .read(primaryProvider)
+                  .selectUseCustomTheme(useCustomTheme),
+              title: const Text('Use CustomTheme'),
+            ),
+            const Divider(),
             const AboutListTile(),
           ],
         ),

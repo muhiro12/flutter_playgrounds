@@ -27,6 +27,10 @@ class PrimaryRepository {
     );
   }
 
+  bool useCustomTheme() {
+    return _preferences.getBool(PreferencesKey.useCustomTheme) ?? false;
+  }
+
   Future<bool> setThemeMode(ThemeMode themeMode) {
     return _preferences.setInt(
       PreferencesKey.themeModeIndex,
@@ -38,6 +42,13 @@ class PrimaryRepository {
     return _preferences.setInt(
       PreferencesKey.colorCode,
       primaryColor.value.value,
+    );
+  }
+
+  Future<bool> setUseCustomTheme(bool useCustomTheme) {
+    return _preferences.setBool(
+      PreferencesKey.useCustomTheme,
+      useCustomTheme,
     );
   }
 }
