@@ -45,6 +45,7 @@ class AppThemeData {
     return shared.copyWith(
       scaffoldBackgroundColor: Colors.grey.shade900,
       toggleableActiveColor: _primaryColor,
+      dialogBackgroundColor: Colors.grey.shade900,
       appBarTheme: AppBarTheme(
         color: _primaryColor.shade900,
       ),
