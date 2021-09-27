@@ -11,3 +11,4 @@ export 'package:openapi/src/model/date.dart';
 
 export 'package:openapi/src/api/default_api.dart';
 
+export 'package:openapi/src/model/inline_response200.dart';

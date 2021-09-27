@@ -1,8 +1,8 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 analysis_options.yaml
 doc/DefaultApi.md
+doc/InlineResponse200.md
 lib/openapi.dart
 lib/src/api.dart
 lib/src/api/default_api.dart
@@ -14,6 +14,6 @@ lib/src/auth/bearer_auth.dart
 lib/src/auth/oauth.dart
 lib/src/date_serializer.dart
 lib/src/model/date.dart
+lib/src/model/inline_response200.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/default_api_test.dart

@@ -64,10 +64,12 @@ All URIs are relative to *https://api.github.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 [*DefaultApi*](doc/DefaultApi.md) | [**gitignoreTemplatesGet**](doc/DefaultApi.md#gitignoretemplatesget) | **GET** /gitignore/templates | 
+[*DefaultApi*](doc/DefaultApi.md) | [**gitignoreTemplatesNameGet**](doc/DefaultApi.md#gitignoretemplatesnameget) | **GET** /gitignore/templates/{name} | 
 
 
 ## Documentation For Models
 
+ - [InlineResponse200](doc/InlineResponse200.md)
 
 
 ## Documentation For Authorization

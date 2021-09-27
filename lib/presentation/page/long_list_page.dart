@@ -6,7 +6,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
 import 'package:flutter_playgrounds/business/model/git_hub.dart';
-import 'package:flutter_playgrounds/data/entity/gitignore.dart';
 import 'package:flutter_playgrounds/presentation/model/app_route.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab_item.dart';
@@ -24,7 +23,7 @@ class LongListPage extends HookConsumerWidget {
           return;
         }
         Navigator.of(context).popUntil((Route<dynamic> route) => route.isFirst);
-        ref.refresh(gitignoreTemplatesProvider);
+        ref.refresh(allGitignoreNamesProvider);
       },
     );
     return Scaffold(
@@ -33,15 +32,15 @@ class LongListPage extends HookConsumerWidget {
       ),
       body: SafeArea(
         bottom: false,
-        child: ref.watch(gitignoreTemplatesProvider).when(
-              data: (List<Gitignore> gitignoreTemplates) => ListView.separated(
+        child: ref.watch(allGitignoreNamesProvider).when(
+              data: (List<String> gitignoreNames) => ListView.separated(
                 itemBuilder: (_, int index) => ListTile(
                   onTap: () =>
                       Navigator.of(context).pushNamed(AppRoute.longList.name),
-                  title: Text(gitignoreTemplates[index].name),
+                  title: Text(gitignoreNames[index]),
                 ),
                 separatorBuilder: (_, __) => const Divider(),
-                itemCount: gitignoreTemplates.length,
+                itemCount: gitignoreNames.length,
               ),
               loading: () => const Center(
                 child: CircularProgressIndicator(),

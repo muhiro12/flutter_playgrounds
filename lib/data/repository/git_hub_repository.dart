@@ -15,7 +15,8 @@ final Provider<GitHubRepository> gitHubRepositoryProvider =
 });
 
 abstract class GitHubRepository {
-  Future<List<Gitignore>> gitignoreTemplates();
+  Future<List<String>> allGitignoreNames();
+  Future<Gitignore> gitignore(String name);
 }
 
 class GitHubRepositoryImplements implements GitHubRepository {
@@ -24,7 +25,7 @@ class GitHubRepositoryImplements implements GitHubRepository {
   final DefaultApi _api;
 
   @override
-  Future<List<Gitignore>> gitignoreTemplates() {
+  Future<List<String>> allGitignoreNames() {
     return _api
         .gitignoreTemplatesGet()
         .then((Response<BuiltList<String>> response) {
@@ -33,7 +34,21 @@ class GitHubRepositoryImplements implements GitHubRepository {
         // TODO(nakano): Use app error
         throw Exception();
       }
-      return data.map((String name) => Gitignore(name)).toList();
+      return data.toList();
+    });
+  }
+
+  @override
+  Future<Gitignore> gitignore(String name) {
+    return _api
+        .gitignoreTemplatesNameGet(name: name)
+        .then((Response<InlineResponse200> response) {
+      final InlineResponse200? data = response.data;
+      if (data == null) {
+        // TODO(nakano): Use app error
+        throw Exception();
+      }
+      return Gitignore(name: data.name, source: data.source_);
     });
   }
 }

@@ -12,10 +12,12 @@ import 'package:built_value/iso_8601_date_time_serializer.dart';
 import 'package:openapi/src/date_serializer.dart';
 import 'package:openapi/src/model/date.dart';
 
+import 'package:openapi/src/model/inline_response200.dart';
 
 part 'serializers.g.dart';
 
 @SerializersFor([
+  InlineResponse200,
 ])
 Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(

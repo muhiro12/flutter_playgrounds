@@ -16,3 +16,26 @@ paths:
                 type: array
                 items:
                   type: string
+  /gitignore/templates/{name}:
+    get:
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string    
+                  source:
+                    type: string
+                required:
+                  - name
+                  - source
