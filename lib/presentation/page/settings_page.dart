@@ -55,6 +55,20 @@ class SettingsPage extends ConsumerWidget {
                   Navigator.of(context).pushNamed(AppRoute.primaryColor.name),
             ),
             const Divider(),
+            ListTile(
+              title: const Text('DesignSystem'),
+              subtitle: Text(
+                ref.watch(
+                  primaryProvider.select(
+                    (Primary primary) =>
+                        describeEnum(primary.designSettings.toString()),
+                  ),
+                ),
+              ),
+              onTap: () =>
+                  Navigator.of(context).pushNamed(AppRoute.designSettings.name),
+            ),
+            const Divider(),
             PlatformSwitchListTile(
               value: ref.watch(primaryProvider
                   .select((Primary primary) => primary.useCustomTheme)),

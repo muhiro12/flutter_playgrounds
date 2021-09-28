@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playgrounds/data/model/preferences_key.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -35,23 +36,4 @@ class Preferences extends ChangeNotifier {
   Future<bool> remove(PreferencesKey key) =>
       _instance.remove(key.value).whenComplete(notifyListeners);
   Future<bool> clear() => _instance.clear().whenComplete(notifyListeners);
-}
-
-enum PreferencesKey {
-  colorCode,
-  themeModeIndex,
-  useCustomTheme,
-}
-
-extension PreferenecesKeyExtension on PreferencesKey {
-  String get value {
-    switch (this) {
-      case PreferencesKey.colorCode:
-        return '80e47ab8';
-      case PreferencesKey.themeModeIndex:
-        return '92dd066a';
-      case PreferencesKey.useCustomTheme:
-        return 'a3ab8625';
-    }
-  }
 }
