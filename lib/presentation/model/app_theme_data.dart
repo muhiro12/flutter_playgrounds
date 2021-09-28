@@ -34,9 +34,18 @@ class AppThemeData {
     final ThemeData shared = _light;
     return shared.copyWith(
       scaffoldBackgroundColor: Colors.grey.shade200,
+      canvasColor: Colors.transparent,
       dividerColor: _primaryColor.shade200,
       textTheme: shared.textTheme.apply(
         bodyColor: Colors.grey.shade800,
+      ),
+      cupertinoOverrideTheme: CupertinoThemeData(
+        primaryColor: _primary.color.cupertino,
+        scaffoldBackgroundColor: CupertinoColors.secondarySystemBackground,
+        barBackgroundColor: Colors.transparent,
+        textTheme: CupertinoTextThemeData(
+          primaryColor: _primary.color.cupertino,
+        ),
       ),
     );
   }
@@ -48,6 +57,7 @@ class AppThemeData {
       scaffoldBackgroundColor: Colors.grey.shade900,
       toggleableActiveColor: _primaryColor,
       dialogBackgroundColor: Colors.grey.shade900,
+      canvasColor: Colors.transparent,
       appBarTheme: AppBarTheme(
         color: _primaryColor.shade900,
       ),
@@ -55,6 +65,14 @@ class AppThemeData {
         backgroundColor: _primaryColor,
       ),
       textTheme: shared.textTheme.apply(),
+      cupertinoOverrideTheme: CupertinoThemeData(
+        primaryColor: _primary.color.cupertino,
+        scaffoldBackgroundColor: CupertinoColors.secondarySystemBackground,
+        barBackgroundColor: Colors.transparent,
+        textTheme: CupertinoTextThemeData(
+          primaryColor: _primary.color.cupertino,
+        ),
+      ),
     );
   }
 }

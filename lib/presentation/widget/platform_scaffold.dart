@@ -31,18 +31,33 @@ class PlatformScaffold extends ConsumerWidget {
           ),
         );
       case DesignSystem.cupertino:
-        return Scaffold(
-          body: NestedScrollView(
-            headerSliverBuilder: (_, __) => <Widget>[
-              CupertinoSliverNavigationBar(
-                largeTitle: title,
+        if (ModalRoute.of(context)?.isFirst == true) {
+          return CupertinoPageScaffold(
+            child: NestedScrollView(
+              headerSliverBuilder: (_, __) => <Widget>[
+                CupertinoSliverNavigationBar(
+                  largeTitle: title,
+                ),
+              ],
+              body: SafeArea(
+                child: Material(
+                  child: body,
+                ),
               ),
-            ],
-            body: SafeArea(
-              child: body,
             ),
-          ),
-        );
+          );
+        } else {
+          return CupertinoPageScaffold(
+            navigationBar: CupertinoNavigationBar(
+              middle: title,
+            ),
+            child: SafeArea(
+              child: Material(
+                child: body,
+              ),
+            ),
+          );
+        }
     }
   }
 }

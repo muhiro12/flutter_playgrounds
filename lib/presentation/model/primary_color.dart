@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 enum PrimaryColor {
@@ -63,6 +64,49 @@ extension PrimaryColorExtension on PrimaryColor {
         return Colors.grey;
       case PrimaryColor.blueGrey:
         return Colors.blueGrey;
+    }
+  }
+
+  CupertinoDynamicColor get cupertino {
+    switch (this) {
+      case PrimaryColor.red:
+        return CupertinoColors.systemRed;
+      case PrimaryColor.pink:
+        return CupertinoColors.systemPink;
+      case PrimaryColor.purple:
+        return CupertinoColors.systemPurple;
+      case PrimaryColor.deepPurple:
+        return CupertinoColors.systemPurple;
+      case PrimaryColor.indigo:
+        return CupertinoColors.systemIndigo;
+      case PrimaryColor.blue:
+        return CupertinoColors.systemBlue;
+      case PrimaryColor.lightBlue:
+        return CupertinoColors.systemBlue;
+      case PrimaryColor.cyan:
+        return CupertinoColors.systemBlue;
+      case PrimaryColor.teal:
+        return CupertinoColors.systemTeal;
+      case PrimaryColor.green:
+        return CupertinoColors.systemGreen;
+      case PrimaryColor.lightGreen:
+        return CupertinoColors.systemGreen;
+      case PrimaryColor.lime:
+        return CupertinoColors.systemGreen;
+      case PrimaryColor.yellow:
+        return CupertinoColors.systemYellow;
+      case PrimaryColor.abmer:
+        return CupertinoColors.systemYellow;
+      case PrimaryColor.orange:
+        return CupertinoColors.systemOrange;
+      case PrimaryColor.deepOrange:
+        return CupertinoColors.systemOrange;
+      case PrimaryColor.brown:
+        return CupertinoColors.systemGrey;
+      case PrimaryColor.grey:
+        return CupertinoColors.systemGrey;
+      case PrimaryColor.blueGrey:
+        return CupertinoColors.systemGrey;
     }
   }
 }
