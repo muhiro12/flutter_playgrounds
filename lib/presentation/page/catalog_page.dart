@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/presentation/model/app_route.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab_item.dart';
+import 'package:flutter_playgrounds/presentation/widget/platform_scaffold.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class CatalogPage extends ConsumerWidget {
@@ -27,21 +28,17 @@ class CatalogPage extends ConsumerWidget {
         Navigator.of(context).popUntil((Route<dynamic> route) => route.isFirst);
       },
     );
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(toString()),
-      ),
-      body: SafeArea(
-        child: ListView.separated(
-          itemBuilder: (_, int index) => ListTile(
-            title: Text(
-              describeEnum(appRoutes[index]),
-            ),
-            onTap: () => Navigator.of(context).pushNamed(appRoutes[index].name),
+    return PlatformScaffold(
+      title: Text(toString()),
+      body: ListView.separated(
+        itemBuilder: (_, int index) => ListTile(
+          title: Text(
+            describeEnum(appRoutes[index]),
           ),
-          separatorBuilder: (_, __) => const Divider(),
-          itemCount: appRoutes.length,
+          onTap: () => Navigator.of(context).pushNamed(appRoutes[index].name),
         ),
+        separatorBuilder: (_, __) => const Divider(),
+        itemCount: appRoutes.length,
       ),
     );
   }
