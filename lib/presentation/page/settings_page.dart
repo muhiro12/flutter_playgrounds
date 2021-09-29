@@ -5,6 +5,8 @@ import 'package:flutter_playgrounds/presentation/model/app_route.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab_item.dart';
 import 'package:flutter_playgrounds/presentation/widget/app_scaffold.dart';
+import 'package:flutter_playgrounds/presentation/widget/platform_list_tile.dart';
+import 'package:flutter_playgrounds/presentation/widget/platform_list_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SettingsPage extends ConsumerWidget {
@@ -24,9 +26,9 @@ class SettingsPage extends ConsumerWidget {
     );
     return AppScaffold(
       title: Text(toString()),
-      body: ListView(
+      body: PlatformListView(
         children: <Widget>[
-          ListTile(
+          PlatformListTile(
             title: const Text('Color'),
             subtitle: Text(
               ref.watch(
@@ -38,8 +40,7 @@ class SettingsPage extends ConsumerWidget {
             onTap: () =>
                 Navigator.of(context).pushNamed(AppRoute.primaryColor.name),
           ),
-          const Divider(),
-          ListTile(
+          PlatformListTile(
             title: const Text('ThemeMode'),
             subtitle: Text(
               ref.watch(
@@ -51,8 +52,7 @@ class SettingsPage extends ConsumerWidget {
             onTap: () =>
                 Navigator.of(context).pushNamed(AppRoute.themeMode.name),
           ),
-          const Divider(),
-          ListTile(
+          PlatformListTile(
             title: const Text('ThemeFlavor'),
             subtitle: Text(
               ref.watch(
@@ -65,8 +65,7 @@ class SettingsPage extends ConsumerWidget {
             onTap: () =>
                 Navigator.of(context).pushNamed(AppRoute.themeFlavor.name),
           ),
-          const Divider(),
-          ListTile(
+          PlatformListTile(
             title: const Text('DesignSystem'),
             subtitle: Text(
               ref.watch(
@@ -79,7 +78,6 @@ class SettingsPage extends ConsumerWidget {
             onTap: () =>
                 Navigator.of(context).pushNamed(AppRoute.designSystem.name),
           ),
-          const Divider(),
           const AboutListTile(),
         ],
       ),

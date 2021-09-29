@@ -109,7 +109,7 @@ class AppThemeData {
 
   CupertinoThemeData get _cupertinoTheme => CupertinoThemeData(
         primaryColor: _cupertinoColor,
-        scaffoldBackgroundColor: CupertinoColors.secondarySystemBackground,
+        scaffoldBackgroundColor: CupertinoColors.systemGroupedBackground,
         barBackgroundColor: Colors.transparent,
         textTheme: CupertinoTextThemeData(
           primaryColor: _cupertinoColor,
