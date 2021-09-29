@@ -3,6 +3,7 @@ import 'package:flutter_playgrounds/data/repository/primary_repository.dart';
 import 'package:flutter_playgrounds/presentation/model/design_platform_settings.dart';
 import 'package:flutter_playgrounds/presentation/model/design_system.dart';
 import 'package:flutter_playgrounds/presentation/model/primary_color.dart';
+import 'package:flutter_playgrounds/presentation/model/theme_flavor.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final ChangeNotifierProvider<Primary> primaryProvider =
@@ -18,7 +19,7 @@ class Primary extends ChangeNotifier {
 
   ThemeMode get themeMode => _repository.themeMode();
   PrimaryColor get color => _repository.primaryColor();
-  bool get useCustomTheme => _repository.useCustomTheme();
+  ThemeFlavor get themeFlavor => _repository.themeFlavor();
   DesignPlatformSettings get designPlatformSettings =>
       _repository.designPlatformSettings();
   DesignSystem get designSystem => _repository.designSystem();
@@ -27,8 +28,8 @@ class Primary extends ChangeNotifier {
       _repository.setThemeMode(themeMode);
   void selectPrimaryColor(PrimaryColor primaryColor) =>
       _repository.setPrimaryColor(primaryColor);
-  void selectUseCustomTheme(bool useCustomTheme) =>
-      _repository.setUseCustomTheme(useCustomTheme);
+  void selectThemeFlavor(ThemeFlavor themeFlavor) =>
+      _repository.setThemeFlavor(themeFlavor);
   void selectDesignPlatformSettings(
           DesignPlatformSettings designPlatformSettings) =>
       _repository.setDesignPlatformSettings(designPlatformSettings);

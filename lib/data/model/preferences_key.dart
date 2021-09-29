@@ -1,7 +1,7 @@
 enum PreferencesKey {
   colorCode,
   themeModeIndex,
-  useCustomTheme,
+  themeFlavorIndex,
   designPlatformSettingsIndex,
   designSystemIndex,
 }
@@ -13,7 +13,7 @@ extension PreferenecesKeyExtension on PreferencesKey {
         return '80e47ab8';
       case PreferencesKey.themeModeIndex:
         return '92dd066a';
-      case PreferencesKey.useCustomTheme:
+      case PreferencesKey.themeFlavorIndex:
         return 'a3ab8625';
       case PreferencesKey.designPlatformSettingsIndex:
         return '2fe46221';

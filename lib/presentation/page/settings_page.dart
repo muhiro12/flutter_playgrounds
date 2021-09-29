@@ -41,6 +41,20 @@ class SettingsPage extends ConsumerWidget {
           ),
           const Divider(),
           ListTile(
+            title: const Text('ThemeFlavor'),
+            subtitle: Text(
+              ref.watch(
+                primaryProvider.select(
+                  (Primary primary) =>
+                      describeEnum(primary.themeFlavor.toString()),
+                ),
+              ),
+            ),
+            onTap: () =>
+                Navigator.of(context).pushNamed(AppRoute.themeFlavor.name),
+          ),
+          const Divider(),
+          ListTile(
             title: const Text('Color'),
             subtitle: Text(
               ref.watch(
@@ -77,16 +91,8 @@ class SettingsPage extends ConsumerWidget {
                 ),
               ),
             ),
-            onTap: () => Navigator.of(context)
-                .pushNamed(AppRoute.designPlatform.name),
-          ),
-          const Divider(),
-          PlatformSwitchListTile(
-            value: ref.watch(primaryProvider
-                .select((Primary primary) => primary.useCustomTheme)),
-            onChanged: (bool useCustomTheme) =>
-                ref.read(primaryProvider).selectUseCustomTheme(useCustomTheme),
-            title: const Text('Use CustomTheme'),
+            onTap: () =>
+                Navigator.of(context).pushNamed(AppRoute.designPlatform.name),
           ),
           const Divider(),
           const AboutListTile(),

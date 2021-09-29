@@ -10,6 +10,7 @@ import 'package:flutter_playgrounds/presentation/page/home_page.dart';
 import 'package:flutter_playgrounds/presentation/page/list_tab_page.dart';
 import 'package:flutter_playgrounds/presentation/page/primary_color_page.dart';
 import 'package:flutter_playgrounds/presentation/page/settings_page.dart';
+import 'package:flutter_playgrounds/presentation/page/theme_flavor_page.dart';
 import 'package:flutter_playgrounds/presentation/page/theme_mode_page.dart';
 
 enum AppRoute {
@@ -25,6 +26,7 @@ enum AppRoute {
   buttonCatalog,
   designPlatform,
   designSystem,
+  themeFlavor,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -54,6 +56,8 @@ extension AppRouteExtension on AppRoute {
         return '/design_platform_settings';
       case AppRoute.designSystem:
         return '/design_system';
+      case AppRoute.themeFlavor:
+        return '/theme_flavor';
     }
   }
 
@@ -83,6 +87,8 @@ extension AppRouteExtension on AppRoute {
         return const DesignPlatformPage();
       case AppRoute.designSystem:
         return const DesignSystemPage();
+      case AppRoute.themeFlavor:
+        return const ThemeFlavorPage();
     }
   }
 
@@ -112,6 +118,8 @@ extension AppRouteExtension on AppRoute {
         return Icons.phone_android;
       case AppRoute.designSystem:
         return Icons.design_services;
+      case AppRoute.themeFlavor:
+        return Icons.coffee;
     }
   }
 }

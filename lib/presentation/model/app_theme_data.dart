@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/business/model/primary.dart';
 import 'package:flutter_playgrounds/presentation/model/primary_color.dart';
+import 'package:flutter_playgrounds/presentation/model/theme_flavor.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final Provider<AppThemeData> appThemeDataProvider =
@@ -16,9 +17,11 @@ class AppThemeData {
   final Primary _primary;
   MaterialColor get _primaryColor => _primary.color.value;
 
-  ThemeData get light => _primary.useCustomTheme ? _customLight : _light;
+  ThemeData get light =>
+      _primary.themeFlavor == ThemeFlavor.strong ? _lightStrong : _light;
 
-  ThemeData get dark => _primary.useCustomTheme ? _customDark : _dark;
+  ThemeData get dark =>
+      _primary.themeFlavor == ThemeFlavor.strong ? _darkStrong : _dark;
 
   ThemeData get _light => ThemeData(
         brightness: Brightness.light,
@@ -30,7 +33,7 @@ class AppThemeData {
         primarySwatch: _primaryColor,
       );
 
-  ThemeData get _customLight {
+  ThemeData get _lightStrong {
     final ThemeData shared = _light;
     return shared.copyWith(
       scaffoldBackgroundColor: Colors.grey.shade200,
@@ -50,7 +53,7 @@ class AppThemeData {
     );
   }
 
-  ThemeData get _customDark {
+  ThemeData get _darkStrong {
     final ThemeData shared = _dark;
     return shared.copyWith(
       primaryColor: _primaryColor,
