@@ -10,7 +10,7 @@ class PrimaryColorPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final PrimaryColor currentPrimaryColor = ref.watch(primaryProvider.select(
+    final PrimaryColor current = ref.watch(primaryProvider.select(
       (Primary primary) => primary.color,
     ));
     return PlatformScaffold(
@@ -18,10 +18,10 @@ class PrimaryColorPage extends ConsumerWidget {
       body: ListView.separated(
         itemBuilder: (_, int index) => RadioListTile<PrimaryColor>(
           value: PrimaryColor.values[index],
-          groupValue: currentPrimaryColor,
+          groupValue: current,
           onChanged: (PrimaryColor? primaryColor) => ref
               .read(primaryProvider)
-              .selectPrimaryColor(primaryColor ?? currentPrimaryColor),
+              .selectPrimaryColor(primaryColor ?? current),
           title: Text(describeEnum(PrimaryColor.values[index])),
         ),
         separatorBuilder: (_, __) => const Divider(),

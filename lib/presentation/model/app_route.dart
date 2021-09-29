@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/presentation/page/button_catalog_page.dart';
 import 'package:flutter_playgrounds/presentation/page/catalog_page.dart';
 import 'package:flutter_playgrounds/presentation/page/default_tab_page.dart';
-import 'package:flutter_playgrounds/presentation/page/design_settings_page.dart';
+import 'package:flutter_playgrounds/presentation/page/design_platform_settings_page.dart';
 import 'package:flutter_playgrounds/presentation/page/gitignore_names_page.dart';
 import 'package:flutter_playgrounds/presentation/page/gitignore_page.dart';
 import 'package:flutter_playgrounds/presentation/page/home_page.dart';
@@ -22,7 +22,7 @@ enum AppRoute {
   primaryColor,
   catalog,
   buttonCatalog,
-  designSettings,
+  designPlatformSettings,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -48,8 +48,8 @@ extension AppRouteExtension on AppRoute {
         return '/catalog';
       case AppRoute.buttonCatalog:
         return '/button_catalog';
-      case AppRoute.designSettings:
-        return '/design_settings';
+      case AppRoute.designPlatformSettings:
+        return '/design_platform_settings';
     }
   }
 
@@ -75,8 +75,8 @@ extension AppRouteExtension on AppRoute {
         return const CatalogPage();
       case AppRoute.buttonCatalog:
         return const ButtonCatalogPage();
-      case AppRoute.designSettings:
-        return const DesignSettingsPage();
+      case AppRoute.designPlatformSettings:
+        return const DesignPlatformSettingsPage();
     }
   }
 
@@ -102,7 +102,7 @@ extension AppRouteExtension on AppRoute {
         return Icons.view_module;
       case AppRoute.buttonCatalog:
         return Icons.add;
-      case AppRoute.designSettings:
+      case AppRoute.designPlatformSettings:
         return Icons.design_services;
     }
   }

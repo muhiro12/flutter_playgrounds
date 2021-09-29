@@ -54,17 +54,17 @@ class SettingsPage extends ConsumerWidget {
           ),
           const Divider(),
           ListTile(
-            title: const Text('DesignSystem'),
+            title: const Text('DesignPlatform'),
             subtitle: Text(
               ref.watch(
                 primaryProvider.select(
                   (Primary primary) =>
-                      describeEnum(primary.designSettings.toString()),
+                      describeEnum(primary.designPlatformSettings.toString()),
                 ),
               ),
             ),
             onTap: () =>
-                Navigator.of(context).pushNamed(AppRoute.designSettings.name),
+                Navigator.of(context).pushNamed(AppRoute.designPlatformSettings.name),
           ),
           const Divider(),
           PlatformSwitchListTile(

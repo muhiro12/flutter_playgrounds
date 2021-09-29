@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/data/model/preferences.dart';
 import 'package:flutter_playgrounds/data/model/preferences_key.dart';
-import 'package:flutter_playgrounds/presentation/model/design_settings.dart';
+import 'package:flutter_playgrounds/presentation/model/design_platform_settings.dart';
 import 'package:flutter_playgrounds/presentation/model/primary_color.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -33,9 +33,10 @@ class PrimaryRepository {
     return _preferences.getBool(PreferencesKey.useCustomTheme) ?? false;
   }
 
-  DesignSettings designSettings() {
-    final int? index = _preferences.getInt(PreferencesKey.designSettings);
-    return DesignSettings.values[index ?? 0];
+  DesignPlatformSettings designPlatformSettings() {
+    final int? index =
+        _preferences.getInt(PreferencesKey.designPlatformSettings);
+    return DesignPlatformSettings.values[index ?? 0];
   }
 
   Future<bool> setThemeMode(ThemeMode themeMode) {
@@ -59,10 +60,11 @@ class PrimaryRepository {
     );
   }
 
-  Future<bool> setDesignSettings(DesignSettings designSettings) {
+  Future<bool> setDesignPlatformSettings(
+      DesignPlatformSettings designPlatformSettings) {
     return _preferences.setInt(
-      PreferencesKey.designSettings,
-      designSettings.index,
+      PreferencesKey.designPlatformSettings,
+      designPlatformSettings.index,
     );
   }
 }

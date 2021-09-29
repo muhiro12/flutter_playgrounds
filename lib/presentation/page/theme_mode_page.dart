@@ -9,7 +9,7 @@ class ThemeModePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ThemeMode currentThemeMode = ref.watch(primaryProvider.select(
+    final ThemeMode current = ref.watch(primaryProvider.select(
       (Primary primary) => primary.themeMode,
     ));
     return PlatformScaffold(
@@ -17,10 +17,10 @@ class ThemeModePage extends ConsumerWidget {
       body: ListView.separated(
         itemBuilder: (_, int index) => RadioListTile<ThemeMode>(
           value: ThemeMode.values[index],
-          groupValue: currentThemeMode,
+          groupValue: current,
           onChanged: (ThemeMode? themeMode) => ref
               .read(primaryProvider)
-              .selectThemeMode(themeMode ?? currentThemeMode),
+              .selectThemeMode(themeMode ?? current),
           title: Text(describeEnum(ThemeMode.values[index])),
         ),
         separatorBuilder: (_, __) => const Divider(),

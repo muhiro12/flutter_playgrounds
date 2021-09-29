@@ -1,4 +1,4 @@
-enum DesignSystem {
+enum DesignPlatform {
   material,
   cupertino,
 }
