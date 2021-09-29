@@ -35,7 +35,7 @@ class PrimaryRepository {
 
   DesignPlatformSettings designPlatformSettings() {
     final int? index =
-        _preferences.getInt(PreferencesKey.designPlatformSettings);
+        _preferences.getInt(PreferencesKey.designPlatformSettingsIndex);
     return DesignPlatformSettings.values[index ?? 0];
   }
 
@@ -63,7 +63,7 @@ class PrimaryRepository {
   Future<bool> setDesignPlatformSettings(
       DesignPlatformSettings designPlatformSettings) {
     return _preferences.setInt(
-      PreferencesKey.designPlatformSettings,
+      PreferencesKey.designPlatformSettingsIndex,
       designPlatformSettings.index,
     );
   }
