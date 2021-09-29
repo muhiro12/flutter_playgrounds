@@ -7,6 +7,7 @@ import 'package:flutter_playgrounds/presentation/page/gitignore_names_page.dart'
 import 'package:flutter_playgrounds/presentation/page/gitignore_page.dart';
 import 'package:flutter_playgrounds/presentation/page/home_page.dart';
 import 'package:flutter_playgrounds/presentation/page/list_tab_page.dart';
+import 'package:flutter_playgrounds/presentation/page/platform_widget_catalog_page.dart';
 import 'package:flutter_playgrounds/presentation/page/primary_color_page.dart';
 import 'package:flutter_playgrounds/presentation/page/settings_page.dart';
 import 'package:flutter_playgrounds/presentation/page/theme_flavor_page.dart';
@@ -25,6 +26,7 @@ enum AppRoute {
   buttonCatalog,
   designSystem,
   themeFlavor,
+  platformWidgetCatalog,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -54,6 +56,8 @@ extension AppRouteExtension on AppRoute {
         return '/design_system';
       case AppRoute.themeFlavor:
         return '/theme_flavor';
+      case AppRoute.platformWidgetCatalog:
+        return 'platform_widget_catalog';
     }
   }
 
@@ -83,6 +87,8 @@ extension AppRouteExtension on AppRoute {
         return const DesignSystemPage();
       case AppRoute.themeFlavor:
         return const ThemeFlavorPage();
+      case AppRoute.platformWidgetCatalog:
+        return const PlatformWidgetCatelogPage();
     }
   }
 
@@ -112,6 +118,8 @@ extension AppRouteExtension on AppRoute {
         return Icons.design_services;
       case AppRoute.themeFlavor:
         return Icons.coffee;
+      case AppRoute.platformWidgetCatalog:
+        return Icons.phone_android;
     }
   }
 }
