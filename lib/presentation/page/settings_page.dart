@@ -27,6 +27,19 @@ class SettingsPage extends ConsumerWidget {
       body: ListView(
         children: <Widget>[
           ListTile(
+            title: const Text('Color'),
+            subtitle: Text(
+              ref.watch(
+                primaryProvider.select(
+                  (Primary primary) => describeEnum(primary.color.toString()),
+                ),
+              ),
+            ),
+            onTap: () =>
+                Navigator.of(context).pushNamed(AppRoute.primaryColor.name),
+          ),
+          const Divider(),
+          ListTile(
             title: const Text('ThemeMode'),
             subtitle: Text(
               ref.watch(
@@ -51,19 +64,6 @@ class SettingsPage extends ConsumerWidget {
             ),
             onTap: () =>
                 Navigator.of(context).pushNamed(AppRoute.themeFlavor.name),
-          ),
-          const Divider(),
-          ListTile(
-            title: const Text('Color'),
-            subtitle: Text(
-              ref.watch(
-                primaryProvider.select(
-                  (Primary primary) => describeEnum(primary.color.toString()),
-                ),
-              ),
-            ),
-            onTap: () =>
-                Navigator.of(context).pushNamed(AppRoute.primaryColor.name),
           ),
           const Divider(),
           ListTile(
