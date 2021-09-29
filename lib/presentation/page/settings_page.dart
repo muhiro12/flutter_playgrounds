@@ -78,7 +78,7 @@ class SettingsPage extends ConsumerWidget {
               ),
             ),
             onTap: () => Navigator.of(context)
-                .pushNamed(AppRoute.designPlatformSettings.name),
+                .pushNamed(AppRoute.designPlatform.name),
           ),
           const Divider(),
           PlatformSwitchListTile(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/presentation/page/button_catalog_page.dart';
 import 'package:flutter_playgrounds/presentation/page/catalog_page.dart';
 import 'package:flutter_playgrounds/presentation/page/default_tab_page.dart';
-import 'package:flutter_playgrounds/presentation/page/design_platform_settings_page.dart';
+import 'package:flutter_playgrounds/presentation/page/design_platform_page.dart';
 import 'package:flutter_playgrounds/presentation/page/design_system_page.dart';
 import 'package:flutter_playgrounds/presentation/page/gitignore_names_page.dart';
 import 'package:flutter_playgrounds/presentation/page/gitignore_page.dart';
@@ -23,7 +23,7 @@ enum AppRoute {
   primaryColor,
   catalog,
   buttonCatalog,
-  designPlatformSettings,
+  designPlatform,
   designSystem,
 }
 
@@ -50,7 +50,7 @@ extension AppRouteExtension on AppRoute {
         return '/catalog';
       case AppRoute.buttonCatalog:
         return '/button_catalog';
-      case AppRoute.designPlatformSettings:
+      case AppRoute.designPlatform:
         return '/design_platform_settings';
       case AppRoute.designSystem:
         return '/design_system';
@@ -79,8 +79,8 @@ extension AppRouteExtension on AppRoute {
         return const CatalogPage();
       case AppRoute.buttonCatalog:
         return const ButtonCatalogPage();
-      case AppRoute.designPlatformSettings:
-        return const DesignPlatformSettingsPage();
+      case AppRoute.designPlatform:
+        return const DesignPlatformPage();
       case AppRoute.designSystem:
         return const DesignSystemPage();
     }
@@ -108,8 +108,8 @@ extension AppRouteExtension on AppRoute {
         return Icons.view_module;
       case AppRoute.buttonCatalog:
         return Icons.add;
-      case AppRoute.designPlatformSettings:
-        return Icons.design_services;
+      case AppRoute.designPlatform:
+        return Icons.phone_android;
       case AppRoute.designSystem:
         return Icons.design_services;
     }

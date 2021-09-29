@@ -5,8 +5,8 @@ import 'package:flutter_playgrounds/presentation/model/design_platform_settings.
 import 'package:flutter_playgrounds/presentation/widget/platform_scaffold.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class DesignPlatformSettingsPage extends ConsumerWidget {
-  const DesignPlatformSettingsPage({Key? key}) : super(key: key);
+class DesignPlatformPage extends ConsumerWidget {
+  const DesignPlatformPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
