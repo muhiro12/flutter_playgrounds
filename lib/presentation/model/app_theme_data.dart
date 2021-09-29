@@ -17,11 +17,27 @@ class AppThemeData {
   final Primary _primary;
   MaterialColor get _primaryColor => _primary.color.value;
 
-  ThemeData get light =>
-      _primary.themeFlavor == ThemeFlavor.strong ? _lightStrong : _light;
+  ThemeData get light {
+    switch (_primary.themeFlavor) {
+      case ThemeFlavor.none:
+        return _light;
+      case ThemeFlavor.aLittle:
+        return _lightALittle;
+      case ThemeFlavor.strong:
+        return _lightStrong;
+    }
+  }
 
-  ThemeData get dark =>
-      _primary.themeFlavor == ThemeFlavor.strong ? _darkStrong : _dark;
+  ThemeData get dark {
+    switch (_primary.themeFlavor) {
+      case ThemeFlavor.none:
+        return _dark;
+      case ThemeFlavor.aLittle:
+        return _darkALittle;
+      case ThemeFlavor.strong:
+        return _darkStrong;
+    }
+  }
 
   ThemeData get _light => ThemeData(
         brightness: Brightness.light,
@@ -33,13 +49,13 @@ class AppThemeData {
         primarySwatch: _primaryColor,
       );
 
-  ThemeData get _lightStrong {
-    final ThemeData shared = _light;
-    return shared.copyWith(
+  ThemeData get _lightALittle {
+    final ThemeData original = _light;
+    return original.copyWith(
       scaffoldBackgroundColor: Colors.grey.shade200,
       canvasColor: Colors.transparent,
       dividerColor: _primaryColor.shade200,
-      textTheme: shared.textTheme.apply(
+      textTheme: original.textTheme.apply(
         bodyColor: Colors.grey.shade800,
       ),
       cupertinoOverrideTheme: CupertinoThemeData(
@@ -53,9 +69,9 @@ class AppThemeData {
     );
   }
 
-  ThemeData get _darkStrong {
-    final ThemeData shared = _dark;
-    return shared.copyWith(
+  ThemeData get _darkALittle {
+    final ThemeData original = _dark;
+    return original.copyWith(
       primaryColor: _primaryColor,
       scaffoldBackgroundColor: Colors.grey.shade900,
       toggleableActiveColor: _primaryColor,
@@ -67,7 +83,7 @@ class AppThemeData {
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: _primaryColor,
       ),
-      textTheme: shared.textTheme.apply(),
+      textTheme: original.textTheme.apply(),
       cupertinoOverrideTheme: CupertinoThemeData(
         primaryColor: _primary.color.cupertino,
         scaffoldBackgroundColor: CupertinoColors.secondarySystemBackground,
@@ -78,4 +94,8 @@ class AppThemeData {
       ),
     );
   }
+
+  ThemeData get _lightStrong => _lightALittle.copyWith();
+
+  ThemeData get _darkStrong => _darkALittle.copyWith();
 }
