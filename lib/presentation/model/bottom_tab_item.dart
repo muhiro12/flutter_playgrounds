@@ -5,6 +5,7 @@ enum BottomTabItem {
   home,
   gitHub,
   catalog,
+  platform,
   settings,
 }
 
@@ -17,6 +18,8 @@ extension BottomTabItemExtension on BottomTabItem {
         return AppRoute.gitignoreNames;
       case BottomTabItem.catalog:
         return AppRoute.catalog;
+      case BottomTabItem.platform:
+        return AppRoute.platform;
       case BottomTabItem.settings:
         return AppRoute.settings;
     }
@@ -30,6 +33,8 @@ extension BottomTabItemExtension on BottomTabItem {
         return 'GitHub';
       case BottomTabItem.catalog:
         return 'Catalog';
+      case BottomTabItem.platform:
+        return 'Platform';
       case BottomTabItem.settings:
         return 'Settings';
     }
