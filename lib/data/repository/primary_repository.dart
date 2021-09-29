@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/data/model/preferences.dart';
 import 'package:flutter_playgrounds/data/model/preferences_key.dart';
-import 'package:flutter_playgrounds/presentation/model/design_platform_settings.dart';
 import 'package:flutter_playgrounds/presentation/model/design_system.dart';
 import 'package:flutter_playgrounds/presentation/model/primary_color.dart';
 import 'package:flutter_playgrounds/presentation/model/theme_flavor.dart';
@@ -36,12 +35,6 @@ class PrimaryRepository {
     return ThemeFlavor.values[index ?? 1];
   }
 
-  DesignPlatformSettings designPlatformSettings() {
-    final int? index =
-        _preferences.getInt(PreferencesKey.designPlatformSettingsIndex);
-    return DesignPlatformSettings.values[index ?? 0];
-  }
-
   DesignSystem designSystem() {
     final int? index = _preferences.getInt(PreferencesKey.designSystemIndex);
     return DesignSystem.values[index ?? 0];
@@ -65,14 +58,6 @@ class PrimaryRepository {
     return _preferences.setInt(
       PreferencesKey.themeFlavorIndex,
       themeFlavor.index,
-    );
-  }
-
-  Future<bool> setDesignPlatformSettings(
-      DesignPlatformSettings designPlatformSettings) {
-    return _preferences.setInt(
-      PreferencesKey.designPlatformSettingsIndex,
-      designPlatformSettings.index,
     );
   }
 

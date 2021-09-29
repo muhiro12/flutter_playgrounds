@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/data/repository/primary_repository.dart';
-import 'package:flutter_playgrounds/presentation/model/design_platform_settings.dart';
 import 'package:flutter_playgrounds/presentation/model/design_system.dart';
 import 'package:flutter_playgrounds/presentation/model/primary_color.dart';
 import 'package:flutter_playgrounds/presentation/model/theme_flavor.dart';
@@ -20,8 +19,6 @@ class Primary extends ChangeNotifier {
   ThemeMode get themeMode => _repository.themeMode();
   PrimaryColor get color => _repository.primaryColor();
   ThemeFlavor get themeFlavor => _repository.themeFlavor();
-  DesignPlatformSettings get designPlatformSettings =>
-      _repository.designPlatformSettings();
   DesignSystem get designSystem => _repository.designSystem();
 
   void selectThemeMode(ThemeMode themeMode) =>
@@ -30,9 +27,6 @@ class Primary extends ChangeNotifier {
       _repository.setPrimaryColor(primaryColor);
   void selectThemeFlavor(ThemeFlavor themeFlavor) =>
       _repository.setThemeFlavor(themeFlavor);
-  void selectDesignPlatformSettings(
-          DesignPlatformSettings designPlatformSettings) =>
-      _repository.setDesignPlatformSettings(designPlatformSettings);
   void selectDesignSystem(DesignSystem designSystem) =>
       _repository.setDesignSystem(designSystem);
 }
