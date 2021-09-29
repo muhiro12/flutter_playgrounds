@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/business/model/git_hub.dart';
 import 'package:flutter_playgrounds/data/entity/gitignore.dart';
-import 'package:flutter_playgrounds/presentation/widget/platform_scaffold.dart';
+import 'package:flutter_playgrounds/presentation/widget/app_scaffold.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class GitignorePage extends ConsumerWidget {
@@ -11,7 +11,7 @@ class GitignorePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final String? gitignoreName =
         ModalRoute.of(context)?.settings.arguments as String?;
-    return PlatformScaffold(
+    return AppScaffold(
       title: Text(toString()),
       body: Builder(
         builder: (BuildContext context) {

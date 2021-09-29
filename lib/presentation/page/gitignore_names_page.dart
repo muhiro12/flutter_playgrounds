@@ -3,7 +3,7 @@ import 'package:flutter_playgrounds/business/model/git_hub.dart';
 import 'package:flutter_playgrounds/presentation/model/app_route.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab_item.dart';
-import 'package:flutter_playgrounds/presentation/widget/platform_scaffold.dart';
+import 'package:flutter_playgrounds/presentation/widget/app_scaffold.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class GitignoreNamesPage extends ConsumerWidget {
@@ -22,7 +22,7 @@ class GitignoreNamesPage extends ConsumerWidget {
         ref.refresh(allGitignoreNamesProvider);
       },
     );
-    return PlatformScaffold(
+    return AppScaffold(
       title: Text(toString()),
       body: ref.watch(allGitignoreNamesProvider).when(
             data: (List<String> gitignoreNames) => ListView.separated(

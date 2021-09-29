@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/business/model/primary.dart';
 import 'package:flutter_playgrounds/presentation/model/primary_color.dart';
-import 'package:flutter_playgrounds/presentation/widget/platform_scaffold.dart';
+import 'package:flutter_playgrounds/presentation/widget/app_scaffold.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class PrimaryColorPage extends ConsumerWidget {
@@ -13,7 +13,7 @@ class PrimaryColorPage extends ConsumerWidget {
     final PrimaryColor current = ref.watch(primaryProvider.select(
       (Primary primary) => primary.color,
     ));
-    return PlatformScaffold(
+    return AppScaffold(
       title: Text(toString()),
       body: ListView.separated(
         itemBuilder: (_, int index) => RadioListTile<PrimaryColor>(

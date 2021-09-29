@@ -6,7 +6,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_playgrounds/presentation/model/app_route.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
 import 'package:flutter_playgrounds/presentation/model/bottom_tab_item.dart';
-import 'package:flutter_playgrounds/presentation/widget/platform_scaffold.dart';
+import 'package:flutter_playgrounds/presentation/widget/app_scaffold.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HomePage extends HookConsumerWidget {
@@ -31,7 +31,7 @@ class HomePage extends HookConsumerWidget {
           ),
         ).data ??
         0;
-    return PlatformScaffold(
+    return AppScaffold(
       title: Text(toString()),
       body: Column(
         children: <Widget>[

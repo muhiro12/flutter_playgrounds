@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_playgrounds/presentation/widget/platform_scaffold.dart';
+import 'package:flutter_playgrounds/presentation/widget/app_scaffold.dart';
 
 class ListTabPage extends HookWidget {
   const ListTabPage({Key? key}) : super(key: key);
@@ -8,7 +8,7 @@ class ListTabPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final TabController tabController = useTabController(initialLength: 3);
-    return PlatformScaffold(
+    return AppScaffold(
       title: Text(toString()),
       body: ListView(
         children: <Widget>[

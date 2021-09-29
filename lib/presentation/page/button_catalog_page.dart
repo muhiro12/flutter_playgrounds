@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_playgrounds/presentation/widget/app_scaffold.dart';
 import 'package:flutter_playgrounds/presentation/widget/catalog_view.dart';
-import 'package:flutter_playgrounds/presentation/widget/platform_scaffold.dart';
 
 class ButtonCatalogPage extends StatelessWidget {
   const ButtonCatalogPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return PlatformScaffold(
+    return AppScaffold(
       title: Text(toString()),
       body: CatalogView(
         children: <Widget>[
