@@ -24,7 +24,7 @@ enum PrimaryColor {
 }
 
 extension PrimaryColorExtension on PrimaryColor {
-  MaterialColor get value {
+  MaterialColor get material {
     switch (this) {
       case PrimaryColor.red:
         return Colors.red;

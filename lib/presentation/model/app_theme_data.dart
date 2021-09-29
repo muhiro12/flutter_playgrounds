@@ -15,7 +15,8 @@ class AppThemeData {
   AppThemeData(this._primary);
 
   final Primary _primary;
-  MaterialColor get _primaryColor => _primary.color.value;
+  MaterialColor get _materialColor => _primary.color.material;
+  CupertinoDynamicColor get _cupertinoColor => _primary.color.cupertino;
 
   ThemeData get light {
     switch (_primary.themeFlavor) {
@@ -41,12 +42,12 @@ class AppThemeData {
 
   ThemeData get _light => ThemeData(
         brightness: Brightness.light,
-        primarySwatch: _primaryColor,
+        primarySwatch: _materialColor,
       );
 
   ThemeData get _dark => ThemeData(
         brightness: Brightness.dark,
-        primarySwatch: _primaryColor,
+        primarySwatch: _materialColor,
       );
 
   ThemeData get _lightALittle {
@@ -54,48 +55,64 @@ class AppThemeData {
     return original.copyWith(
       scaffoldBackgroundColor: Colors.grey.shade200,
       canvasColor: Colors.transparent,
-      dividerColor: _primaryColor.shade200,
       textTheme: original.textTheme.apply(
         bodyColor: Colors.grey.shade800,
       ),
-      cupertinoOverrideTheme: CupertinoThemeData(
-        primaryColor: _primary.color.cupertino,
-        scaffoldBackgroundColor: CupertinoColors.secondarySystemBackground,
-        barBackgroundColor: Colors.transparent,
-        textTheme: CupertinoTextThemeData(
-          primaryColor: _primary.color.cupertino,
-        ),
-      ),
+      cupertinoOverrideTheme: _cupertinoTheme,
     );
   }
 
   ThemeData get _darkALittle {
     final ThemeData original = _dark;
     return original.copyWith(
-      primaryColor: _primaryColor,
+      primaryColor: _materialColor,
       scaffoldBackgroundColor: Colors.grey.shade900,
-      toggleableActiveColor: _primaryColor,
+      toggleableActiveColor: _materialColor,
       dialogBackgroundColor: Colors.grey.shade900,
       canvasColor: Colors.transparent,
       appBarTheme: AppBarTheme(
-        color: _primaryColor.shade900,
+        color: _materialColor.shade900,
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: _primaryColor,
+        backgroundColor: _materialColor,
       ),
       textTheme: original.textTheme.apply(),
-      cupertinoOverrideTheme: CupertinoThemeData(
-        primaryColor: _primary.color.cupertino,
-        scaffoldBackgroundColor: CupertinoColors.secondarySystemBackground,
-        barBackgroundColor: Colors.transparent,
-        textTheme: CupertinoTextThemeData(
-          primaryColor: _primary.color.cupertino,
-        ),
+      cupertinoOverrideTheme: _cupertinoTheme,
+    );
+  }
+
+  ThemeData get _lightStrong {
+    final ThemeData original = _lightALittle;
+    return original.copyWith(
+      appBarTheme: original.appBarTheme.copyWith(
+        foregroundColor: _materialColor.shade900,
+        backgroundColor: Colors.transparent,
+        toolbarHeight: 80,
+        elevation: 0,
+        centerTitle: false,
       ),
     );
   }
 
-  ThemeData get _lightStrong => _lightALittle.copyWith();
+  ThemeData get _darkStrong {
+    final ThemeData original = _darkALittle;
+    return original.copyWith(
+      appBarTheme: original.appBarTheme.copyWith(
+        foregroundColor: _materialColor.shade900,
+        backgroundColor: Colors.transparent,
+        toolbarHeight: 80,
+        elevation: 0,
+        centerTitle: false,
+      ),
+    );
+  }
 
-  ThemeData get _darkStrong => _darkALittle.copyWith();
+  CupertinoThemeData get _cupertinoTheme => CupertinoThemeData(
+        primaryColor: _cupertinoColor,
+        scaffoldBackgroundColor: CupertinoColors.secondarySystemBackground,
+        barBackgroundColor: Colors.transparent,
+        textTheme: CupertinoTextThemeData(
+          primaryColor: _cupertinoColor,
+        ),
+      );
 }
