@@ -1,5 +1,5 @@
 enum PreferencesKey {
-  colorCode,
+  primaryColorIndex,
   themeModeIndex,
   themeFlavorIndex,
   designSystemIndex,
@@ -8,7 +8,7 @@ enum PreferencesKey {
 extension PreferenecesKeyExtension on PreferencesKey {
   String get value {
     switch (this) {
-      case PreferencesKey.colorCode:
+      case PreferencesKey.primaryColorIndex:
         return '80e47ab8';
       case PreferencesKey.themeModeIndex:
         return '92dd066a';

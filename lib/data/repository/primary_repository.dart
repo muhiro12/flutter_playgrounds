@@ -23,11 +23,8 @@ class PrimaryRepository {
   }
 
   PrimaryColor primaryColor() {
-    final int? colorCode = _preferences.getInt(PreferencesKey.colorCode);
-    return PrimaryColor.values.firstWhere(
-      (PrimaryColor primaryColor) => primaryColor.value.value == colorCode,
-      orElse: () => PrimaryColor.blue,
-    );
+    final int? index = _preferences.getInt(PreferencesKey.primaryColorIndex);
+    return PrimaryColor.values[index ?? 0];
   }
 
   ThemeFlavor themeFlavor() {
@@ -49,8 +46,8 @@ class PrimaryRepository {
 
   Future<bool> setPrimaryColor(PrimaryColor primaryColor) {
     return _preferences.setInt(
-      PreferencesKey.colorCode,
-      primaryColor.value.value,
+      PreferencesKey.primaryColorIndex,
+      primaryColor.index,
     );
   }
 
