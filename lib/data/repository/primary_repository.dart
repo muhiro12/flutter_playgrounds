@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/data/model/preferences.dart';
 import 'package:flutter_playgrounds/data/model/preferences_key.dart';
 import 'package:flutter_playgrounds/presentation/model/design_platform_settings.dart';
+import 'package:flutter_playgrounds/presentation/model/design_system.dart';
 import 'package:flutter_playgrounds/presentation/model/primary_color.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -39,6 +40,11 @@ class PrimaryRepository {
     return DesignPlatformSettings.values[index ?? 0];
   }
 
+  DesignSystem designSystem() {
+    final int? index = _preferences.getInt(PreferencesKey.designSystemIndex);
+    return DesignSystem.values[index ?? 0];
+  }
+
   Future<bool> setThemeMode(ThemeMode themeMode) {
     return _preferences.setInt(
       PreferencesKey.themeModeIndex,
@@ -65,6 +71,13 @@ class PrimaryRepository {
     return _preferences.setInt(
       PreferencesKey.designPlatformSettingsIndex,
       designPlatformSettings.index,
+    );
+  }
+
+  Future<bool> setDesignSystem(DesignSystem designSystem) {
+    return _preferences.setInt(
+      PreferencesKey.designSystemIndex,
+      designSystem.index,
     );
   }
 }
