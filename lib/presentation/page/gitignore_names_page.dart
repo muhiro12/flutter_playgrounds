@@ -39,10 +39,10 @@ class GitignoreNamesPage extends ConsumerWidget {
               separatorBuilder: (_, __) => const Divider(),
               itemCount: gitignoreNames.length,
             ),
-            loading: () => const Center(
+            loading: (_) => const Center(
               child: CircularProgressIndicator(),
             ),
-            error: (Object error, _) => Text(
+            error: (Object error, _, __) => Text(
               error.toString(),
             ),
           ),

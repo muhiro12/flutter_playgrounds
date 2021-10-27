@@ -14,15 +14,13 @@ Future<void> main() async {
   runApp(
     ProviderScope(
       overrides: <Override>[
-        preferencesProvider.overrideWithProvider(
-          ChangeNotifierProvider<Preferences>(
-            (_) => Preferences(sharedPreferences),
-          ),
+        preferencesProvider.overrideWithValue(
+          Preferences(sharedPreferences),
         ),
         // TODO(nakano): Not working yet
-        gitignoreProvider.overrideWithProvider(
-          (String argument) => FutureProvider<Gitignore>(
-            (_) async => FakeGitHubRepository().gitignore(argument),
+        gitignoreProvider('').overrideWithValue(
+          AsyncValue<Gitignore>.data(
+            await FakeGitHubRepository().gitignore(''),
           ),
         ),
       ],

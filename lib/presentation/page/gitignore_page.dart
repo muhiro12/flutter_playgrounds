@@ -25,10 +25,10 @@ class GitignorePage extends ConsumerWidget {
                     Text(gitignore.source),
                   ],
                 ),
-                loading: () => const Center(
+                loading: (_) => const Center(
                   child: CircularProgressIndicator(),
                 ),
-                error: (Object error, __) => Text(
+                error: (Object error, _, __) => Text(
                   error.toString(),
                 ),
               );
