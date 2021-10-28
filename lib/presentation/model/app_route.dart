@@ -7,6 +7,7 @@ import 'package:flutter_playgrounds/presentation/page/gitignore_names_page.dart'
 import 'package:flutter_playgrounds/presentation/page/gitignore_page.dart';
 import 'package:flutter_playgrounds/presentation/page/home_page.dart';
 import 'package:flutter_playgrounds/presentation/page/list_tab_page.dart';
+import 'package:flutter_playgrounds/presentation/page/markdown_page.dart';
 import 'package:flutter_playgrounds/presentation/page/platform_page.dart';
 import 'package:flutter_playgrounds/presentation/page/primary_color_page.dart';
 import 'package:flutter_playgrounds/presentation/page/settings_page.dart';
@@ -27,6 +28,7 @@ enum AppRoute {
   designSystem,
   themeFlavor,
   platform,
+  markdown,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -58,6 +60,8 @@ extension AppRouteExtension on AppRoute {
         return '/theme_flavor';
       case AppRoute.platform:
         return '/platform';
+      case AppRoute.markdown:
+        return '/markdown';
     }
   }
 
@@ -89,6 +93,8 @@ extension AppRouteExtension on AppRoute {
         return const ThemeFlavorPage();
       case AppRoute.platform:
         return const PlatformPage();
+      case AppRoute.markdown:
+        return const MarkdownPage();
     }
   }
 
@@ -120,6 +126,8 @@ extension AppRouteExtension on AppRoute {
         return Icons.coffee;
       case AppRoute.platform:
         return Icons.phone_android;
+      case AppRoute.markdown:
+        return Icons.file_copy;
     }
   }
 }
