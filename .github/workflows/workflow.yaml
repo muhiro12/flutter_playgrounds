@@ -13,7 +13,15 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Create commit about build number
+    - name: Flutter action
+      uses: subosito/flutter-action@v1.5.3
+
+    - name: Flutter build
+      run: |
+        flutter pub get
+        flutter build web
+
+    - name: Deploy to GitHub Pages
       run: |
         git clone https://github.com/muhiro12/muhiro12.github.io.git
         cp build/web/ flutter_playgrounds/
