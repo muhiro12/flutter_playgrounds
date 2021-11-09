@@ -11,6 +11,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Checkout pages repository
+      uses: actions/checkout@v2
+      with:
+        repository: 'muhiro12/muhiro12.github.io'
+        token: ${{ secrets.PRIVATE_GITHUB_TOKEN }}
+        path: 'pages'
+
     - name: Flutter action
       uses: subosito/flutter-action@v1.5.3
 
@@ -18,13 +25,6 @@ jobs:
       run: |
         flutter pub get
         flutter build web
-
-    - name: Checkout pages repository
-      uses: actions/checkout@v2
-      with:
-        repository: 'muhiro12/muhiro12.github.io'
-        token: ${{ secrets.PRIVATE_GITHUB_TOKEN }}
-        path: 'pages'
 
     - name: Deploy to GitHub Pages
       run: |
