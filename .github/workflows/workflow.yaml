@@ -30,7 +30,7 @@ jobs:
     - name: Flutter build
       run: |
         flutter pub get
-        flutter build web
+        flutter build web --base-href=/${{ github.event.repository.name }}/
 
     - name: Deploy to GitHub Pages
       run: |
