@@ -23,6 +23,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: 'muhiro12/muhiro12.github.io'
+        token: ${{ secrets.PRIVATE_GITHUB_TOKEN }}
         path: 'pages'
 
     - name: Deploy to GitHub Pages
