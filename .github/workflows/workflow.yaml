@@ -24,7 +24,7 @@ jobs:
     - name: Deploy to GitHub Pages
       run: |
         git clone https://github.com/muhiro12/muhiro12.github.io.git
-        cp build/web/ flutter_playgrounds/
+        cp -r build/web/ flutter_playgrounds/
         cd flutter_playgrounds/
         git add .
         git commit -m 'Update flutter_playgrounds'
