@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create commit about build number
+      run: |
+        git clone https://github.com/muhiro12/muhiro12.github.io.git
+        cp build/web/ flutter_playgrounds/
+        cd flutter_playgrounds/
+        git add .
+        git commit -m 'Update flutter_playgrounds'
+        git push origin HEAD
