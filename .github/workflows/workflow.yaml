@@ -3,6 +3,8 @@ on:
     branches:
       - main
   workflow_dispatch:
+env:
+  PAGES_REPOSITORY: muhiro12/muhiro12.github.io
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,9 +16,9 @@ jobs:
     - name: Checkout pages repository
       uses: actions/checkout@v2
       with:
-        repository: 'muhiro12/muhiro12.github.io'
+        repository: ${{ env.PAGES_REPOSITORY }}
         token: ${{ secrets.PRIVATE_GITHUB_TOKEN }}
-        path: 'pages'
+        path: pages
 
     - name: Cache
       uses: actions/cache@v2
