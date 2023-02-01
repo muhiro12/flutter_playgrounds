@@ -4,8 +4,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../model/app_route.dart';
 import '../widget/app_scaffold.dart';
 
-class SampleItemListPage extends ConsumerWidget {
-  const SampleItemListPage({Key? key}) : super(key: key);
+class SampleProductListPage extends ConsumerWidget {
+  const SampleProductListPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -15,7 +15,7 @@ class SampleItemListPage extends ConsumerWidget {
         itemBuilder: (_, int index) => ListTile(
           title: Text(index.toString()),
           onTap: () =>
-              Navigator.of(context).pushNamed(AppRoute.sampleItemDetail.name),
+              Navigator.of(context).pushNamed(AppRoute.sampleProduct.name),
         ),
         separatorBuilder: (_, __) => const Divider(),
         itemCount: 10,

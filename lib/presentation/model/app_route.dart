@@ -11,8 +11,8 @@ import '../page/list_tab_page.dart';
 import '../page/markdown_page.dart';
 import '../page/platform_page.dart';
 import '../page/primary_color_page.dart';
-import '../page/sample_item_detail_page.dart';
-import '../page/sample_item_list_page.dart';
+import '../page/sample_product_list_page.dart';
+import '../page/sample_product_page.dart';
 import '../page/settings_page.dart';
 import '../page/theme_flavor_page.dart';
 import '../page/theme_mode_page.dart';
@@ -32,8 +32,8 @@ enum AppRoute {
   themeFlavor,
   platform,
   markdown,
-  sampleItemList,
-  sampleItemDetail,
+  sampleProductList,
+  sampleProduct,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -67,9 +67,9 @@ extension AppRouteExtension on AppRoute {
         return '/platform';
       case AppRoute.markdown:
         return '/markdown';
-      case AppRoute.sampleItemList:
+      case AppRoute.sampleProductList:
         return '/sample_item_list';
-      case AppRoute.sampleItemDetail:
+      case AppRoute.sampleProduct:
         return 'sample_item_detail';
     }
   }
@@ -104,10 +104,10 @@ extension AppRouteExtension on AppRoute {
         return const PlatformPage();
       case AppRoute.markdown:
         return const MarkdownPage();
-      case AppRoute.sampleItemList:
-        return const SampleItemListPage();
-      case AppRoute.sampleItemDetail:
-        return const SampleItemDetailPage();
+      case AppRoute.sampleProductList:
+        return const SampleProductListPage();
+      case AppRoute.sampleProduct:
+        return const SampleProductPage();
     }
   }
 
@@ -141,9 +141,9 @@ extension AppRouteExtension on AppRoute {
         return Icons.phone_android;
       case AppRoute.markdown:
         return Icons.file_copy;
-      case AppRoute.sampleItemList:
+      case AppRoute.sampleProductList:
         return Icons.list;
-      case AppRoute.sampleItemDetail:
+      case AppRoute.sampleProduct:
         return Icons.details;
     }
   }

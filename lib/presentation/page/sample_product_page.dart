@@ -3,8 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../widget/app_scaffold.dart';
 
-class SampleItemDetailPage extends ConsumerWidget {
-  const SampleItemDetailPage({Key? key}) : super(key: key);
+class SampleProductPage extends ConsumerWidget {
+  const SampleProductPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
