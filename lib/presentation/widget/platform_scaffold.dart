@@ -1,19 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/business/model/primary.dart';
-import 'package:flutter_playgrounds/presentation/model/design_platform.dart';
-import 'package:flutter_playgrounds/presentation/model/design_system.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../business/model/primary.dart';
+import '../model/design_platform.dart';
+import '../model/design_system.dart';
 
 class PlatformScaffold extends ConsumerWidget {
   const PlatformScaffold({
     Key? key,
     required this.title,
     required this.body,
+    this.trailing,
   }) : super(key: key);
 
   final Text title;
   final Widget body;
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,6 +28,9 @@ class PlatformScaffold extends ConsumerWidget {
         return Scaffold(
           appBar: AppBar(
             title: title,
+            actions: <Widget?>[
+              trailing,
+            ].whereType<Widget>().toList(),
           ),
           body: SafeArea(
             child: body,
@@ -37,6 +43,7 @@ class PlatformScaffold extends ConsumerWidget {
               headerSliverBuilder: (_, __) => <Widget>[
                 CupertinoSliverNavigationBar(
                   largeTitle: title,
+                  trailing: trailing,
                 ),
               ],
               body: SafeArea(
@@ -50,6 +57,7 @@ class PlatformScaffold extends ConsumerWidget {
           return CupertinoPageScaffold(
             navigationBar: CupertinoNavigationBar(
               middle: title,
+              trailing: trailing,
             ),
             child: SafeArea(
               child: Material(

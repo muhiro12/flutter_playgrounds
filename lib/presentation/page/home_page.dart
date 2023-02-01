@@ -25,7 +25,9 @@ class HomePage extends HookConsumerWidget {
         Navigator.of(context).popUntil((Route<dynamic> route) => route.isFirst);
       },
     );
-    final int index = useStream<int>(
+    final ValueNotifier<List<AppRoute>> appRoutesNotifier =
+        useState(AppRoute.values);
+    final int randomIndex = useStream<int>(
           Stream<int>.periodic(
             const Duration(seconds: 10),
             (_) => Random().nextInt(AppRoute.values.length),
@@ -34,13 +36,19 @@ class HomePage extends HookConsumerWidget {
         0;
     return AppScaffold(
       title: Text(toString()),
+      // TODO(nakano): Not work in cupertion context
+      trailing: IconButton(
+        icon: const Icon(Icons.sort),
+        onPressed: () =>
+            appRoutesNotifier.value = appRoutesNotifier.value.reversed.toList(),
+      ),
       body: Column(
         children: <Widget>[
           Expanded(
             child: ListView.separated(
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
-                final AppRoute route = AppRoute.values[index];
+                final AppRoute route = appRoutesNotifier.value[index];
                 return ListTile(
                   onTap: () => Navigator.of(context).pushNamed(route.name),
                   leading: Icon(route.icon),
@@ -53,7 +61,7 @@ class HomePage extends HookConsumerWidget {
           ),
           Builder(
             builder: (BuildContext context) {
-              final AppRoute route = AppRoute.values[index];
+              final AppRoute route = appRoutesNotifier.value[randomIndex];
               return MaterialButton(
                 onPressed: () => Navigator.of(context).pushNamed(route.name),
                 child: Card(
