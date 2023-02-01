@@ -13,6 +13,7 @@ dependencies:
   hooks_riverpod: ^2.0.0
   flutter_hooks: ^0.18.0
   flutter_markdown: ^0.6.8
+  english_words: ^4.0.0
   openapi:
     path: openapi
 dev_dependencies:
