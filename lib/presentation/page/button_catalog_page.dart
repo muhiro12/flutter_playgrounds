@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/presentation/widget/app_scaffold.dart';
-import 'package:flutter_playgrounds/presentation/widget/catalog_view.dart';
+
+import '../widget/app_scaffold.dart';
+import '../widget/catalog_view.dart';
 
 class ButtonCatalogPage extends StatelessWidget {
   const ButtonCatalogPage({Key? key}) : super(key: key);
@@ -23,6 +24,7 @@ class ButtonCatalogPage extends StatelessWidget {
           ),
           const CloseButton(),
           DropdownButton<void>(
+            onChanged: (_) {},
             items: const <DropdownMenuItem<void>>[
               DropdownMenuItem<void>(child: Text('Dropdown')),
             ],

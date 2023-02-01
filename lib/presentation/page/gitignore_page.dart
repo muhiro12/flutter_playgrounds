@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/business/model/git_hub.dart';
-import 'package:flutter_playgrounds/data/entity/gitignore.dart';
-import 'package:flutter_playgrounds/presentation/widget/app_scaffold.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../business/model/git_hub.dart';
+import '../../data/entity/gitignore.dart';
+import '../widget/app_scaffold.dart';
 
 class GitignorePage extends ConsumerWidget {
   const GitignorePage({Key? key}) : super(key: key);
@@ -25,10 +26,10 @@ class GitignorePage extends ConsumerWidget {
                     Text(gitignore.source),
                   ],
                 ),
-                loading: (_) => const Center(
+                loading: () => const Center(
                   child: CircularProgressIndicator(),
                 ),
-                error: (Object error, _, __) => Text(
+                error: (Object error, _) => Text(
                   error.toString(),
                 ),
               );

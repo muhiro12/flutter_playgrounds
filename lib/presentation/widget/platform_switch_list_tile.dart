@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/business/model/primary.dart';
-import 'package:flutter_playgrounds/presentation/model/design_platform.dart';
-import 'package:flutter_playgrounds/presentation/model/design_system.dart';
-import 'package:flutter_playgrounds/presentation/widget/platform_switch.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../business/model/primary.dart';
+import '../model/design_platform.dart';
+import '../model/design_system.dart';
+import 'platform_switch.dart';
 
 class PlatformSwitchListTile extends ConsumerWidget {
   const PlatformSwitchListTile({

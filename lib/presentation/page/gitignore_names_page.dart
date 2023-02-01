@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/business/model/git_hub.dart';
-import 'package:flutter_playgrounds/presentation/model/app_route.dart';
-import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
-import 'package:flutter_playgrounds/presentation/model/bottom_tab_item.dart';
-import 'package:flutter_playgrounds/presentation/widget/app_scaffold.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../business/model/git_hub.dart';
+import '../model/app_route.dart';
+import '../model/bottom_tab.dart';
+import '../model/bottom_tab_item.dart';
+import '../widget/app_scaffold.dart';
 
 class GitignoreNamesPage extends ConsumerWidget {
   const GitignoreNamesPage({Key? key}) : super(key: key);
@@ -13,9 +14,9 @@ class GitignoreNamesPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(
       bottomTabProvider,
-      (BottomTab bottomTab) {
-        if (bottomTab.item != BottomTabItem.gitHub ||
-            bottomTab.item != bottomTab.oldItem) {
+      (BottomTab? oldValue, BottomTab newValue) {
+        if (newValue.item != BottomTabItem.gitHub ||
+            newValue.item != newValue.oldItem) {
           return;
         }
         Navigator.of(context).popUntil((Route<dynamic> route) => route.isFirst);
@@ -39,10 +40,10 @@ class GitignoreNamesPage extends ConsumerWidget {
               separatorBuilder: (_, __) => const Divider(),
               itemCount: gitignoreNames.length,
             ),
-            loading: (_) => const Center(
+            loading: () => const Center(
               child: CircularProgressIndicator(),
             ),
-            error: (Object error, _, __) => Text(
+            error: (Object error, _) => Text(
               error.toString(),
             ),
           ),

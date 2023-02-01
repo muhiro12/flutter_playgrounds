@@ -1,11 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/business/model/primary.dart';
-import 'package:flutter_playgrounds/presentation/model/app_route.dart';
-import 'package:flutter_playgrounds/presentation/model/bottom_tab.dart';
-import 'package:flutter_playgrounds/presentation/model/bottom_tab_item.dart';
-import 'package:flutter_playgrounds/presentation/widget/app_scaffold.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../business/model/primary.dart';
+import '../model/app_route.dart';
+import '../model/bottom_tab.dart';
+import '../model/bottom_tab_item.dart';
+import '../widget/app_scaffold.dart';
 
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -14,9 +15,9 @@ class SettingsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(
       bottomTabProvider,
-      (BottomTab bottomTab) {
-        if (bottomTab.item != BottomTabItem.settings ||
-            bottomTab.item != bottomTab.oldItem) {
+      (BottomTab? oldValue, BottomTab newValue) {
+        if (newValue.item != BottomTabItem.settings ||
+            newValue.item != newValue.oldItem) {
           return;
         }
         Navigator.of(context).popUntil((Route<dynamic> route) => route.isFirst);
