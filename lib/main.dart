@@ -17,9 +17,8 @@ Future<void> main() async {
         preferencesProvider.overrideWith(
           (_) => Preferences(sharedPreferences),
         ),
-        // TODO(nakano): Not working yet
-        gitignoreProvider('').overrideWith(
-          (_) => FakeGitHubRepository().gitignore(''),
+        gitignoreProvider.overrideWith(
+          (_, String name) => FakeGitHubRepository().gitignore(name),
         ),
       ],
       child: const App(),
