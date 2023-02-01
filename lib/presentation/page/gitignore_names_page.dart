@@ -20,7 +20,8 @@ class GitignoreNamesPage extends ConsumerWidget {
           return;
         }
         Navigator.of(context).popUntil((Route<dynamic> route) => route.isFirst);
-        ref.refresh(allGitignoreNamesProvider);
+        final AsyncValue<List<String>> _ =
+            ref.refresh(allGitignoreNamesProvider);
       },
     );
     return AppScaffold(

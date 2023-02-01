@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/business/model/primary.dart';
-import 'package:flutter_playgrounds/presentation/model/primary_color.dart';
-import 'package:flutter_playgrounds/presentation/model/theme_flavor.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../business/model/primary.dart';
+import 'primary_color.dart';
+import 'theme_flavor.dart';
 
 final Provider<AppThemeData> appThemeDataProvider =
     Provider<AppThemeData>((ProviderRef<AppThemeData> ref) {
@@ -67,7 +68,6 @@ class AppThemeData {
     return original.copyWith(
       primaryColor: _materialColor,
       scaffoldBackgroundColor: Colors.grey.shade900,
-      toggleableActiveColor: _materialColor,
       dialogBackgroundColor: Colors.grey.shade900,
       canvasColor: Colors.transparent,
       appBarTheme: AppBarTheme(
@@ -78,6 +78,52 @@ class AppThemeData {
       ),
       textTheme: original.textTheme.apply(),
       cupertinoOverrideTheme: _cupertinoTheme,
+      checkboxTheme: CheckboxThemeData(
+        fillColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return _materialColor;
+          }
+          return null;
+        }),
+      ),
+      radioTheme: RadioThemeData(
+        fillColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return _materialColor;
+          }
+          return null;
+        }),
+      ),
+      switchTheme: SwitchThemeData(
+        thumbColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return _materialColor;
+          }
+          return null;
+        }),
+        trackColor: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return _materialColor;
+          }
+          return null;
+        }),
+      ),
     );
   }
 
