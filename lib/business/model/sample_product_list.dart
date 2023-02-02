@@ -8,6 +8,13 @@ final allSampleProductListItemsProvider = StateNotifierProvider<
     (ref) => DefaultSampleProductListNotifier(
         ref.watch(sampleProductRepositoryProvider)));
 
+final favoriteSampleProductListItemsProvider = StateNotifierProvider<
+        SampleProductListNotifier, List<SampleProductListItem>>(
+    (ref) => FavoriteSampleProductListNotifier(ref
+        .watch(allSampleProductListItemsProvider)
+        .where((product) => product.isFavorited)
+        .toList()));
+
 abstract class SampleProductListNotifier
     extends StateNotifier<List<SampleProductListItem>> {
   SampleProductListNotifier(List<SampleProductListItem> state) : super(state);
@@ -26,4 +33,9 @@ class DefaultSampleProductListNotifier extends SampleProductListNotifier {
   }
 
   SampleProductRepository repository;
+}
+
+class FavoriteSampleProductListNotifier extends SampleProductListNotifier {
+  FavoriteSampleProductListNotifier(List<SampleProductListItem> state)
+      : super(state);
 }
