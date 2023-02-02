@@ -40,7 +40,8 @@ class SampleProductListPage extends HookConsumerWidget {
               ),
             ),
             onTap: () {
-              ref.read(selectedSampleIdProvider.notifier).state = product.id;
+              ref.read(selectedSampleProductIdProvider.notifier).state =
+                  product.id;
               Navigator.of(context).pushNamed(AppRoute.sampleProduct.name);
             },
           );

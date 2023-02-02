@@ -3,11 +3,11 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../data/entity/sample_product.dart';
 import '../../data/repository/sample_product_repository.dart';
 
-final selectedSampleIdProvider = StateProvider<int?>((_) => null);
+final selectedSampleProductIdProvider = StateProvider<int?>((_) => null);
 
 final sampleProductProvider = FutureProvider<SampleProduct>(
   (ref) {
-    final id = ref.watch(selectedSampleIdProvider);
+    final id = ref.watch(selectedSampleProductIdProvider);
     if (id == null) {
       throw Exception();
     }
