@@ -15,7 +15,7 @@ class MarkdownPage extends HookWidget {
       File('https://raw.githubusercontent.com/muhiro12/muhiro12/main/README.md')
           .readFromNetwork,
     );
-    final String data = useFuture(file).data ?? '';
+    final data = useFuture(file).data ?? '';
     return AppScaffold(
       title: Text(toString()),
       body: Markdown(

@@ -10,7 +10,7 @@ class GitignorePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final String? gitignoreName =
+    final gitignoreName =
         ModalRoute.of(context)?.settings.arguments as String?;
     return AppScaffold(
       title: Text(toString()),

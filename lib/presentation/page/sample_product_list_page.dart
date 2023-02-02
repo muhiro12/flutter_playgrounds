@@ -11,14 +11,14 @@ class SampleProductListPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final AsyncValue<List<SampleProductListItem>> sampleProductList =
+    final sampleProductList =
         ref.watch(allSampleProductListItemsProvider);
     return AppScaffold(
       title: Text(toString()),
       body: sampleProductList.maybeWhen(
         data: (List<SampleProductListItem> list) => ListView.separated(
           itemBuilder: (BuildContext context, int index) {
-            final SampleProductListItem product = list[index];
+            final product = list[index];
             return ListTile(
               title: Text(product.name),
               trailing: IconButton(

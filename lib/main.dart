@@ -9,7 +9,7 @@ import 'data/repository/fake/fake_git_hub_repository.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final SharedPreferences sharedPreferences =
+  final sharedPreferences =
       await SharedPreferences.getInstance();
   runApp(
     ProviderScope(

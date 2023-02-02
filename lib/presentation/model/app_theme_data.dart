@@ -8,7 +8,7 @@ import 'theme_flavor.dart';
 
 final Provider<AppThemeData> appThemeDataProvider =
     Provider<AppThemeData>((ProviderRef<AppThemeData> ref) {
-  final Primary primary = ref.watch(primaryProvider);
+  final primary = ref.watch(primaryProvider);
   return AppThemeData(primary);
 });
 
@@ -52,7 +52,7 @@ class AppThemeData {
       );
 
   ThemeData get _lightALittle {
-    final ThemeData original = _light;
+    final original = _light;
     return original.copyWith(
       scaffoldBackgroundColor: Colors.grey.shade200,
       canvasColor: Colors.transparent,
@@ -64,7 +64,7 @@ class AppThemeData {
   }
 
   ThemeData get _darkALittle {
-    final ThemeData original = _dark;
+    final original = _dark;
     return original.copyWith(
       primaryColor: _materialColor,
       scaffoldBackgroundColor: Colors.grey.shade900,
@@ -128,7 +128,7 @@ class AppThemeData {
   }
 
   ThemeData get _lightStrong {
-    final ThemeData original = _lightALittle;
+    final original = _lightALittle;
     return original.copyWith(
       appBarTheme: original.appBarTheme.copyWith(
         foregroundColor: _materialColor.shade900,
@@ -141,7 +141,7 @@ class AppThemeData {
   }
 
   ThemeData get _darkStrong {
-    final ThemeData original = _darkALittle;
+    final original = _darkALittle;
     return original.copyWith(
       appBarTheme: original.appBarTheme.copyWith(
         foregroundColor: _materialColor.shade900,

@@ -16,7 +16,7 @@ final FutureProvider<List<SampleProductListItem>>
 final FutureProvider<SampleProduct> sampleProductProvider =
     FutureProvider<SampleProduct>(
   (FutureProviderRef<SampleProduct> ref) {
-    final int? id = ref.watch(selectedSampleIdProvider);
+    final id = ref.watch(selectedSampleIdProvider);
     if (id == null) {
       throw Exception();
     }

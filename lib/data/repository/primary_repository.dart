@@ -8,7 +8,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final Provider<PrimaryRepository> primaryRepositoryProvider =
     Provider<PrimaryRepository>((ProviderRef<PrimaryRepository> ref) {
-  final Preferences preferences = ref.watch(preferencesProvider);
+  final preferences = ref.watch(preferencesProvider);
   return PrimaryRepository(preferences);
 });
 
@@ -18,22 +18,22 @@ class PrimaryRepository {
   final Preferences _preferences;
 
   ThemeMode themeMode() {
-    final int? index = _preferences.getInt(PreferencesKey.themeModeIndex);
+    final index = _preferences.getInt(PreferencesKey.themeModeIndex);
     return ThemeMode.values[index ?? 0];
   }
 
   PrimaryColor primaryColor() {
-    final int? index = _preferences.getInt(PreferencesKey.primaryColorIndex);
+    final index = _preferences.getInt(PreferencesKey.primaryColorIndex);
     return PrimaryColor.values[index ?? 0];
   }
 
   ThemeFlavor themeFlavor() {
-    final int? index = _preferences.getInt(PreferencesKey.themeFlavorIndex);
+    final index = _preferences.getInt(PreferencesKey.themeFlavorIndex);
     return ThemeFlavor.values[index ?? 1];
   }
 
   DesignSystem designSystem() {
-    final int? index = _preferences.getInt(PreferencesKey.designSystemIndex);
+    final index = _preferences.getInt(PreferencesKey.designSystemIndex);
     return DesignSystem.values[index ?? 0];
   }
 

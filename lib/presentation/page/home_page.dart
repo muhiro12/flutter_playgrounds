@@ -25,9 +25,9 @@ class HomePage extends HookConsumerWidget {
         Navigator.of(context).popUntil((Route<dynamic> route) => route.isFirst);
       },
     );
-    final ValueNotifier<List<AppRoute>> appRoutesNotifier =
+    final appRoutesNotifier =
         useState(AppRoute.values);
-    final int randomIndex = useStream<int>(
+    final randomIndex = useStream<int>(
           Stream<int>.periodic(
             const Duration(seconds: 10),
             (_) => Random().nextInt(AppRoute.values.length),
@@ -48,7 +48,7 @@ class HomePage extends HookConsumerWidget {
             child: ListView.separated(
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
-                final AppRoute route = appRoutesNotifier.value[index];
+                final route = appRoutesNotifier.value[index];
                 return ListTile(
                   onTap: () => Navigator.of(context).pushNamed(route.name),
                   leading: Icon(route.icon),
@@ -61,7 +61,7 @@ class HomePage extends HookConsumerWidget {
           ),
           Builder(
             builder: (BuildContext context) {
-              final AppRoute route = appRoutesNotifier.value[randomIndex];
+              final route = appRoutesNotifier.value[randomIndex];
               return MaterialButton(
                 onPressed: () => Navigator.of(context).pushNamed(route.name),
                 child: Card(

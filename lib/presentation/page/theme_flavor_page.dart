@@ -10,7 +10,7 @@ class ThemeFlavorPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ThemeFlavor current = ref.watch(primaryProvider.select(
+    final current = ref.watch(primaryProvider.select(
       (Primary primary) => primary.themeFlavor,
     ));
     return AppScaffold(

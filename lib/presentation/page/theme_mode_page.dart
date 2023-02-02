@@ -9,7 +9,7 @@ class ThemeModePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ThemeMode current = ref.watch(primaryProvider.select(
+    final current = ref.watch(primaryProvider.select(
       (Primary primary) => primary.themeMode,
     ));
     return AppScaffold(

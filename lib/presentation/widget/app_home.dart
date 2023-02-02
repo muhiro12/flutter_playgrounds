@@ -11,7 +11,7 @@ class AppHome extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final BottomTab bottomTab = ref.watch(bottomTabProvider);
+    final bottomTab = ref.watch(bottomTabProvider);
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         onTap: (int index) => bottomTab.select(_items[index]),

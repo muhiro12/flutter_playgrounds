@@ -11,7 +11,7 @@ extension DesignSystemExtension on DesignSystem {
   DesignPlatform platform(BuildContext context) {
     switch (this) {
       case DesignSystem.dynamic:
-        final TargetPlatform platform = Theme.of(context).platform;
+        final platform = Theme.of(context).platform;
         switch (platform) {
           case TargetPlatform.android:
           case TargetPlatform.fuchsia:

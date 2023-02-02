@@ -7,7 +7,7 @@ class ListTabPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TabController tabController = useTabController(initialLength: 3);
+    final tabController = useTabController(initialLength: 3);
     return AppScaffold(
       title: Text(toString()),
       body: ListView(

@@ -11,7 +11,7 @@ class CatalogView extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ValueNotifier<int> count = useState(2);
+    final count = useState(2);
     return Column(
       children: <Widget>[
         Expanded(

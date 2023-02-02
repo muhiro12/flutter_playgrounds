@@ -7,7 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final ChangeNotifierProvider<Primary> primaryProvider =
     ChangeNotifierProvider<Primary>((ChangeNotifierProviderRef<Primary> ref) {
-  final PrimaryRepository repository = ref.watch(primaryRepositoryProvider);
+  final repository = ref.watch(primaryRepositoryProvider);
   return Primary(repository);
 });
 

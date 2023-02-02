@@ -19,7 +19,7 @@ class AppScaffold extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final DesignSystem designSystem = ref.watch(
+    final designSystem = ref.watch(
       primaryProvider.select((Primary primary) => primary.designSystem),
     );
     switch (designSystem) {

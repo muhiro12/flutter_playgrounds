@@ -10,7 +10,7 @@ class PrimaryColorPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final PrimaryColor current = ref.watch(primaryProvider.select(
+    final current = ref.watch(primaryProvider.select(
       (Primary primary) => primary.color,
     ));
     return AppScaffold(

@@ -10,7 +10,7 @@ class SampleProductPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final AsyncValue<SampleProduct> sampleProduct =
+    final sampleProduct =
         ref.watch(sampleProductProvider);
     return AppScaffold(
       title: Text(toString()),

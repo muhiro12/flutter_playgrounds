@@ -20,7 +20,7 @@ class GitignoreNamesPage extends ConsumerWidget {
           return;
         }
         Navigator.of(context).popUntil((Route<dynamic> route) => route.isFirst);
-        final AsyncValue<List<String>> _ =
+        final _ =
             ref.refresh(allGitignoreNamesProvider);
       },
     );
@@ -29,7 +29,7 @@ class GitignoreNamesPage extends ConsumerWidget {
       body: ref.watch(allGitignoreNamesProvider).when(
             data: (List<String> gitignoreNames) => ListView.separated(
               itemBuilder: (_, int index) {
-                final String gitignoreName = gitignoreNames[index];
+                final gitignoreName = gitignoreNames[index];
                 return ListTile(
                   onTap: () => Navigator.of(context).pushNamed(
                     AppRoute.gitignore.name,

@@ -7,7 +7,7 @@ class AppRouteSettings {
   final RouteSettings _settings;
 
   PageRoute<dynamic> routeSettings() {
-    final AppRoute route = AppRoute.values
+    final route = AppRoute.values
         .firstWhere((AppRoute route) => route.name == _settings.name);
     return MaterialPageRoute<dynamic>(builder: (_) => route.page);
   }

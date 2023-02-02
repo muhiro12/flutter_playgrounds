@@ -7,7 +7,7 @@ import 'package:openapi/openapi.dart';
 
 final Provider<GitHubRepository> gitHubRepositoryProvider =
     Provider<GitHubRepository>((ProviderRef<GitHubRepository> ref) {
-  final DefaultApi api = ref.watch(openApiProvider);
+  final api = ref.watch(openApiProvider);
   return GitHubRepositoryImplements(api);
 });
 
@@ -26,7 +26,7 @@ class GitHubRepositoryImplements implements GitHubRepository {
     return _api
         .gitignoreTemplatesGet()
         .then((Response<BuiltList<String>> response) {
-      final BuiltList<String>? data = response.data;
+      final data = response.data;
       if (data == null) {
         // TODO(nakano): Use app error
         throw Exception();
@@ -40,7 +40,7 @@ class GitHubRepositoryImplements implements GitHubRepository {
     return _api
         .gitignoreTemplatesNameGet(name: name)
         .then((Response<InlineResponse200> response) {
-      final InlineResponse200? data = response.data;
+      final data = response.data;
       if (data == null) {
         // TODO(nakano): Use app error
         throw Exception();
