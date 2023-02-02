@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../business/model/sample_product.dart';
+import '../../business/model/sample_product_list.dart';
 import '../model/app_route.dart';
 import '../widget/app_scaffold.dart';
 
