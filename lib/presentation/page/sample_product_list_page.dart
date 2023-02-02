@@ -17,13 +17,23 @@ class SampleProductListPage extends ConsumerWidget {
       title: Text(toString()),
       body: sampleProductList.maybeWhen(
         data: (List<SampleProductListItem> list) => ListView.separated(
-          itemBuilder: (_, int index) => ListTile(
-              title: Text(list[index].name),
+          itemBuilder: (BuildContext context, int index) {
+            final SampleProductListItem product = list[index];
+            return ListTile(
+              title: Text(product.name),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  product.isFavorited ? Icons.favorite : Icons.favorite_outline,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
               onTap: () {
-                ref.read(selectedSampleIdProvider.notifier).state =
-                    list[index].id;
+                ref.read(selectedSampleIdProvider.notifier).state = product.id;
                 Navigator.of(context).pushNamed(AppRoute.sampleProduct.name);
-              }),
+              },
+            );
+          },
           separatorBuilder: (_, __) => const Divider(),
           itemCount: list.length,
         ),

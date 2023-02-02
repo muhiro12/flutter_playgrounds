@@ -15,8 +15,20 @@ class SampleProductPage extends ConsumerWidget {
     return AppScaffold(
       title: Text(toString()),
       body: sampleProduct.maybeWhen(
-        data: (SampleProduct sampleProduct) => Center(
-          child: Text(sampleProduct.name),
+        data: (SampleProduct product) => Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(product.name),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  product.isFavorited ? Icons.favorite : Icons.favorite_outline,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
+            ],
+          ),
         ),
         orElse: () => const SizedBox(),
       ),
