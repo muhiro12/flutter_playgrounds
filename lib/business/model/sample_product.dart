@@ -4,18 +4,14 @@ import '../../data/entity/sample_product.dart';
 import '../../data/entity/sample_product_list_item.dart';
 import '../../data/repository/sample_product_repository.dart';
 
-final StateProvider<int?> selectedSampleIdProvider =
-    StateProvider<int?>((_) => null);
+final selectedSampleIdProvider = StateProvider<int?>((_) => null);
 
-final FutureProvider<List<SampleProductListItem>>
-    allSampleProductListItemsProvider =
-    FutureProvider<List<SampleProductListItem>>(
-        (FutureProviderRef<List<SampleProductListItem>> ref) =>
-            ref.watch(sampleProductRepositoryProvider).allSampleProducts());
+final allSampleProductListItemsProvider =
+    FutureProvider<List<SampleProductListItem>>((ref) =>
+        ref.watch(sampleProductRepositoryProvider).allSampleProducts());
 
-final FutureProvider<SampleProduct> sampleProductProvider =
-    FutureProvider<SampleProduct>(
-  (FutureProviderRef<SampleProduct> ref) {
+final sampleProductProvider = FutureProvider<SampleProduct>(
+  (ref) {
     final id = ref.watch(selectedSampleIdProvider);
     if (id == null) {
       throw Exception();
@@ -23,3 +19,14 @@ final FutureProvider<SampleProduct> sampleProductProvider =
     return ref.watch(sampleProductRepositoryProvider).sampleProduct(id);
   },
 );
+
+final sampleProductFamily = StateNotifierProvider.family<SampleProductNotifier,
+    SampleProduct, SampleProduct>((ref, state) => SampleProductNotifier(state));
+
+class SampleProductNotifier extends StateNotifier<SampleProduct> {
+  SampleProductNotifier(SampleProduct state) : super(state);
+
+  void toggleFavorite() {
+    state = state.copyWith(isFavorited: !state.isFavorited);
+  }
+}
