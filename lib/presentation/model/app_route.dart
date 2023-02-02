@@ -32,8 +32,8 @@ enum AppRoute {
   themeFlavor,
   platform,
   markdown,
-  sampleProductList,
   sampleProduct,
+  sampleProductList,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -67,10 +67,10 @@ extension AppRouteExtension on AppRoute {
         return '/platform';
       case AppRoute.markdown:
         return '/markdown';
-      case AppRoute.sampleProductList:
-        return '/sample_item_list';
       case AppRoute.sampleProduct:
         return 'sample_item_detail';
+      case AppRoute.sampleProductList:
+        return '/sample_item_list';
     }
   }
 
@@ -104,10 +104,10 @@ extension AppRouteExtension on AppRoute {
         return const PlatformPage();
       case AppRoute.markdown:
         return const MarkdownPage();
-      case AppRoute.sampleProductList:
-        return const SampleProductListPage();
       case AppRoute.sampleProduct:
         return const SampleProductPage();
+      case AppRoute.sampleProductList:
+        return const SampleProductListPage();
     }
   }
 
@@ -141,10 +141,10 @@ extension AppRouteExtension on AppRoute {
         return Icons.phone_android;
       case AppRoute.markdown:
         return Icons.file_copy;
-      case AppRoute.sampleProductList:
-        return Icons.list;
       case AppRoute.sampleProduct:
         return Icons.details;
+      case AppRoute.sampleProductList:
+        return Icons.list;
     }
   }
 }
