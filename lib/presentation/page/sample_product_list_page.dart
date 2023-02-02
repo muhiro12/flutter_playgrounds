@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../business/model/sample_product.dart';
 import '../../business/model/sample_product_list.dart';
 import '../model/app_route.dart';
 import '../widget/app_scaffold.dart';
@@ -40,8 +39,8 @@ class SampleProductListPage extends HookConsumerWidget {
               ),
             ),
             onTap: () {
-              ref.read(selectedSampleProductIdProvider.notifier).state =
-                  product.id;
+              ref.read(selectedSampleProductListItemProvider.notifier).state =
+                  product;
               Navigator.of(context).pushNamed(AppRoute.sampleProduct.name);
             },
           );

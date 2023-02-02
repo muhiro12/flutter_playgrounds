@@ -3,32 +3,61 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../data/entity/sample_product_list_item.dart';
 import '../../data/repository/sample_product_repository.dart';
 
+final selectedSampleProductListItemProvider =
+    StateProvider<SampleProductListItem?>((_) => null);
+
 final allSampleProductListItemsProvider = StateNotifierProvider<
-        SampleProductListNotifier, List<SampleProductListItem>>(
-    (ref) => DefaultSampleProductListNotifier(
-        ref.watch(sampleProductRepositoryProvider)));
+    SampleProductListNotifier, List<SampleProductListItem>>(
+  (ref) => DefaultSampleProductListNotifier(
+    ref.watch(sampleProductRepositoryProvider),
+    ref,
+  ),
+);
 
 final favoriteSampleProductListItemsProvider = StateNotifierProvider<
-        SampleProductListNotifier, List<SampleProductListItem>>(
-    (ref) => FavoriteSampleProductListNotifier(ref
+    SampleProductListNotifier, List<SampleProductListItem>>(
+  (ref) => FavoriteSampleProductListNotifier(
+    ref
         .watch(allSampleProductListItemsProvider)
         .where((product) => product.isFavorited)
-        .toList()));
+        .toList(),
+    ref,
+  ),
+);
 
 abstract class SampleProductListNotifier
     extends StateNotifier<List<SampleProductListItem>> {
-  SampleProductListNotifier(List<SampleProductListItem> state) : super(state);
+  SampleProductListNotifier(List<SampleProductListItem> state, this.ref)
+      : super(state) {
+    ref.listen<SampleProductListItem?>(
+      selectedSampleProductListItemProvider,
+      (previous, next) {
+        if (next == null || !mounted) {
+          return;
+        }
+        update(next);
+      },
+    );
+  }
+
+  Ref ref;
+
+  void update(SampleProductListItem product) {
+    final list = state;
+    final index = list.indexWhere((element) => element.id == product.id);
+    list[index] = product;
+    state = List.from(list);
+    ref.read(selectedSampleProductListItemProvider.notifier).state = product;
+  }
 
   void toggleFavorite(int index) {
-    final list = state;
-    final current = list[index];
-    list[index] = current.copyWith(isFavorited: !current.isFavorited);
-    state = List.from(list);
+    final product = state[index];
+    update(product.copyWith(isFavorited: !product.isFavorited));
   }
 }
 
 class DefaultSampleProductListNotifier extends SampleProductListNotifier {
-  DefaultSampleProductListNotifier(this.repository) : super([]) {
+  DefaultSampleProductListNotifier(this.repository, Ref ref) : super([], ref) {
     repository.allSampleProducts().then((value) => state = value);
   }
 
@@ -36,6 +65,7 @@ class DefaultSampleProductListNotifier extends SampleProductListNotifier {
 }
 
 class FavoriteSampleProductListNotifier extends SampleProductListNotifier {
-  FavoriteSampleProductListNotifier(List<SampleProductListItem> state)
-      : super(state);
+  FavoriteSampleProductListNotifier(
+      List<SampleProductListItem> state, Ref<Object?> ref)
+      : super(state, ref);
 }
