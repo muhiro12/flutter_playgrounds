@@ -47,6 +47,9 @@ abstract class SampleProductListNotifier
     final index = list.indexWhere((element) => element.id == product.id);
     list[index] = product;
     state = List.from(list);
+    ref
+        .read(sampleProductRepositoryProvider)
+        .updateSampleProductListItem(product);
     ref.read(selectedSampleProductListItemProvider.notifier).state = product;
   }
 

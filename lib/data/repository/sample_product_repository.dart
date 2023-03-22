@@ -10,6 +10,8 @@ final Provider<SampleProductRepository> sampleProductRepositoryProvider =
 abstract class SampleProductRepository {
   Future<List<SampleProductListItem>> allSampleProducts();
   Future<SampleProduct> sampleProduct(int id);
+  Future<void> updateSampleProductListItem(SampleProductListItem listItem);
+  Future<void> updateSampleProduct(SampleProduct product);
 }
 
 class SampleProductRepositoryImplements extends SampleProductRepository {
@@ -20,6 +22,16 @@ class SampleProductRepositoryImplements extends SampleProductRepository {
 
   @override
   Future<SampleProduct> sampleProduct(int id) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> updateSampleProductListItem(SampleProductListItem listItem) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> updateSampleProduct(SampleProduct product) {
     throw UnimplementedError();
   }
 }

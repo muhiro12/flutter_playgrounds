@@ -4,7 +4,7 @@ import '../../data/entity/sample_product.dart';
 import '../../data/repository/sample_product_repository.dart';
 import 'sample_product_list.dart';
 
-final sampleProductProvider = FutureProvider<SampleProduct>(
+final sampleProductProvider = FutureProvider.autoDispose<SampleProduct>(
   (ref) {
     final id = ref.watch(
       selectedSampleProductListItemProvider.select((product) => product?.id),
@@ -26,10 +26,15 @@ class SampleProductNotifier extends StateNotifier<SampleProduct> {
 
   Ref ref;
 
-  void toggleFavorite() {
-    state = state.copyWith(isFavorited: !state.isFavorited);
+  void update(SampleProduct product) {
+    state = product;
+    ref.read(sampleProductRepositoryProvider).updateSampleProduct(product);
     ref.read(selectedSampleProductListItemProvider.notifier).update(
           (state) => state?.copyWith(isFavorited: this.state.isFavorited),
         );
+  }
+
+  void toggleFavorite() {
+    update(state.copyWith(isFavorited: !state.isFavorited));
   }
 }

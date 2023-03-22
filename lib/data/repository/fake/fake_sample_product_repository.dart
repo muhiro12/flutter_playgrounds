@@ -34,4 +34,25 @@ class FakeSampleProductRepository extends SampleProductRepository {
     await Future<void>.delayed(const Duration(seconds: 1));
     return _sampleProductList[id];
   }
+
+  @override
+  Future<void> updateSampleProductListItem(
+      SampleProductListItem listItem) async {
+    await Future<void>.delayed(const Duration(seconds: 1));
+    final index =
+        _sampleProductList.indexWhere((element) => element.id == listItem.id);
+    final product = _sampleProductList[index];
+    _sampleProductList[index] = product.copyWith(
+      name: listItem.name,
+      isFavorited: listItem.isFavorited,
+    );
+  }
+
+  @override
+  Future<void> updateSampleProduct(SampleProduct product) async {
+    await Future<void>.delayed(const Duration(seconds: 1));
+    final index =
+        _sampleProductList.indexWhere((element) => element.id == product.id);
+    _sampleProductList[index] = product;
+  }
 }
