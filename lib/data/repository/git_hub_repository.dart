@@ -1,9 +1,11 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_playgrounds/data/entity/gitignore.dart';
-import 'package:flutter_playgrounds/data/model/open_api.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:openapi/openapi.dart';
+
+import '../../business/model/app_exception.dart';
+import '../entity/gitignore.dart';
+import '../model/open_api.dart';
 
 final Provider<GitHubRepository> gitHubRepositoryProvider =
     Provider<GitHubRepository>((ProviderRef<GitHubRepository> ref) {
@@ -28,8 +30,7 @@ class GitHubRepositoryImplements implements GitHubRepository {
         .then((Response<BuiltList<String>> response) {
       final data = response.data;
       if (data == null) {
-        // TODO(nakano): Use app error
-        throw Exception();
+        throw AppException();
       }
       return data.toList();
     });
@@ -42,8 +43,7 @@ class GitHubRepositoryImplements implements GitHubRepository {
         .then((Response<InlineResponse200> response) {
       final data = response.data;
       if (data == null) {
-        // TODO(nakano): Use app error
-        throw Exception();
+        throw AppException();
       }
       return Gitignore(name: data.name, source: data.source_);
     });
