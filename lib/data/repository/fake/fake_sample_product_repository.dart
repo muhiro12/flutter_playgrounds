@@ -22,28 +22,28 @@ class FakeSampleProductRepository extends SampleProductRepository {
 
   @override
   Future<List<SampleProductListItem>> allSampleProducts() async {
-    await Future<void>.delayed(const Duration(seconds: 1));
-    return _sampleProductList
-        .map(
-          (e) => SampleProductListItem(
-            id: e.id,
-            name: e.name,
-            isFavorited: e.isFavorited,
-          ),
-        )
-        .toList();
+    return client.call(
+      defaultValue: _sampleProductList
+          .map(
+            (e) => SampleProductListItem(
+              id: e.id,
+              name: e.name,
+              isFavorited: e.isFavorited,
+            ),
+          )
+          .toList(),
+    );
   }
 
   @override
   Future<SampleProduct> sampleProduct(int id) async {
-    await Future<void>.delayed(const Duration(seconds: 1));
-    return _sampleProductList[id];
+    return client.call(defaultValue: _sampleProductList[id]);
   }
 
   @override
   Future<void> updateSampleProductListItem(
       SampleProductListItem listItem) async {
-    await Future<void>.delayed(const Duration(seconds: 1));
+    await client.call(defaultValue: () {});
     final index =
         _sampleProductList.indexWhere((element) => element.id == listItem.id);
     final product = _sampleProductList[index];
@@ -55,7 +55,7 @@ class FakeSampleProductRepository extends SampleProductRepository {
 
   @override
   Future<void> updateSampleProduct(SampleProduct product) async {
-    await Future<void>.delayed(const Duration(seconds: 1));
+    await client.call(defaultValue: () {});
     final index =
         _sampleProductList.indexWhere((element) => element.id == product.id);
     _sampleProductList[index] = product;
