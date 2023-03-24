@@ -5,9 +5,13 @@ import '../entity/sample_product_list_item.dart';
 
 final Provider<SampleProductRepository> sampleProductRepositoryProvider =
     Provider<SampleProductRepository>(
-        (_) => SampleProductRepositoryImplements());
+        (ref) => SampleProductRepositoryImplements(ref));
 
 abstract class SampleProductRepository {
+  const SampleProductRepository(this.ref);
+
+  final Ref ref;
+
   Future<List<SampleProductListItem>> allSampleProducts();
   Future<SampleProduct> sampleProduct(int id);
   Future<void> updateSampleProductListItem(SampleProductListItem listItem);
@@ -15,6 +19,8 @@ abstract class SampleProductRepository {
 }
 
 class SampleProductRepositoryImplements extends SampleProductRepository {
+  const SampleProductRepositoryImplements(super.ref);
+
   @override
   Future<List<SampleProductListItem>> allSampleProducts() {
     throw UnimplementedError();

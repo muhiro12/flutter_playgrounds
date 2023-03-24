@@ -2,9 +2,12 @@ import 'package:english_words/english_words.dart';
 
 import '../../entity/sample_product.dart';
 import '../../entity/sample_product_list_item.dart';
+import '../../model/api_client.dart';
 import '../sample_product_repository.dart';
 
 class FakeSampleProductRepository extends SampleProductRepository {
+  FakeSampleProductRepository(super.ref);
+
   final _sampleProductList = nouns
       .take(50)
       .toList()
@@ -14,6 +17,8 @@ class FakeSampleProductRepository extends SampleProductRepository {
         (e) => SampleProduct(id: e.key, name: e.value, isFavorited: false),
       )
       .toList();
+
+  late final client = ref.read(apiClientProvider);
 
   @override
   Future<List<SampleProductListItem>> allSampleProducts() async {

@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app.dart';
 import 'business/model/git_hub.dart';
+import 'data/model/api_client.dart';
+import 'data/model/fake/fake_api_client.dart';
 import 'data/model/preferences.dart';
 import 'data/repository/fake/fake_git_hub_repository.dart';
 import 'data/repository/fake/fake_sample_product_repository.dart';
@@ -22,7 +24,10 @@ Future<void> main() async {
           (_, String name) => FakeGitHubRepository().gitignore(name),
         ),
         sampleProductRepositoryProvider.overrideWith(
-          (_) => FakeSampleProductRepository(),
+          (ref) => FakeSampleProductRepository(ref),
+        ),
+        apiClientProvider.overrideWith(
+          (_) => FakeAPIClient(),
         ),
       ],
       child: const App(),
