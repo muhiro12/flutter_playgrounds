@@ -14,11 +14,11 @@ class SampleProductListPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isFiltering = useState(false);
     final state = isFiltering.value
-        ? ref.watch(favoriteSampleProductListItemsProvider)
-        : ref.watch(allSampleProductListItemsProvider);
+        ? ref.watch(favoriteSampleProductListProvider)
+        : ref.watch(allSampleProductListProvider);
     final notifier = isFiltering.value
-        ? ref.watch(favoriteSampleProductListItemsProvider.notifier)
-        : ref.watch(allSampleProductListItemsProvider.notifier);
+        ? ref.watch(favoriteSampleProductListProvider.notifier)
+        : ref.watch(allSampleProductListProvider.notifier);
     return AppScaffold(
       title: Text(toString()),
       trailing: IconButton(

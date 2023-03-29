@@ -3,7 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../data/entity/sample_product_list_item.dart';
 import '../../data/repository/sample_product_repository.dart';
 
-final allSampleProductListItemsProvider = StateNotifierProvider<
+final allSampleProductListProvider = StateNotifierProvider<
     SampleProductListNotifier, List<SampleProductListItem>>(
   (ref) => DefaultSampleProductListNotifier(
     ref.watch(sampleProductRepositoryProvider),
@@ -11,11 +11,11 @@ final allSampleProductListItemsProvider = StateNotifierProvider<
   ),
 );
 
-final favoriteSampleProductListItemsProvider = StateNotifierProvider<
+final favoriteSampleProductListProvider = StateNotifierProvider<
     SampleProductListNotifier, List<SampleProductListItem>>(
   (ref) => FavoriteSampleProductListNotifier(
     ref
-        .watch(allSampleProductListItemsProvider)
+        .watch(allSampleProductListProvider)
         .where((product) => product.isFavorited)
         .toList(),
     ref,
