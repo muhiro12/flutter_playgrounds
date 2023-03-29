@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:logging/logging.dart';
+
 enum AppExceptionType {
   http,
   error,
@@ -12,7 +14,10 @@ class AppException implements Exception {
     this.error,
     this.code,
   }) {
-    log(toString());
+    log(
+      toString(),
+      level: Level.WARNING.value,
+    );
   }
 
   factory AppException.http(int code) {

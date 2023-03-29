@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logging/logging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app.dart';
@@ -38,7 +39,10 @@ Future<void> main() async {
       ),
     ),
     (error, stack) {
-      log(error.toString());
+      log(
+        error.toString(),
+        level: Level.SHOUT.value,
+      );
     },
   );
 }
