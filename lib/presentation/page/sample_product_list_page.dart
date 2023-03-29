@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../business/model/sample_product.dart';
 import '../../business/model/sample_product_list.dart';
-import '../model/app_route.dart';
 import '../widget/app_scaffold.dart';
+import 'sample_product_page.dart';
 
 class SampleProductListPage extends HookConsumerWidget {
   const SampleProductListPage({Key? key}) : super(key: key);
@@ -39,9 +40,17 @@ class SampleProductListPage extends HookConsumerWidget {
               ),
             ),
             onTap: () {
-              ref.read(selectedSampleProductListItemProvider.notifier).state =
-                  product;
-              Navigator.of(context).pushNamed(AppRoute.sampleProduct.name);
+              Navigator.of(context).push<void>(
+                MaterialPageRoute(
+                  builder: (_) => ProviderScope(
+                    overrides: [
+                      selectedSampleProductIdProvider
+                          .overrideWith((_) => product.id),
+                    ],
+                    child: const SampleProductPage(),
+                  ),
+                ),
+              );
             },
           );
         },

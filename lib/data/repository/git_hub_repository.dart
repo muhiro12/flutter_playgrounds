@@ -30,7 +30,7 @@ class GitHubRepositoryImplements implements GitHubRepository {
         .then((Response<BuiltList<String>> response) {
       final data = response.data;
       if (data == null) {
-        throw AppException();
+        throw AppException.other();
       }
       return data.toList();
     });
@@ -43,7 +43,7 @@ class GitHubRepositoryImplements implements GitHubRepository {
         .then((Response<InlineResponse200> response) {
       final data = response.data;
       if (data == null) {
-        throw AppException();
+        throw AppException.other();
       }
       return Gitignore(name: data.name, source: data.source_);
     });

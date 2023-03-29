@@ -2,18 +2,26 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../data/entity/sample_product.dart';
 import '../../data/repository/sample_product_repository.dart';
-import 'sample_product_list.dart';
+import 'app_exception.dart';
+
+final selectedSampleProductIdProvider = StateProvider<int?>((_) => null);
 
 final sampleProductProvider = FutureProvider.autoDispose<SampleProduct>(
   (ref) {
-    final id = ref.watch(
-      selectedSampleProductListItemProvider.select((product) => product?.id),
-    );
+    final id = ref.watch(selectedSampleProductIdProvider);
     if (id == null) {
-      throw Exception();
+      throw AppException.other();
     }
-    return ref.watch(sampleProductRepositoryProvider).sampleProduct(id);
+    try {
+      return ref.watch(sampleProductRepositoryProvider).sampleProduct(id);
+    } on Error catch (error) {
+      throw AppException.error(error);
+    }
   },
+  dependencies: [
+    selectedSampleProductIdProvider,
+    sampleProductRepositoryProvider,
+  ],
 );
 
 final sampleProductFamily = StateNotifierProvider.family<SampleProductNotifier,
@@ -29,9 +37,6 @@ class SampleProductNotifier extends StateNotifier<SampleProduct> {
   void update(SampleProduct product) {
     state = product;
     ref.read(sampleProductRepositoryProvider).updateSampleProduct(product);
-    ref.read(selectedSampleProductListItemProvider.notifier).update(
-          (state) => state?.copyWith(isFavorited: this.state.isFavorited),
-        );
   }
 
   void toggleFavorite() {

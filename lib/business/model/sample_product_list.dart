@@ -3,9 +3,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../data/entity/sample_product_list_item.dart';
 import '../../data/repository/sample_product_repository.dart';
 
-final selectedSampleProductListItemProvider =
-    StateProvider<SampleProductListItem?>((_) => null);
-
 final allSampleProductListItemsProvider = StateNotifierProvider<
     SampleProductListNotifier, List<SampleProductListItem>>(
   (ref) => DefaultSampleProductListNotifier(
@@ -28,17 +25,7 @@ final favoriteSampleProductListItemsProvider = StateNotifierProvider<
 abstract class SampleProductListNotifier
     extends StateNotifier<List<SampleProductListItem>> {
   SampleProductListNotifier(List<SampleProductListItem> state, this.ref)
-      : super(state) {
-    ref.listen<SampleProductListItem?>(
-      selectedSampleProductListItemProvider,
-      (previous, next) {
-        if (next == null || !mounted) {
-          return;
-        }
-        update(next);
-      },
-    );
-  }
+      : super(state);
 
   Ref ref;
 
@@ -50,7 +37,6 @@ abstract class SampleProductListNotifier
     ref
         .read(sampleProductRepositoryProvider)
         .updateSampleProductListItem(product);
-    ref.read(selectedSampleProductListItemProvider.notifier).state = product;
   }
 
   void toggleFavorite(int index) {

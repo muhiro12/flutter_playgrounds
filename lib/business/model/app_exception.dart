@@ -2,25 +2,50 @@ import 'dart:developer';
 
 enum AppExceptionType {
   http,
+  error,
   other;
 }
 
 class AppException implements Exception {
-  AppException({
-    this.type = AppExceptionType.other,
-    this.code = 200,
+  AppException._({
+    required this.type,
+    this.error,
+    this.code,
   }) {
     log(toString());
   }
 
+  factory AppException.http(int code) {
+    return AppException._(
+      type: AppExceptionType.http,
+      code: code,
+    );
+  }
+
+  factory AppException.error(Error error) {
+    return AppException._(
+      type: AppExceptionType.error,
+      error: error,
+    );
+  }
+
+  factory AppException.other() {
+    return AppException._(
+      type: AppExceptionType.other,
+    );
+  }
+
   final AppExceptionType type;
-  final int code;
+  final Error? error;
+  final int? code;
 
   @override
   String toString() {
     switch (type) {
       case AppExceptionType.http:
         return 'Bad HTTP status (code: $code)';
+      case AppExceptionType.error:
+        return error.toString();
       case AppExceptionType.other:
         return 'An unknown error occurred';
     }
