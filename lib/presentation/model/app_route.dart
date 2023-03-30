@@ -10,6 +10,7 @@ import '../page/home_page.dart';
 import '../page/list_tab_page.dart';
 import '../page/markdown_page.dart';
 import '../page/platform_page.dart';
+import '../page/prefix_sample_product_list_page.dart';
 import '../page/primary_color_page.dart';
 import '../page/sample_product_list_page.dart';
 import '../page/sample_product_page.dart';
@@ -34,6 +35,7 @@ enum AppRoute {
   markdown,
   sampleProduct,
   sampleProductList,
+  prefixSampleProductList,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -71,6 +73,8 @@ extension AppRouteExtension on AppRoute {
         return 'sample_item_detail';
       case AppRoute.sampleProductList:
         return '/sample_item_list';
+      case AppRoute.prefixSampleProductList:
+        return '/prefix_sample_item_list';
     }
   }
 
@@ -108,6 +112,8 @@ extension AppRouteExtension on AppRoute {
         return const SampleProductPage();
       case AppRoute.sampleProductList:
         return const SampleProductListPage();
+      case AppRoute.prefixSampleProductList:
+        return const PrefixSampleProductListPage();
     }
   }
 
@@ -145,6 +151,8 @@ extension AppRouteExtension on AppRoute {
         return Icons.details;
       case AppRoute.sampleProductList:
         return Icons.list;
+      case AppRoute.prefixSampleProductList:
+        return Icons.abc;
     }
   }
 }

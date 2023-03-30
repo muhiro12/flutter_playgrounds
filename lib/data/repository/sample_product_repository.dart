@@ -13,6 +13,7 @@ abstract class SampleProductRepository {
   final Ref ref;
 
   Future<List<SampleProductListItem>> allSampleProducts();
+  Future<List<SampleProductListItem>> prefixSampleProducts(Pattern pattern);
   Future<SampleProduct> sampleProduct(int id);
   Future<void> updateSampleProductListItem(SampleProductListItem listItem);
   Future<void> updateSampleProduct(SampleProduct product);
@@ -23,6 +24,11 @@ class SampleProductRepositoryImplements extends SampleProductRepository {
 
   @override
   Future<List<SampleProductListItem>> allSampleProducts() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<List<SampleProductListItem>> prefixSampleProducts(Pattern pattern) {
     throw UnimplementedError();
   }
 

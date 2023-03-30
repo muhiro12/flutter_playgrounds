@@ -36,6 +36,19 @@ class FakeSampleProductRepository extends SampleProductRepository {
   }
 
   @override
+  Future<List<SampleProductListItem>> prefixSampleProducts(Pattern pattern) {
+    return client.call(
+      defaultValue: _sampleProductList
+          .where((element) => element.name.startsWith(pattern))
+          .map(
+            (e) => SampleProductListItem(
+                id: e.id, name: e.name, isFavorited: e.isFavorited),
+          )
+          .toList(),
+    );
+  }
+
+  @override
   Future<SampleProduct> sampleProduct(int id) async {
     return client.call(defaultValue: _sampleProductList[id]);
   }

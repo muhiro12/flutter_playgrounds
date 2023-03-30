@@ -1,6 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../data/entity/sample_product.dart';
 import '../../data/entity/sample_product_list_item.dart';
 import '../../data/repository/sample_product_repository.dart';
 
@@ -26,6 +25,14 @@ final favoriteSampleProductListProvider = StateNotifierProvider<
         .watch(allSampleProductListProvider)
         .where((product) => product.isFavorited)
         .toList(),
+    ref,
+  ),
+);
+
+final prefixSampleProductListProvider = StateNotifierProvider<
+    SampleProductListNotifier, List<SampleProductListItem>>(
+  (ref) => PrefixSampleProductListNotifier(
+    ref.watch(sampleProductRepositoryProvider),
     ref,
   ),
 );
@@ -65,4 +72,12 @@ class FavoriteSampleProductListNotifier extends SampleProductListNotifier {
   FavoriteSampleProductListNotifier(
       List<SampleProductListItem> state, Ref<Object?> ref)
       : super(state, ref);
+}
+
+class PrefixSampleProductListNotifier extends SampleProductListNotifier {
+  PrefixSampleProductListNotifier(this.repository, Ref ref) : super([], ref) {
+    repository.prefixSampleProducts('s').then((value) => state = value);
+  }
+
+  SampleProductRepository repository;
 }
