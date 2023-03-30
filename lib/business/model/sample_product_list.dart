@@ -7,6 +7,7 @@ final sampleProductListProviders = Provider(
   (_) => [
     allSampleProductListProvider,
     favoriteSampleProductListProvider,
+    prefixSampleProductListProvider,
   ],
 );
 
