@@ -10,7 +10,7 @@ final sampleProductListProviders = Provider(
   ],
 );
 
-final allSampleProductListProvider = StateNotifierProvider<
+final allSampleProductListProvider = StateNotifierProvider.autoDispose<
     SampleProductListNotifier, List<SampleProductListItem>>(
   (ref) => DefaultSampleProductListNotifier(
     ref.watch(sampleProductRepositoryProvider),
@@ -18,7 +18,7 @@ final allSampleProductListProvider = StateNotifierProvider<
   ),
 );
 
-final favoriteSampleProductListProvider = StateNotifierProvider<
+final favoriteSampleProductListProvider = StateNotifierProvider.autoDispose<
     SampleProductListNotifier, List<SampleProductListItem>>(
   (ref) => FavoriteSampleProductListNotifier(
     ref
@@ -29,7 +29,7 @@ final favoriteSampleProductListProvider = StateNotifierProvider<
   ),
 );
 
-final prefixSampleProductListProvider = StateNotifierProvider<
+final prefixSampleProductListProvider = StateNotifierProvider.autoDispose<
     SampleProductListNotifier, List<SampleProductListItem>>(
   (ref) => PrefixSampleProductListNotifier(
     ref.watch(sampleProductRepositoryProvider),
