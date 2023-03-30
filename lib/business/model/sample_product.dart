@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../data/entity/sample_product.dart';
 import '../../data/repository/sample_product_repository.dart';
 import 'app_exception.dart';
+import 'sample_product_manager.dart';
 
 final selectedSampleProductIdProvider = StateProvider<int?>((_) => null);
 
@@ -37,6 +38,7 @@ class SampleProductNotifier extends StateNotifier<SampleProduct> {
   void update(SampleProduct product) {
     state = product;
     ref.read(sampleProductRepositoryProvider).updateSampleProduct(product);
+    ref.read(sampleProductManagerProvider).updateSampleProductListItem(product);
   }
 
   void toggleFavorite() {
