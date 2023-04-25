@@ -1,9 +1,8 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_playgrounds/business/model/playgrounds_logger.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:logging/logging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app.dart';
@@ -16,6 +15,7 @@ import 'data/repository/fake/fake_sample_product_repository.dart';
 import 'data/repository/sample_product_repository.dart';
 
 Future<void> main() async {
+  PlaygroundsLogger.instance.record();
   WidgetsFlutterBinding.ensureInitialized();
   final sharedPreferences = await SharedPreferences.getInstance();
   runZonedGuarded(
@@ -39,10 +39,7 @@ Future<void> main() async {
       ),
     ),
     (error, stack) {
-      log(
-        error.toString(),
-        level: Level.SHOUT.value,
-      );
+      logger.shout(error.toString());
     },
   );
 }
