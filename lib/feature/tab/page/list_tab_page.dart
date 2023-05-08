@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_playgrounds/feature/app/widget/app_scaffold.dart';
+import '../../app/widget/app_scaffold.dart';
 
 class ListTabPage extends HookWidget {
   const ListTabPage({Key? key}) : super(key: key);

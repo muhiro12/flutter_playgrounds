@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/feature/theme/service/design_platform.dart';
+import 'design_platform.dart';
 
 enum DesignSystem {
   dynamic,

@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_playgrounds/common/bottom_tab.dart';
-import 'package:flutter_playgrounds/common/bottom_tab_item.dart';
-import 'package:flutter_playgrounds/foundation/app_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../../common/bottom_tab.dart';
+import '../../../common/bottom_tab_item.dart';
+import '../../../foundation/app_route.dart';
 
 class AppHome extends ConsumerWidget {
   const AppHome({Key? key}) : super(key: key);

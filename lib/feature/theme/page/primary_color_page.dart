@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/feature/app/widget/app_scaffold.dart';
-import 'package:flutter_playgrounds/feature/theme/service/primary.dart';
-import 'package:flutter_playgrounds/feature/theme/service/primary_color.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../app/widget/app_scaffold.dart';
+import '../service/primary.dart';
+import '../service/primary_color.dart';
 
 class PrimaryColorPage extends ConsumerWidget {
   const PrimaryColorPage({Key? key}) : super(key: key);

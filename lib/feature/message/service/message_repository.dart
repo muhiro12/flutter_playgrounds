@@ -1,7 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_playgrounds/feature/message/entity/message.dart';
-import 'package:flutter_playgrounds/feature/message/service/message_datastore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../entity/message.dart';
+import 'message_datastore.dart';
 
 final messageRepositoryProvider = Provider<MessageRepository>(
     (ref) => MessageRepositoryImplements(ref.watch(messageDatastoreProvider)));

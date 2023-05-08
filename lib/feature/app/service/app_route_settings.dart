@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/foundation/app_route.dart';
+import '../../../foundation/app_route.dart';
 
 class AppRouteSettings {
   AppRouteSettings(this._settings);

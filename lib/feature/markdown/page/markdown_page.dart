@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:flutter_playgrounds/common/file_extension.dart';
-import 'package:flutter_playgrounds/feature/app/widget/app_scaffold.dart';
+import '../../../common/file_extension.dart';
+import '../../app/widget/app_scaffold.dart';
 
 class MarkdownPage extends HookWidget {
   const MarkdownPage({Key? key}) : super(key: key);

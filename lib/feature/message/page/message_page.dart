@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_playgrounds/feature/app/widget/app_scaffold.dart';
-import 'package:flutter_playgrounds/feature/message/entity/message.dart';
-import 'package:flutter_playgrounds/feature/message/service/message_list.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../app/widget/app_scaffold.dart';
+import '../entity/message.dart';
+import '../service/message_list.dart';
 
 class MessagePage extends HookConsumerWidget {
   const MessagePage({super.key});

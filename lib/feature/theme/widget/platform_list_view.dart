@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/feature/theme/service/design_platform.dart';
-import 'package:flutter_playgrounds/feature/theme/service/design_system.dart';
-import 'package:flutter_playgrounds/feature/theme/service/primary.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../service/design_platform.dart';
+import '../service/design_system.dart';
+import '../service/primary.dart';
 
 class PlatformListView extends ConsumerWidget {
   const PlatformListView({

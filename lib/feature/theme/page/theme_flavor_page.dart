@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playgrounds/feature/app/widget/app_scaffold.dart';
-import 'package:flutter_playgrounds/feature/theme/service/primary.dart';
-import 'package:flutter_playgrounds/feature/theme/service/theme_flavor.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../app/widget/app_scaffold.dart';
+import '../service/primary.dart';
+import '../service/theme_flavor.dart';
 
 class ThemeFlavorPage extends ConsumerWidget {
   const ThemeFlavorPage({Key? key}) : super(key: key);
