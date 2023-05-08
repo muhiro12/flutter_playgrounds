@@ -5,8 +5,8 @@ import '../entity/sample_product.dart';
 import '../entity/sample_product_list_item.dart';
 import 'sample_product_repository.dart';
 
-class FakeSampleProductRepository extends SampleProductRepository {
-  FakeSampleProductRepository(super.ref);
+class SampleProductRepositoryMock extends SampleProductRepository {
+  SampleProductRepositoryMock(super.ref);
 
   final _sampleProductList = nouns
       .take(50)

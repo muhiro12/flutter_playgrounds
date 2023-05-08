@@ -2,12 +2,12 @@ import 'dart:developer' as developer;
 
 import 'package:logging/logging.dart';
 
-PlaygroundsLogger logger = PlaygroundsLogger.instance;
+AppLogger logger = AppLogger.instance;
 
-class PlaygroundsLogger {
-  PlaygroundsLogger._();
+class AppLogger {
+  AppLogger._();
 
-  static final instance = PlaygroundsLogger._();
+  static final instance = AppLogger._();
 
   final _logger = Logger.root;
 

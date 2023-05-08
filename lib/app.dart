@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playgrounds/common/app_theme_data.dart';
 import 'package:flutter_playgrounds/feature/app/service/app_route_settings.dart';
 import 'package:flutter_playgrounds/feature/app/widget/app_home.dart';
 import 'package:flutter_playgrounds/feature/theme/service/primary.dart';
-import 'package:flutter_playgrounds/common/app_theme_data.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class App extends ConsumerWidget {

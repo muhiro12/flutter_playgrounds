@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playgrounds/common/preferences.dart';
 import 'package:flutter_playgrounds/common/preferences_key.dart';
 import 'package:flutter_playgrounds/feature/theme/service/design_system.dart';
 import 'package:flutter_playgrounds/feature/theme/service/primary_color.dart';
 import 'package:flutter_playgrounds/feature/theme/service/theme_flavor.dart';
-import 'package:flutter_playgrounds/common/preferences.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final Provider<PrimaryRepository> primaryRepositoryProvider =

@@ -1,11 +1,10 @@
-
 import 'dart:async';
 import 'dart:math';
 
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/feature/message/entity/message.dart';
-import 'package:flutter_playgrounds/foundation/playgrounds_logger.dart';
+import 'package:flutter_playgrounds/foundation/app_logger.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final messageDatastoreProvider = Provider((_) => MessageDatastore());

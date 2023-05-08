@@ -1,4 +1,3 @@
-
 enum ThemeFlavor {
   none,
   aLittle,

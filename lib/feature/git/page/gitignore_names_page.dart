@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../foundation/app_route.dart';
 import '../../../common/bottom_tab.dart';
 import '../../../common/bottom_tab_item.dart';
+import '../../../foundation/app_route.dart';
 import '../../app/widget/app_scaffold.dart';
 import '../service/git_hub.dart';
 

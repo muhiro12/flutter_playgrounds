@@ -1,8 +1,7 @@
-
 import '../entity/gitignore.dart';
 import 'git_hub_repository.dart';
 
-class FakeGitHubRepository implements GitHubRepository {
+class GitHubRepositoryMock implements GitHubRepository {
   @override
   Future<List<String>> allGitignoreNames() {
     return Future<void>.delayed(const Duration(seconds: 1)).then(

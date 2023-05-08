@@ -3,7 +3,7 @@ import 'dart:math';
 import 'api_client.dart';
 import 'app_exception.dart';
 
-class FakeAPIClient implements APIClient {
+class APIClientMock implements APIClient {
   @override
   Future<T> call<T>({T? defaultValue}) async {
     if (defaultValue == null) {

@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../foundation/app_route.dart';
 import '../../../common/bottom_tab.dart';
 import '../../../common/bottom_tab_item.dart';
+import '../../../foundation/app_route.dart';
 import '../../app/widget/app_scaffold.dart';
 
 class HomePage extends HookConsumerWidget {

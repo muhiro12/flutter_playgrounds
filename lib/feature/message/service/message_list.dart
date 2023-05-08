@@ -4,7 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playgrounds/feature/message/entity/message.dart';
 import 'package:flutter_playgrounds/feature/message/service/message_repository.dart';
-import 'package:flutter_playgrounds/foundation/playgrounds_logger.dart';
+import 'package:flutter_playgrounds/foundation/app_logger.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final messageListProvider =
