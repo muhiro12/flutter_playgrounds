@@ -35,7 +35,6 @@ class HomePage extends HookConsumerWidget {
         0;
     return AppScaffold(
       title: Text(toString()),
-      // TODO(nakano): Not work in cupertion context
       trailing: IconButton(
         icon: const Icon(Icons.sort),
         onPressed: () =>

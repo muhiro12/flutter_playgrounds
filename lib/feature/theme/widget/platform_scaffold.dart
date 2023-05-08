@@ -43,7 +43,9 @@ class PlatformScaffold extends ConsumerWidget {
               headerSliverBuilder: (_, __) => <Widget>[
                 CupertinoSliverNavigationBar(
                   largeTitle: title,
-                  trailing: trailing,
+                  trailing: Material(
+                    child: trailing,
+                  ),
                 ),
               ],
               body: SafeArea(
@@ -57,7 +59,9 @@ class PlatformScaffold extends ConsumerWidget {
           return CupertinoPageScaffold(
             navigationBar: CupertinoNavigationBar(
               middle: title,
-              trailing: trailing,
+              trailing: Material(
+                child: trailing,
+              ),
             ),
             child: SafeArea(
               child: Material(
