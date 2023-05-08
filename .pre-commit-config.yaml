@@ -1,0 +1,14 @@
+repos:
+  - repo: local
+    hooks:
+      - id: dart_fix
+        name: dart fix --apply
+        language: system
+        entry: sh
+        args:
+          - -c
+          - |
+            for file in $(git diff --name-only HEAD); do
+                dart fix --apply $file
+                dart format --fix $file
+            done
