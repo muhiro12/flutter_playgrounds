@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../common/bottom_tab.dart';
-import '../../../common/bottom_tab_item.dart';
-import '../../../foundation/app_route.dart';
+import '../common/bottom_tab.dart';
+import '../common/bottom_tab_item.dart';
+import 'app_route.dart';
 
 class AppHome extends ConsumerWidget {
   const AppHome({Key? key}) : super(key: key);

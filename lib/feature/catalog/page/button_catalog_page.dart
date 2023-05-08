@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../app/widget/app_scaffold.dart';
+import '../../../common/app_scaffold.dart';
 import '../widget/catalog_view.dart';
 
 class ButtonCatalogPage extends StatelessWidget {

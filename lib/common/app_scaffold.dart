@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../theme/service/design_system.dart';
-import '../../theme/service/primary.dart';
-import '../../theme/widget/platform_scaffold.dart';
+import '../feature/theme/service/design_system.dart';
+import '../feature/theme/service/primary.dart';
+import '../feature/theme/widget/platform_scaffold.dart';
 
 class AppScaffold extends ConsumerWidget {
   const AppScaffold({

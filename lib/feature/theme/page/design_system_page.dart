@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../app/widget/app_scaffold.dart';
+import '../../../common/app_scaffold.dart';
 import '../service/design_system.dart';
 import '../service/primary.dart';
 

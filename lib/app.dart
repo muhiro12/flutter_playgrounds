@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'common/app_theme_data.dart';
-import 'feature/app/service/app_route_settings.dart';
-import 'feature/app/widget/app_home.dart';
 import 'feature/theme/service/primary.dart';
+import 'foundation/app_home.dart';
+import 'foundation/app_route_settings.dart';
 
 class App extends ConsumerWidget {
   const App({Key? key}) : super(key: key);

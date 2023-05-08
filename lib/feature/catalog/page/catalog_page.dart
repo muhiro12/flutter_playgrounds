@@ -2,10 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../common/app_scaffold.dart';
 import '../../../common/bottom_tab.dart';
 import '../../../common/bottom_tab_item.dart';
 import '../../../foundation/app_route.dart';
-import '../../app/widget/app_scaffold.dart';
 
 class CatalogPage extends ConsumerWidget {
   const CatalogPage({Key? key}) : super(key: key);

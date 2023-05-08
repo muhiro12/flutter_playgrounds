@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../app/widget/app_scaffold.dart';
+import '../../../common/app_scaffold.dart';
 import '../entity/gitignore.dart';
 import '../service/git_hub.dart';
 
