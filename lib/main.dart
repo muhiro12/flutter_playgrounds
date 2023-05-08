@@ -8,11 +8,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'app.dart';
 import 'common/preferences.dart';
 import 'feature/git/service/git_hub.dart';
-import 'feature/git/service/git_hub_repository_mock.dart';
+import 'feature/git/service/mock/git_hub_repository_mock.dart';
+import 'feature/sample_product/service/mock/sample_product_repository_mock.dart';
 import 'feature/sample_product/service/sample_product_repository.dart';
-import 'feature/sample_product/service/sample_product_repository_mock.dart';
 import 'foundation/api_client.dart';
-import 'foundation/api_client_mock.dart';
+import 'foundation/mock/api_client_mock.dart';
 
 Future<void> main() async {
   AppLogger.instance.record();

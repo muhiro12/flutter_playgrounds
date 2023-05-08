@@ -1,9 +1,9 @@
 import 'package:english_words/english_words.dart';
 
-import '../../../foundation/api_client.dart';
-import '../entity/sample_product.dart';
-import '../entity/sample_product_list_item.dart';
-import 'sample_product_repository.dart';
+import '../../../../foundation/api_client.dart';
+import '../../entity/sample_product.dart';
+import '../../entity/sample_product_list_item.dart';
+import '../sample_product_repository.dart';
 
 class SampleProductRepositoryMock extends SampleProductRepository {
   SampleProductRepositoryMock(super.ref);

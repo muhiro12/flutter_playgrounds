@@ -1,5 +1,5 @@
-import '../entity/gitignore.dart';
-import 'git_hub_repository.dart';
+import '../../entity/gitignore.dart';
+import '../git_hub_repository.dart';
 
 class GitHubRepositoryMock implements GitHubRepository {
   @override

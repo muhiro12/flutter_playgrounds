@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'api_client.dart';
-import 'app_exception.dart';
+import '../api_client.dart';
+import '../app_exception.dart';
 
 class APIClientMock implements APIClient {
   @override
