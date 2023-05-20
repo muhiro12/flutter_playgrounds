@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../feature/catalog/page/button_catalog_page.dart';
 import '../feature/catalog/page/catalog_page.dart';
+import '../feature/format/page/format_page.dart';
 import '../feature/git/page/gitignore_names_page.dart';
 import '../feature/git/page/gitignore_page.dart';
 import '../feature/home/page/home_page.dart';
@@ -38,6 +39,7 @@ enum AppRoute {
   sampleProductList,
   prefixSampleProductList,
   message,
+  format,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -79,6 +81,8 @@ extension AppRouteExtension on AppRoute {
         return '/prefix_sample_item_list';
       case AppRoute.message:
         return '/message';
+      case AppRoute.format:
+        return '/format';
     }
   }
 
@@ -120,6 +124,8 @@ extension AppRouteExtension on AppRoute {
         return const PrefixSampleProductListPage();
       case AppRoute.message:
         return const MessagePage();
+      case AppRoute.format:
+        return const FormatPage();
     }
   }
 
@@ -161,6 +167,8 @@ extension AppRouteExtension on AppRoute {
         return Icons.abc;
       case AppRoute.message:
         return Icons.message;
+      case AppRoute.format:
+        return Icons.text_format;
     }
   }
 }
