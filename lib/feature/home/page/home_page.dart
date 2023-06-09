@@ -25,7 +25,7 @@ class HomePage extends HookConsumerWidget {
         Navigator.of(context).popUntil((Route<dynamic> route) => route.isFirst);
       },
     );
-    final appRoutesNotifier = useState(AppRoute.values);
+    final appRoutesNotifier = useState(AppRoute.values.reversed.toList());
     final randomIndex = useStream<int>(
           Stream<int>.periodic(
             const Duration(seconds: 10),

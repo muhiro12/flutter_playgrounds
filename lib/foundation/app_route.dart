@@ -11,6 +11,8 @@ import '../feature/message/page/message_page.dart';
 import '../feature/sample_product/page/prefix_sample_product_list_page.dart';
 import '../feature/sample_product/page/sample_product_list_page.dart';
 import '../feature/sample_product/page/sample_product_page.dart';
+import '../feature/scroll/page/default_scroll_page.dart';
+import '../feature/scroll/page/item_scrol_page.dart';
 import '../feature/settings/page/settings_page.dart';
 import '../feature/tab/page/default_tab_page.dart';
 import '../feature/tab/page/list_tab_page.dart';
@@ -40,6 +42,8 @@ enum AppRoute {
   prefixSampleProductList,
   message,
   format,
+  defaultScroll,
+  itemScroll,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -83,6 +87,10 @@ extension AppRouteExtension on AppRoute {
         return '/message';
       case AppRoute.format:
         return '/format';
+      case AppRoute.defaultScroll:
+        return '/default_scroll';
+      case AppRoute.itemScroll:
+        return '/item_scroll';
     }
   }
 
@@ -126,6 +134,10 @@ extension AppRouteExtension on AppRoute {
         return const MessagePage();
       case AppRoute.format:
         return const FormatPage();
+      case AppRoute.defaultScroll:
+        return const DefaultScrollPage();
+      case AppRoute.itemScroll:
+        return const ItemScrollPage();
     }
   }
 
@@ -169,6 +181,10 @@ extension AppRouteExtension on AppRoute {
         return Icons.message;
       case AppRoute.format:
         return Icons.text_format;
+      case AppRoute.defaultScroll:
+        return Icons.line_weight;
+      case AppRoute.itemScroll:
+        return Icons.line_style;
     }
   }
 }
