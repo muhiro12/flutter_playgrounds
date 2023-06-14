@@ -1,6 +1,4 @@
-import 'dart:developer';
-
-import 'package:logging/logging.dart';
+import 'app_logger.dart';
 
 enum AppExceptionType {
   http,
@@ -14,10 +12,7 @@ class AppException implements Exception {
     this.error,
     this.code,
   }) {
-    log(
-      toString(),
-      level: Level.WARNING.value,
-    );
+    logger.warn(toString());
   }
 
   factory AppException.http(int code) {
