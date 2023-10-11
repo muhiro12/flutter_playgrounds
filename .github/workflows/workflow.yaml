@@ -1,23 +1,23 @@
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
   workflow_dispatch:
-env:
-  PAGES_REPOSITORY: muhiro12/muhiro12.github.io
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Checkout pages repository
-        uses: actions/checkout@v3
-        with:
-          repository: ${{ env.PAGES_REPOSITORY }}
-          token: ${{ secrets.PRIVATE_GITHUB_TOKEN }}
-          path: pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
 
       - name: Cache
         uses: actions/cache@v2
@@ -31,14 +31,17 @@ jobs:
       - name: Flutter build
         run: |
           flutter pub get
-          flutter build web --base-href=/${{ github.event.repository.name }}/
+          flutter build web -o _site --base-href=/${{ github.event.repository.name }}/
 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy to GitHub Pages
-        run: |
-          cd pages/
-          cp -r ../build/web/. ${{ github.event.repository.name }}/
-          git config --local user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git config --local user.name 'github-actions[bot]'
-          git add .
-          git commit -m '[${{ github.event.repository.name }}] ${{ github.event.commits[0].message }}'
-          git push origin HEAD
+        id: deployment
+        uses: actions/deploy-pages@v2
