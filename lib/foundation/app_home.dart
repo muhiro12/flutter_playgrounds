@@ -1,37 +1,31 @@
-import 'package:flutter/cupertino.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_playgrounds/foundation/app_route.dart';
 
-import '../common/bottom_tab.dart';
-import '../common/bottom_tab_item.dart';
-import 'app_route.dart';
-
-class AppHome extends ConsumerWidget {
+class AppHome extends HookWidget {
   const AppHome({Key? key}) : super(key: key);
 
-  List<BottomTabItem> get _items => BottomTabItem.values;
-
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final bottomTab = ref.watch(bottomTabProvider);
-    return CupertinoTabScaffold(
-      tabBar: CupertinoTabBar(
-        onTap: (int index) => bottomTab.select(_items[index]),
-        currentIndex: _items.indexOf(bottomTab.item),
-        items: _items
-            .map(
-              (BottomTabItem item) => BottomNavigationBarItem(
-                icon: Icon(item.icon),
-                label: item.label,
-              ),
-            )
-            .toList(),
+  Widget build(BuildContext context) {
+    final routeNotifier = useState<AppRoute?>(null);
+    final gridView = GridView.count(
+      crossAxisCount: 4,
+      children: AppRoute.values
+          .map(
+            (route) => IconButton(
+              onPressed: () => routeNotifier.value = route,
+              icon: Icon(route.icon),
+            ),
+          )
+          .toList(),
+    );
+    return Scaffold(
+      body: routeNotifier.value == null ? gridView : routeNotifier.value!.page,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => routeNotifier.value = null,
+        child: const Icon(Icons.crop_square_outlined),
       ),
-      tabBuilder: (_, int index) => CupertinoTabView(
-        routes: <String, WidgetBuilder>{
-          for (AppRoute route in AppRoute.values) route.name: (_) => route.page,
-        },
-        builder: (_) => _items[index].page,
-      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
