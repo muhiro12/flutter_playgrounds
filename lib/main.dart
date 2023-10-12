@@ -30,7 +30,7 @@ void main() async {
             (_) => APIClientMock(),
           ),
         ],
-        child: const MyApp(),
+        child: const App(),
       ),
     ),
     (error, stack) {
@@ -39,8 +39,8 @@ void main() async {
   );
 }
 
-class MyApp extends ConsumerWidget {
-  const MyApp({super.key});
+class App extends ConsumerWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
