@@ -6,7 +6,6 @@ enum BottomTabItem {
   recent,
   catalog,
   home,
-  gitHub,
   settings,
 }
 
@@ -19,8 +18,6 @@ extension BottomTabItemExtension on BottomTabItem {
         return AppRoute.catalog;
       case BottomTabItem.home:
         return AppRoute.home;
-      case BottomTabItem.gitHub:
-        return AppRoute.gitignoreNames;
       case BottomTabItem.settings:
         return AppRoute.settings;
     }
@@ -34,8 +31,6 @@ extension BottomTabItemExtension on BottomTabItem {
         return 'Catalog';
       case BottomTabItem.home:
         return 'Home';
-      case BottomTabItem.gitHub:
-        return 'GitHub';
       case BottomTabItem.settings:
         return 'Settings';
     }

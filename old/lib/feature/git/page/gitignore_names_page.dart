@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../common/app_scaffold.dart';
-import '../../../common/bottom_tab.dart';
-import '../../../common/bottom_tab_item.dart';
-import '../../../foundation/app_route.dart';
+import '../../../../../lib/common/app_scaffold.dart';
+import '../../../../../lib/common/bottom_tab.dart';
+import '../../../../../lib/common/bottom_tab_item.dart';
+import '../../../../../lib/foundation/app_route.dart';
 import '../service/git_hub.dart';
 
 class GitignoreNamesPage extends ConsumerWidget {

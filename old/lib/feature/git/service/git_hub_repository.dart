@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:openapi/openapi.dart';
 
-import '../../../foundation/app_exception.dart';
+import '../../../../../lib/foundation/app_exception.dart';
 import '../../../foundation/open_api.dart';
 import '../entity/gitignore.dart';
 

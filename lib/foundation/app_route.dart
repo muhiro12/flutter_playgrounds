@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import '../feature/catalog/page/button_catalog_page.dart';
 import '../feature/catalog/page/catalog_page.dart';
 import '../feature/format/page/format_page.dart';
-import '../feature/git/page/gitignore_names_page.dart';
-import '../feature/git/page/gitignore_page.dart';
 import '../feature/home/page/home_page.dart';
 import '../feature/markdown/page/markdown_page.dart';
 import '../feature/message/page/message_page.dart';
@@ -12,7 +10,6 @@ import '../feature/sample_product/page/prefix_sample_product_list_page.dart';
 import '../feature/sample_product/page/sample_product_list_page.dart';
 import '../feature/sample_product/page/sample_product_page.dart';
 import '../feature/scroll/page/default_scroll_page.dart';
-import '../feature/scroll/page/item_scrol_page.dart';
 import '../feature/settings/page/settings_page.dart';
 import '../feature/tab/page/default_tab_page.dart';
 import '../feature/tab/page/list_tab_page.dart';
@@ -27,8 +24,6 @@ enum AppRoute {
   settings,
   defaultTab,
   listTab,
-  gitignoreNames,
-  gitignore,
   themeMode,
   primaryColor,
   catalog,
@@ -43,7 +38,6 @@ enum AppRoute {
   message,
   format,
   defaultScroll,
-  itemScroll,
 }
 
 extension AppRouteExtension on AppRoute {
@@ -57,10 +51,6 @@ extension AppRouteExtension on AppRoute {
         return '/default_tab';
       case AppRoute.listTab:
         return '/list_tab';
-      case AppRoute.gitignoreNames:
-        return '/gitignore_names';
-      case AppRoute.gitignore:
-        return '/gitignore';
       case AppRoute.themeMode:
         return '/theme_mode';
       case AppRoute.primaryColor:
@@ -89,8 +79,6 @@ extension AppRouteExtension on AppRoute {
         return '/format';
       case AppRoute.defaultScroll:
         return '/default_scroll';
-      case AppRoute.itemScroll:
-        return '/item_scroll';
     }
   }
 
@@ -104,10 +92,6 @@ extension AppRouteExtension on AppRoute {
         return const DefaultTabPage();
       case AppRoute.listTab:
         return const ListTabPage();
-      case AppRoute.gitignoreNames:
-        return const GitignoreNamesPage();
-      case AppRoute.gitignore:
-        return const GitignorePage();
       case AppRoute.themeMode:
         return const ThemeModePage();
       case AppRoute.primaryColor:
@@ -136,8 +120,6 @@ extension AppRouteExtension on AppRoute {
         return const FormatPage();
       case AppRoute.defaultScroll:
         return const DefaultScrollPage();
-      case AppRoute.itemScroll:
-        return const ItemScrollPage();
     }
   }
 
@@ -151,10 +133,6 @@ extension AppRouteExtension on AppRoute {
         return Icons.table_chart;
       case AppRoute.listTab:
         return Icons.view_list;
-      case AppRoute.gitignoreNames:
-        return Icons.code;
-      case AppRoute.gitignore:
-        return Icons.code_off;
       case AppRoute.themeMode:
         return Icons.invert_colors;
       case AppRoute.primaryColor:
@@ -183,8 +161,6 @@ extension AppRouteExtension on AppRoute {
         return Icons.text_format;
       case AppRoute.defaultScroll:
         return Icons.line_weight;
-      case AppRoute.itemScroll:
-        return Icons.line_style;
     }
   }
 }

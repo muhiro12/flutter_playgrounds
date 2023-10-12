@@ -4,8 +4,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-import '../../../common/app_scaffold.dart';
-import '../service/scroll_item_list.dart';
+import '../../../../../lib/common/app_scaffold.dart';
+import '../../../../../lib/feature/scroll/service/scroll_item_list.dart';
 
 class ItemScrollPage extends HookConsumerWidget {
   const ItemScrollPage({super.key});

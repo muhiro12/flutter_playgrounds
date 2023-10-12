@@ -1,63 +1,58 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'dart:async';
 
-void main() {
-  runApp(
-    const ProviderScope(
-      child: MyApp(),
+import 'package:flutter/material.dart';
+import 'package:flutter_playgrounds/common/preferences.dart';
+import 'package:flutter_playgrounds/feature/sample_product/service/mock/sample_product_repository_mock.dart';
+import 'package:flutter_playgrounds/feature/sample_product/service/sample_product_repository.dart';
+import 'package:flutter_playgrounds/foundation/api_client.dart';
+import 'package:flutter_playgrounds/foundation/app_home.dart';
+import 'package:flutter_playgrounds/foundation/app_logger.dart';
+import 'package:flutter_playgrounds/foundation/app_route_settings.dart';
+import 'package:flutter_playgrounds/foundation/mock/api_client_mock.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+void main() async {
+  AppLogger.instance.record();
+  WidgetsFlutterBinding.ensureInitialized();
+  final sharedPreferences = await SharedPreferences.getInstance();
+  runZonedGuarded(
+    () => runApp(
+      ProviderScope(
+        overrides: <Override>[
+          preferencesProvider.overrideWith(
+            (_) => Preferences(sharedPreferences),
+          ),
+          sampleProductRepositoryProvider.overrideWith(
+            (ref) => SampleProductRepositoryMock(ref),
+          ),
+          apiClientProvider.overrideWith(
+            (_) => APIClientMock(),
+          ),
+        ],
+        child: const MyApp(),
+      ),
     ),
+    (error, stack) {
+      logger.shout(error.toString());
+    },
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Playgrounds',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends HookWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    final counter = useState(0);
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '${counter.value}',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => counter.value++,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      home: const AppHome(),
+      onGenerateRoute: (RouteSettings settings) =>
+          AppRouteSettings(settings).routeSettings(),
     );
   }
 }

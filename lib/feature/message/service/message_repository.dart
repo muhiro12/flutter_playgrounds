@@ -16,7 +16,7 @@ abstract class MessageRepository {
   });
 }
 
-class MessageRepositoryImplements with MessageRepository {
+class MessageRepositoryImplements implements MessageRepository {
   MessageRepositoryImplements(this.datastore);
 
   final MessageDatastore datastore;
